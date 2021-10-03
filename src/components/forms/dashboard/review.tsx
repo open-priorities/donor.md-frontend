@@ -1,11 +1,11 @@
+import { IReview } from '@core/review';
+import { getOptions } from '@Queries/common';
+import { createReview } from '@Queries/review';
+import { Alert } from '@UI/alert';
 import { Controller, useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
-import { IReview } from '../../../core/interfaces/review';
-import { getOptions } from '../../../queries/common';
-import { createReview } from '../../../queries/review';
 import { useTypedMutation, useTypedQuery } from '../../../queries/utils';
-import { Alert } from '../../UI/alert';
 import { Button } from '../../UI/button';
 import { Form, FormItem } from '../../UI/form/form-item';
 import { Select } from '../../UI/form/select';
