@@ -8,7 +8,7 @@
 - [x] add localization
 - [x] add device size for next image
 
-# v1.4.0 `IN PROGRESS`
+# v1.4.0 `DONE`
 
 > Check pages and create non-existent
 
@@ -37,13 +37,14 @@
 - [x] regulatory documents (99% заголовок)
 - [x] Minimum donor requirements
 
-# v1.4.10 `IN PROGRESS`
+# v1.4.11 `IN PROGRESS`
 
 > Fix small bugs
 
 - [x] fix build
 - [x] fix UI bugs (padding/margin)
-- [ ] fix link on all lending pages 
+- [ ] fix linter after build
+- [ ] fix link on all lending pages
 - [ ] mobile menu
 - [ ] change links on footer
 - [ ] form checkbox validate message
