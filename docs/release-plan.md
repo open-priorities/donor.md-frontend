@@ -34,8 +34,8 @@
 - [x] Recovery after donation
 - [x] Plasma donors COVID19
 - [x] How to prepare for donation
-- [ ] regulatory documents (99% заголовок)
-- [ ] Minimum donor requirements (60%)
+- [x] regulatory documents (99% заголовок)
+- [x] Minimum donor requirements
 
 # v1.4.10 `IN PROGRESS`
 
