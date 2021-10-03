@@ -47,12 +47,12 @@
 - [x] fix regulatory documents
 - [ ] fix link on all lending pages
 - [ ] mobile menu
-- [ ] change links on footer
+- [x] change links on footer
 - [ ] form checkbox validate message
 - [ ] fix date format on monitoring block
-- [ ] fix alert message on donor search page "Ваш запрос отправлен на рассмотрение"
-- [ ] change titles on monitoring block «Критично», «Требуется», «Достаточно» 
-- [ ] main page feedback form add alert message «Спасибо, что написали нам. Ваш запрос на рассмотрении»
+- [x] fix alert message on donor search page "Ваш запрос отправлен на рассмотрение"
+- [x] change titles on monitoring block «Критично», «Требуется», «Достаточно» 
+- [x] main page feedback form add alert message «Спасибо, что написали нам. Ваш запрос на рассмотрении»
 
 
 # v1.5.0_RC `TODO`

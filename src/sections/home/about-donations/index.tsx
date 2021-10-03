@@ -8,7 +8,7 @@ export const articles = [
     image: '/images/pages/home/about-donations/donor-requirements.svg',
     title: 'Какие требования к донору?',
     paragraph: `Перед первой донацией Вам необходимо ознакомиться с перечнем противопоказаний`,
-    link: '/minimum-requirements-for-donor',
+    link: '/minimum-donor-requirements',
   },
   {
     image: '/images/pages/home/about-donations/preparation-donation.svg',

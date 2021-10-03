@@ -1,6 +1,5 @@
-import { Footer } from '@Components/common/footer';
-import { Header } from '@Components/common/header';
 import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
 import { AboutDonation } from '@Sections/home/about-donations';
 import { CallToAction } from '@Sections/home/call-to-action';
 import { Feedback } from '@Sections/home/feedback';
@@ -11,8 +10,7 @@ import { Stories } from '@Sections/home/stories';
 
 const HomePage = () => {
   return (
-    <>
-      <Header />
+    <HeaderContentFooter>
       <Container as='main'>
         <Intro />
         <Monitoring />
@@ -22,8 +20,7 @@ const HomePage = () => {
         <Stories />
         <Feedback />
       </Container>
-      <Footer />
-    </>
+    </HeaderContentFooter>
   );
 };
 

@@ -5,23 +5,6 @@ import { Paragraph, Title } from '@UI/typography';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const List = styled.div`
-  ol {
-    list-style: none;
-    counter-reset: li;
-    padding-left: 0;
-  }
-  li:before {
-    font-weight: bold;
-    counter-increment: li;
-    content: counters(li, '.') '. ';
-  }
-`;
-
-const ListItem = styled.li`
-  margin-bottom: 15px;
-`;
-
 const PrivacyPolicy = () => {
   return (
     <HeaderContentFooter background='/images/pages/welcome.png'>
@@ -422,3 +405,20 @@ export const getStaticProps = async () => {
     props: {},
   };
 };
+
+const List = styled.div`
+  ol {
+    list-style: none;
+    counter-reset: li;
+    padding-left: 0;
+  }
+  li:before {
+    font-weight: bold;
+    counter-increment: li;
+    content: counters(li, '.') '. ';
+  }
+`;
+
+const ListItem = styled.li`
+  margin-bottom: 15px;
+`;

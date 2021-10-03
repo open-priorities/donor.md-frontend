@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 
 const links = [
   {
-    link: '/minimum-requirements-for-donor',
+    link: '/minimum-donor-requirements',
     text: 'Какие требования к донору?',
   },
   {

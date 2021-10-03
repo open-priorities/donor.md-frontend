@@ -15,7 +15,7 @@ export const Intro = () => (
       </StyledTitle>
       <ColumnParagraph>Web-сервис для тех, кто сдает и ищет донорскую кровь в Приднестровье</ColumnParagraph>
       <ButtonGroup>
-        <Link href='/minimum-requirements-for-donor' passHref>
+        <Link href='/minimum-donor-requirements' passHref>
           <Button variant='outline-primary' size='lg'>
             Стать донором
           </Button>
@@ -31,8 +31,6 @@ export const Intro = () => (
 );
 
 const Section = styled.section`
-  padding-top: 45px;
-
   @media (min-width: 992px) {
     display: flex;
     flex-direction: row-reverse;
@@ -55,13 +53,12 @@ const StyledTitle = styled(Title)`
   line-height: 1;
 `;
 
-const RedText = styled.b`
+const RedText = styled.span`
+  font-weight: normal;
   color: ${({ theme }) => theme.colors.red};
 `;
 
-const Column = styled.div`
-  margin-top: 30px;
-`;
+const Column = styled.div``;
 
 const ColumnParagraph = styled(Paragraph)`
   padding: 15px 0;

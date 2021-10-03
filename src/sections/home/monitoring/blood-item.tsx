@@ -48,7 +48,7 @@ const quantityText = ({ quantity, group }: IProps) => {
     return 'Критично';
   }
   if (quantity < rules[group].enough) {
-    return 'Мало';
+    return 'Требуется';
   }
   return 'Достаточно';
 };

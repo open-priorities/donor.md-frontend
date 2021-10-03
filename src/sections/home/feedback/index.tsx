@@ -4,7 +4,7 @@ import { createFeedback, IFeedback } from '@Queries/feedback';
 import { useTypedMutation } from '@Queries/utils';
 import { Alert } from '@UI/alert';
 import { Button } from '@UI/button';
-import { FormItem } from '@UI/form/form-item';
+import { Form, FormItem } from '@UI/form/form-item';
 import { Input } from '@UI/form/input';
 import { TextArea } from '@UI/form/textarea';
 import { Loading } from '@UI/loading';
@@ -39,10 +39,7 @@ export const Feedback = () => {
             Если у Вас есть вопросы по работе сервиса и предложения по его улучшению и/или видение нашего
             общего сотрудничества
           </SectionParagraph>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            {isSuccess && <Alert dismissible message='Спасибо что написали нам' />}
-            {isError && <Alert dismissible message={prepareError(error)} />}
-            {isLoading && <Loading />}
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <FormItem columns={1}>
               <HalfWidth>
                 <Input {...register('contact')} scale='lg' placeholder='Ваш email или номер телефона' />
@@ -51,10 +48,15 @@ export const Feedback = () => {
             <FormItem columns={1}>
               <TextArea {...register('message')} placeholder='Текст сообщения' rows={7} />
             </FormItem>
+            {isSuccess && (
+              <Alert dismissible message='Спасибо, что написали нам. Ваш запрос на рассмотрении' />
+            )}
+            {isError && <Alert dismissible message={prepareError(error)} />}
+            {isLoading && <Loading />}
             <Button type='submit' variant='outline-danger' size='lg'>
               Отправить
             </Button>
-          </form>
+          </Form>
           <Social>
             <Image src='/images/pages/home/we-are-in-social.png' width={364} height={33} layout='fixed' />
             <SocialMediaLinks />
