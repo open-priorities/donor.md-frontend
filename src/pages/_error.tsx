@@ -1,16 +1,16 @@
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
 import Icon from '@Public/images/pages/404.svg';
+import { Title } from '@UI/typography';
 import http from 'http';
 import { DocumentContext } from 'next/document';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { Title } from '../components/UI/typography';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
-
 type ErrorPageType = { statusCode: number };
 
 const ErrorPage = ({ statusCode }: ErrorPageType) => {
-  const errorMessage = http.STATUS_CODES[statusCode] || 'Упс! Что-то пошло не так. Но мы Вас всегда ждём в Центрах Крови';
+  const errorMessage =
+    http.STATUS_CODES[statusCode] || 'Упс! Что-то пошло не так. Но мы Вас всегда ждём в центрах крови';
   const message = statusCode === 404 ? 'Увы, такой страницы не существует ;)' : errorMessage;
 
   return (
