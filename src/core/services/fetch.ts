@@ -1,6 +1,6 @@
+import { backendUrl } from '@Constants/url';
 import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 
-import { backendUrl } from '../constants/url';
 import { storage } from './storage';
 
 const api = axios.create({

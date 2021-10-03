@@ -1,4 +1,4 @@
-import { ErrorResponse, ErrorResponseArray } from '../interfaces/error';
+import { ErrorResponse, ErrorResponseArray } from '@core/error';
 
 export const prepareError = (error: ErrorResponse | ErrorResponseArray | null) => {
   const message = error?.response?.data?.message;

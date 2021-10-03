@@ -1,13 +1,13 @@
-import { Footer } from '../components/common/footer';
-import { Header } from '../components/common/header';
-import { Container } from '../core/layouts/container';
-import { AboutDonation } from '../sections/home/about-donations';
-import { CallToAction } from '../sections/home/call-to-action';
-import { Feedback } from '../sections/home/feedback';
-import { Intro } from '../sections/home/intro';
-import { Monitoring } from '../sections/home/monitoring';
-import { Places } from '../sections/home/places';
-import { Stories } from '../sections/home/stories';
+import { Footer } from '@Components/common/footer';
+import { Header } from '@Components/common/header';
+import { Container } from '@Layouts/container';
+import { AboutDonation } from '@Sections/home/about-donations';
+import { CallToAction } from '@Sections/home/call-to-action';
+import { Feedback } from '@Sections/home/feedback';
+import { Intro } from '@Sections/home/intro';
+import { Monitoring } from '@Sections/home/monitoring';
+import { Places } from '@Sections/home/places';
+import { Stories } from '@Sections/home/stories';
 
 const HomePage = () => {
   return (

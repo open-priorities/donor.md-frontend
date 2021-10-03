@@ -1,6 +1,5 @@
+import { IUser, IUserWithToken } from '@core/user';
 import { atom } from 'recoil';
-
-import { IUser, IUserWithToken } from '../../core/interfaces/user';
 
 export const userAtom = atom<IUser | IUserWithToken>({
   key: 'userAtom',

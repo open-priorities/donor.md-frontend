@@ -1,5 +1,6 @@
-import { Title } from '../../../components/UI/typography';
-import { BloodGroup } from '../../../core/interfaces/donation';
+import { BloodGroup } from '@core/donation';
+import { Title } from '@UI/typography';
+
 import { BloodTitle, Image } from './styles';
 
 interface IRule {

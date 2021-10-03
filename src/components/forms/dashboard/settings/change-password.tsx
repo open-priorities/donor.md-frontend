@@ -1,14 +1,13 @@
+import { IChangePassword } from '@core/settings';
+import { prepareError } from '@Helpers/prepare-error';
+import { updatePassword } from '@Queries/settings';
+import { useTypedMutation } from '@Queries/utils';
+import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { Form, FormItem } from '@UI/form/form-item';
+import { Input } from '@UI/form/input';
+import { Divider } from '@UI/other';
 import { useForm } from 'react-hook-form';
-
-import { prepareError } from '../../../../core/helpers/prepare-data';
-import { IChangePassword } from '../../../../core/interfaces/settings';
-import { updatePassword } from '../../../../queries/settings';
-import { useTypedMutation } from '../../../../queries/utils';
-import { Alert } from '../../../UI/alert';
-import { Button } from '../../../UI/button';
-import { Form, FormItem } from '../../../UI/form/form-item';
-import { Input } from '../../../UI/form/input';
-import { Divider } from '../../../UI/other';
 
 export const ChangePassword = () => {
   const { register, handleSubmit } = useForm({

@@ -1,24 +1,23 @@
+import { IBecomeVolunteer } from '@core/become-volunteer';
+import { emailField, requiredField } from '@Helpers/form-validate';
+import { prepareError } from '@Helpers/prepare-error';
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { createVolunteer } from '@Queries/become-volunteer';
+import { getOptions } from '@Queries/common';
+import { useTypedMutation, useTypedQuery } from '@Queries/utils';
+import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { Checkbox } from '@UI/form/checkbox';
+import { Form, FormItem } from '@UI/form/form-item';
+import { Input } from '@UI/form/input';
+import { Select } from '@UI/form/select';
+import { TextArea } from '@UI/form/textarea';
+import { StyledLink } from '@UI/links';
+import { Divider } from '@UI/other';
+import { Paragraph, Title } from '@UI/typography';
 import Link from 'next/link';
 import { Controller, useForm } from 'react-hook-form';
-
-import { Alert } from '../components/UI/alert';
-import { Button } from '../components/UI/button';
-import { Checkbox } from '../components/UI/form/checkbox';
-import { Form, FormItem } from '../components/UI/form/form-item';
-import { Input } from '../components/UI/form/input';
-import { Select } from '../components/UI/form/select';
-import { TextArea } from '../components/UI/form/textarea';
-import { StyledLink } from '../components/UI/links';
-import { Divider } from '../components/UI/other';
-import { Paragraph, Title } from '../components/UI/typography';
-import { emailField, requiredField } from '../core/helpers/form-validate';
-import { prepareError } from '../core/helpers/prepare-data';
-import { IBecomeVolunteer } from '../core/interfaces/become-volunteer';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
-import { createVolunteer } from '../queries/become-volunteer';
-import { getOptions } from '../queries/common';
-import { useTypedMutation, useTypedQuery } from '../queries/utils';
 
 const BecomeVolunteerPage = () => {
   const {

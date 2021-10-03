@@ -34,7 +34,7 @@
 - [x] Recovery after donation
 - [x] Plasma donors COVID19
 - [x] How to prepare for donation
-- [x] regulatory documents (99% заголовок)
+- [x] regulatory documents
 - [x] Minimum donor requirements
 
 # v1.4.11 `IN PROGRESS`
@@ -43,7 +43,8 @@
 
 - [x] fix build
 - [x] fix UI bugs (padding/margin)
-- [ ] fix linter after build
+- [x] fix linter after build
+- [x] fix regulatory documents
 - [ ] fix link on all lending pages
 - [ ] mobile menu
 - [ ] change links on footer

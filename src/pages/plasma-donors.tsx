@@ -1,7 +1,7 @@
-import { ListWithCheck } from '../components/UI/list-with-check';
-import { Paragraph, Title } from '../components/UI/typography';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { ListWithCheck } from '@UI/list-with-check';
+import { Paragraph, Title } from '@UI/typography';
 
 const list = [
   'находиться в возрастной категории от 18 до 55 лет',

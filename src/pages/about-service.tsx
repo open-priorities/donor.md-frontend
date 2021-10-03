@@ -1,9 +1,9 @@
-import { ArticleCards } from '../components/article-cards';
-import { ListWithCheck } from '../components/UI/list-with-check';
-import { Divider } from '../components/UI/other';
-import { Paragraph, Title } from '../components/UI/typography';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
+import { ArticleCards } from '@Components/article-cards';
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { ListWithCheck } from '@UI/list-with-check';
+import { Divider } from '@UI/other';
+import { Paragraph, Title } from '@UI/typography';
 
 const listMock = [
   `мы упрощаем поиск доноров крови для тех, кто ищет доноров по социальным сетям и среди родственников. 

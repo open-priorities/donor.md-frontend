@@ -1,9 +1,8 @@
+import { Button } from '@UI/button';
+import { Paragraph, Title } from '@UI/typography';
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-
-import { Button } from '../../components/UI/button';
-import { Paragraph, Title } from '../../components/UI/typography';
 
 export const Intro = () => (
   <Section id='intro'>

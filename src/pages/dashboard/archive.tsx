@@ -1,16 +1,15 @@
+import { DashboardButtonsLinks } from '@Components/dashboard-buttons-links';
+import { Pagination } from '@Components/pagination';
+import { formatDate } from '@Helpers/converters';
+import { prepareError } from '@Helpers/prepare-error';
+import { DashboardGrid } from '@Layouts/dashboard-grid';
+import { getDonation } from '@Queries/donations';
+import { useTypedQuery } from '@Queries/utils';
+import { Alert } from '@UI/alert';
+import { ColorsType } from '@UI/theme';
+import { Paragraph, TitleWithArrow } from '@UI/typography';
 import { Table as AntTable } from 'antd';
 import styled, { css } from 'styled-components';
-
-import { DashboardButtonsLinks } from '../../components/dashboard-buttons-links';
-import { Pagination } from '../../components/pagination';
-import { Alert } from '../../components/UI/alert';
-import { ColorsType } from '../../components/UI/theme';
-import { Paragraph, TitleWithArrow } from '../../components/UI/typography';
-import { formatDate } from '../../core/helpers/converters';
-import { prepareError } from '../../core/helpers/prepare-data';
-import { DashboardGrid } from '../../core/layouts/dashboard-grid';
-import { getDonation } from '../../queries/donations';
-import { useTypedQuery } from '../../queries/utils';
 
 type StatusType = 'success' | 'pending' | 'reject';
 

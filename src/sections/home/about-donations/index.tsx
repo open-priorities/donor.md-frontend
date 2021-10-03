@@ -1,5 +1,6 @@
-import { ArticleCardsPreview } from '../../../components/article-cards-preview';
-import { Title } from '../../../components/UI/typography';
+import { ArticleCardsPreview } from '@Components/article-cards-preview';
+import { Title } from '@UI/typography';
+
 import { Section } from '../utils';
 
 export const articles = [

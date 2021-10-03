@@ -1,7 +1,7 @@
-import { DashboardButtonsLinks } from '../../components/dashboard-buttons-links';
-import { QuestionForm } from '../../components/forms/dashboard/question/QuestionForm';
-import { Paragraph, TitleWithArrow } from '../../components/UI/typography';
-import { DashboardGrid } from '../../core/layouts/dashboard-grid';
+import { DashboardButtonsLinks } from '@Components/dashboard-buttons-links';
+import { QuestionForm } from '@Components/forms/dashboard/question/QuestionForm';
+import { DashboardGrid } from '@Layouts/dashboard-grid';
+import { Paragraph, TitleWithArrow } from '@UI/typography';
 
 const MyQuestionnaire = () => {
   return (

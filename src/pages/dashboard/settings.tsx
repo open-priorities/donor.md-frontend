@@ -1,19 +1,18 @@
+import { ChangePassword } from '@Components/forms/dashboard/settings/change-password';
+import { ISettings } from '@core/settings';
+import { DashboardGrid } from '@Layouts/dashboard-grid';
+import { getSettings, updateSettings } from '@Queries/settings';
+import { useTypedMutation, useTypedQuery } from '@Queries/utils';
+import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { Checkbox } from '@UI/form/checkbox';
+import { Form } from '@UI/form/form-item';
+import { Paragraph, Title, TitleWithArrow } from '@UI/typography';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 import styled from 'styled-components';
-
-import { ChangePassword } from '../../components/forms/dashboard/settings/change-password';
-import { Alert } from '../../components/UI/alert';
-import { Button } from '../../components/UI/button';
-import { Checkbox } from '../../components/UI/form/checkbox';
-import { Form } from '../../components/UI/form/form-item';
-import { Paragraph, Title, TitleWithArrow } from '../../components/UI/typography';
-import { ISettings } from '../../core/interfaces/settings';
-import { DashboardGrid } from '../../core/layouts/dashboard-grid';
-import { getSettings, updateSettings } from '../../queries/settings';
-import { useTypedMutation, useTypedQuery } from '../../queries/utils';
 
 const Settings = () => {
   const { handleSubmit, setValue, register } = useForm();
