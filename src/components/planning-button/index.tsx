@@ -1,14 +1,19 @@
+import { userAtom } from '@Store/atoms/user-atom';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import { AdditionalButtons } from './additional-buttons';
 
 export const PlanningButton = () => {
   const [visible, setVisible] = useState(false);
+  const user = useRecoilValue(userAtom);
+
+  if (!user) return null;
 
   return (
-    <div>
+    <>
       <ButtonGroup visible={visible}>
         <ButtonRed onClick={() => null}>Запланировать донацию</ButtonRed>
         <ButtonRed onClick={() => null}>Добавить донацию</ButtonRed>
@@ -16,7 +21,7 @@ export const PlanningButton = () => {
       <ButtonWrapper onClick={() => setVisible((s) => !s)}>
         <Image src='/images/icons/planning-button.svg' layout='fill' />
       </ButtonWrapper>
-    </div>
+    </>
   );
 };
 

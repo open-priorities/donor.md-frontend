@@ -1,23 +1,7 @@
-import { IUser, IUserWithToken } from '@core/user';
+import { IUser } from '@core/user';
 import { atom } from 'recoil';
 
-export const userAtom = atom<IUser | IUserWithToken>({
+export const userAtom = atom<IUser | null>({
   key: 'userAtom',
-  default: {
-    id: '',
-    cityId: '',
-    corporateId: '',
-    avatar: '',
-    phoneMobile: '',
-    creationDate: '',
-    groupId: '',
-    statusId: '',
-    bloodGroupId: '',
-    sexId: '',
-    fullname: '',
-    email: '',
-    phone: '',
-    dateBirth: '',
-    honorary: false,
-  },
+  default: null,
 });

@@ -46,7 +46,7 @@
 - [x] fix linter after build
 - [x] fix regulatory documents
 - [x] fix link on all lending pages
-- [ ] mobile menu
+- [x] mobile menu
 - [x] change links on footer
 - [ ] form checkbox validate message
 - [ ] fix date format on monitoring block
