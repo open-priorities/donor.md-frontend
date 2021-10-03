@@ -1,4 +1,4 @@
-# v1.3.0 `done` 
+# v1.3.0 `DONE` 
 
 - [x] implement alias
 - [x] optimize imports
@@ -8,7 +8,7 @@
 - [x] add localization
 - [x] add device size for next image
 
-# v1.4.0 `in progress`
+# v1.4.0 `IN PROGRESS`
 
 > Check pages and create non-existent
 
@@ -33,40 +33,50 @@
 - [x] Who needs donated blood?
 - [x] Recovery after donation
 - [x] Plasma donors COVID19
-- [ ] How to prepare for donation (70%)
-- [ ] regulatory documents (99% заголовок)
-- [ ] Minimum donor requirements (20%)
+- [x] How to prepare for donation
+- [x] regulatory documents (99% заголовок)
+- [x] Minimum donor requirements
 
-# v1.4.5 `in progress`
+# v1.4.10 `IN PROGRESS`
 
 > Fix small bugs
 
 - [x] fix build
 - [x] fix UI bugs (padding/margin)
-- [x] fix build
 - [ ] fix link on all lending pages 
 - [ ] mobile menu
+- [ ] change links on footer
+- [ ] form checkbox validate message
+- [ ] fix date format on monitoring block
+- [ ] fix alert message on donor search page "Ваш запрос отправлен на рассмотрение"
+- [ ] change titles on monitoring block «Критично», «Требуется», «Достаточно» 
+- [ ] main page feedback form add alert message «Спасибо, что написали нам. Ваш запрос на рассмотрении»
 
 
-# v1.5.0 `todo`
+# v1.5.0_RC `TODO`
 
 > Increasing functionality
 
 - [ ] authentication
 - [ ] block with stats
 - [ ] avatar
-- [ ] [BE]-email notification
-- [ ] [BE]-avatar
+- [ ] [BE] email notification
+- [ ] [BE] avatar
+- [ ] [BE] missing endpoint `top-donors`
+- [ ] [BE] missing endpoint `become-volunteer`
+- [ ] [BE] missing endpoint `donor-search` (work with avatar and formdata)
 
-# v1.5.3 `todo`
+
+# v1.5.4 `TODO`
 
 > Fix small bugs
 
 - [ ] buttons hover state
 - [ ] inputs hover state
 - [ ] checkbox hover state
+- [ ] link (anchor link all cases)
 
-# v1.6.0 `todo`
+# v1.6.0 `TODO`
 
 > SEO
 
@@ -74,7 +84,7 @@
 - [ ] seo (title desc images for social networks)
 
 
-# 2.0.0 `todo`
+# 2.0.0 `TODO`
 
 > Admin dashboard
 

@@ -1,8 +1,7 @@
+import { StyledLink } from '@UI/links';
+import { Title } from '@UI/typography';
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
-
-import { StyledLink } from '../../components/UI/links';
-import { Title } from '../../components/UI/typography';
 
 const links = [
   {

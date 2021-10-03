@@ -1,7 +1,6 @@
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { Loading } from '@UI/loading';
 import styled from 'styled-components';
-
-import { Loading } from '../../components/UI/loading';
-import { HeaderContentFooter } from '../../core/layouts/header-content-footer';
 
 const Dashboard = () => {
   return (
