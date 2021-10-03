@@ -5,7 +5,7 @@ export const getRecipients = async () => {
   const { data } = await baseFetch<IRecipient[]>({
     url: '/recipient',
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
   return data;
@@ -23,7 +23,7 @@ export const updateRecipients = async (payload: IRecipient) => {
   await baseFetch({
     url: `/recipient`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
     method: 'PUT',
     data: payload,
@@ -34,7 +34,7 @@ export const deleteRecipients = async (id: string | string[]) => {
   await baseFetch({
     url: `/recipient`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
     method: 'DELETE',
     data: id,

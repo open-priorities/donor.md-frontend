@@ -15,12 +15,12 @@ export const baseFetch = <T>({
   data = {},
   ...config
 }: AxiosRequestConfig): AxiosPromise<T> => {
-  if (headers?.authorization) {
+  if (headers?.authorization === 'token') {
     const token = storage.get<string>('token');
     if (token) {
       headers.authorization = `Bearer ${token}`;
     } else {
-      headers.authorization = undefined;
+      headers.authorization = '';
     }
   }
   return api({

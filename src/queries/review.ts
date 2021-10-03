@@ -1,11 +1,11 @@
-import { IReview } from '../core/interfaces/review';
-import { baseFetch } from '../core/services/fetch';
+import { IReview } from '@core/review';
+import { baseFetch } from '@Services/fetch';
 
 export const getReview = async () => {
   const { data } = await baseFetch<IReview[]>({
     url: `/review`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
   return data;
@@ -17,7 +17,7 @@ export const createReview = async (payload: IReview) => {
     method: 'POST',
     data: payload,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
   return data;

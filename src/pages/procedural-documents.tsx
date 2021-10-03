@@ -2,7 +2,7 @@ import { Container } from '@Layouts/container';
 import { HeaderContentFooter } from '@Layouts/header-content-footer';
 import { Paragraph, Title } from '@UI/typography';
 
-const RegulatoryDocuments = () => {
+const ProceduralDocuments = () => {
   return (
     <HeaderContentFooter background='/images/pages/welcome.png'>
       <Container>
@@ -78,7 +78,7 @@ const RegulatoryDocuments = () => {
   );
 };
 
-export default RegulatoryDocuments;
+export default ProceduralDocuments;
 
 export const getStaticProps = async () => {
   return {

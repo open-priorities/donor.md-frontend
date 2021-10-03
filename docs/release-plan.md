@@ -37,7 +37,7 @@
 - [x] regulatory documents
 - [x] Minimum donor requirements
 
-# v1.4.12 `IN PROGRESS`
+# v1.4.12 `DONE`
 
 > Fix small bugs
 
@@ -48,7 +48,7 @@
 - [x] fix link on all lending pages
 - [x] mobile menu
 - [x] change links on footer
-- [ ] form checkbox validate message
+- [x] form checkbox validate message
 - [x] fix date format on monitoring block
 - [x] fix alert message on donor search page "Ваш запрос отправлен на рассмотрение"
 - [x] change titles on monitoring block «Критично», «Требуется», «Достаточно» 

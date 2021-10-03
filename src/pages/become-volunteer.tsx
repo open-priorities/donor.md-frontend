@@ -34,6 +34,7 @@ const BecomeVolunteerPage = () => {
       cityId: '',
       typesAssistanceId: '',
       message: '',
+      rule: true,
     },
   });
   const { data: cities } = useTypedQuery('cities', () => getOptions('cities'));
@@ -119,7 +120,7 @@ const BecomeVolunteerPage = () => {
             <TextArea placeholder='Ваш комментарий' rows={5} {...register('message')} />
           </FormItem>
           <FormItem columns={1}>
-            <Checkbox checked>
+            <Checkbox {...register('rule', requiredField)}>
               <>
                 Согласен с&nbsp;
                 <Link href='/user-agreement'>

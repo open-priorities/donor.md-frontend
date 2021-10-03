@@ -52,7 +52,7 @@ export const RecipientCard = memo(({ recipient }: RecipientCardType) => {
       <One>
         <Title as='h3' margin='10px' bold>
           {fullname}
-          {` `}
+          &nbsp;
           <Paragraph as='span' color='textMuted'>
             {years} {yearOrYears(years)}
           </Paragraph>

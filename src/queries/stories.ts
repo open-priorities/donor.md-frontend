@@ -5,7 +5,7 @@ export const getStories = async () => {
   const { data } = await baseFetch<IDonorStory[]>({
     url: `/story/`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
   return data;
@@ -15,7 +15,7 @@ export const getUserStory = async () => {
   const { data } = await baseFetch<IDonorStory[]>({
     url: `/user/story/`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
   return data;
@@ -27,7 +27,7 @@ export const createOrUpdateUserStory = async (payload: string) => {
     url: `/story`,
     data: payload,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
 };
