@@ -1,6 +1,5 @@
+import { theme } from '@UI/theme';
 import { createGlobalStyle } from 'styled-components';
-
-import { theme } from '../../UI/theme';
 
 export const PopoverStyle = createGlobalStyle`
   .ant-popover {

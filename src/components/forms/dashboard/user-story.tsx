@@ -1,13 +1,12 @@
+import { createOrUpdateUserStory, getUserStory } from '@Queries/stories';
+import { useTypedMutation, useTypedQuery } from '@Queries/utils';
+import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { Form, FormItem } from '@UI/form/form-item';
+import { TextArea } from '@UI/form/textarea';
+import { Divider } from '@UI/other';
+import { Paragraph, Title } from '@UI/typography';
 import { useForm } from 'react-hook-form';
-
-import { createOrUpdateUserStory, getUserStory } from '../../../queries/stories';
-import { useTypedMutation, useTypedQuery } from '../../../queries/utils';
-import { Alert } from '../../UI/alert';
-import { Button } from '../../UI/button';
-import { Form, FormItem } from '../../UI/form/form-item';
-import { TextArea } from '../../UI/form/textarea';
-import { Divider } from '../../UI/other';
-import { Paragraph, Title } from '../../UI/typography';
 
 export const UserStoryForm = () => {
   const { data: story } = useTypedQuery(['user', 'story'], getUserStory);

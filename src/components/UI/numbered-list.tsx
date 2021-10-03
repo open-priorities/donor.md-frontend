@@ -1,29 +1,31 @@
 import styled, { css } from 'styled-components';
 
-type ListWithCheckType = { list: string[]; marginBottom?: string };
+type NumberedListType = { list: string[]; marginBottom?: string };
 
-export const ListWithCheck = ({ list, marginBottom = '0.5rem' }: ListWithCheckType) => (
-  <ListWithCheckWrapper>
+export const NumberedList = ({ list, marginBottom = '0.5rem' }: NumberedListType) => (
+  <NumberedListWrapper>
     {list.map((item) => (
       <ListItem key={item} marginBottom={marginBottom} dangerouslySetInnerHTML={{ __html: item }} />
     ))}
-  </ListWithCheckWrapper>
+  </NumberedListWrapper>
 );
 
-const ListWithCheckWrapper = styled.ul`
+const NumberedListWrapper = styled.ol`
+  counter-reset: count;
   list-style: none;
   padding-left: 0;
 `;
 
 const ListItem = styled.li<{ marginBottom: string }>(
   ({ marginBottom }) => css`
-    margin-bottom: ${marginBottom};
     font-size: 1.125rem;
+    margin-bottom: ${marginBottom};
 
     &:before {
-      content: '✔';
+      counter-increment: count;
+      content: counter(count) '.';
+      font-weight: bold;
       display: inline-block;
-      font-size: 1.125rem;
       margin-right: 5px;
     }
   `,

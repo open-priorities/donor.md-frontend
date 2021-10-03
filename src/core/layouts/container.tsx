@@ -1,11 +1,15 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-export const Container: FC = ({ children, ...rest }) => (
+type ContainerType = {
+  as?: any;
+};
+
+export const Container: FC<ContainerType> = ({ children, ...rest }) => (
   <StyledContainer {...rest}>{children}</StyledContainer>
 );
 
-export const ContainerFluid: FC = ({ children, ...rest }) => (
+export const ContainerFluid: FC<ContainerType> = ({ children, ...rest }) => (
   <StyledContainerFluid {...rest}>{children}</StyledContainerFluid>
 );
 
