@@ -121,13 +121,13 @@ const BecomeVolunteerPage = () => {
           <FormItem columns={1}>
             <Checkbox checked>
               <>
-                Согласен с{' '}
-                <Link href='/'>
+                Согласен с&nbsp;
+                <Link href='/user-agreement'>
                   <StyledLink color='black' underline>
                     правилами
                   </StyledLink>
-                </Link>{' '}
-                обработки персональных данных
+                </Link>
+                &nbsp; обработки персональных данных
               </>
             </Checkbox>
           </FormItem>

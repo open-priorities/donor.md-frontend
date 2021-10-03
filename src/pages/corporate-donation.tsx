@@ -127,11 +127,11 @@ const CorporateDonationPage = () => {
             }
           >
             <Checkbox checked>
-              Согласен с{' '}
+              Согласен с&npsp;
               <Link href='/user-agreement'>
                 <StyledLink underline>правилами</StyledLink>
-              </Link>{' '}
-              обработки персональных данных
+              </Link>
+              &nbsp; обработки персональных данных
             </Checkbox>
           </FormItem>
         </Form>

@@ -205,8 +205,8 @@ const DonorSearchPage = () => {
           </FormItem>
           <FormItem>
             <Checkbox checked>
-              Согласен с{` `}
-              <Link href='/'>
+              Согласен с&nbsp;
+              <Link href='/user-agreement'>
                 <StyledLink underline bold>
                   правилами
                 </StyledLink>

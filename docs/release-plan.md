@@ -37,7 +37,7 @@
 - [x] regulatory documents
 - [x] Minimum donor requirements
 
-# v1.4.11 `IN PROGRESS`
+# v1.4.12 `IN PROGRESS`
 
 > Fix small bugs
 
@@ -45,7 +45,7 @@
 - [x] fix UI bugs (padding/margin)
 - [x] fix linter after build
 - [x] fix regulatory documents
-- [ ] fix link on all lending pages
+- [x] fix link on all lending pages
 - [ ] mobile menu
 - [x] change links on footer
 - [ ] form checkbox validate message

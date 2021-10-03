@@ -75,7 +75,7 @@ const BenefitsAndPrivileges = () => {
           года можно хранить на нашем сервисе в Вашем донорском кабинете.
         </Paragraph>
         <Title as='h3' bold margin='40px 0'>
-          Привилегии «Почетного донора в Приднестровье»:{' '}
+          Привилегии «Почетного донора в Приднестровье»:&nbsp;
         </Title>
         <ListWithCheck list={list3} />
       </Container>

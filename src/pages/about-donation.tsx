@@ -34,7 +34,7 @@ const AboutDonationPage = () => {
           использования для оказания жизненно необходимой помощи.
         </Paragraph>
         <Paragraph>
-          По Закону{' '}
+          По Закону&nbsp;
           <Link href='/#'>
             <StyledLink underline>«О донорстве»</StyledLink>
           </Link>

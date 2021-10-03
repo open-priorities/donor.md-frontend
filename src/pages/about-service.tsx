@@ -82,7 +82,7 @@ const AboutPage = () => (
         Финансовая поддержка:
       </Title>
       <Paragraph>
-        Будем рады вашим отзывам, пожеланиям, предложениям по электронной почте{' '}
+        Будем рады вашим отзывам, пожеланиям, предложениям по электронной почте&nbsp;
         <a href='mailto:pmrdonor@gmail.com'>pmrdonor@gmail.com</a>.
       </Paragraph>
     </Container>

@@ -116,13 +116,13 @@ export const SignUpForm = ({ onChangeState }: Props) => {
           <Checkbox readOnly defaultChecked />
           <p>
             Я принимаю условия Пользовательского соглашения пользования Web-сервисом donor.md и даю своё
-            согласие{' '}
+            согласие&nbsp;
             <Link href='/'>
               <StyledLink color='textMuted' underline>
                 Donor.md
               </StyledLink>
-            </Link>{' '}
-            на обработку моей персональной информации на условиях, определенных{' '}
+            </Link>
+            &nbsp; на обработку моей персональной информации на условиях, определенных&nbsp;
             <Link href='/privacy-policy'>
               <StyledLink color='textMuted' underline>
                 Политикой конфиденциальности.

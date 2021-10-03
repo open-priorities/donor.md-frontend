@@ -90,13 +90,13 @@ const BonusProgramPage = () => (
       <ArticleCards articles={articles} />
       <Alert>
         <>
-          Если Вы хотите стать участником бонусной программы{' '}
+          Если Вы хотите стать участником бонусной программы&nbsp;
           <Link href='/' passHref>
             <StyledLink color='black' underline bold>
               <b>напишите нам</b>
             </StyledLink>
-          </Link>{' '}
-          и мы с вами свяжемся
+          </Link>
+          &nbsp; и мы с вами свяжемся
         </>
       </Alert>
     </Container>
