@@ -33,11 +33,11 @@
 - [x] Who needs donated blood?
 - [x] Recovery after donation
 - [x] Plasma donors COVID19
-- [ ] How to prepare for donation (70%)
+- [x] How to prepare for donation
 - [ ] regulatory documents (99% заголовок)
 - [ ] Minimum donor requirements (20%)
 
-# v1.4.5 `in progress`
+# v1.4.12 `in progress`
 
 > Fix small bugs
 
@@ -46,6 +46,9 @@
 - [x] fix build
 - [ ] fix link on all lending pages 
 - [ ] mobile menu
+- [ ] footer
+- [ ] form checkbox validate message
+- [ ]
 
 
 # v1.5.0 `todo`
