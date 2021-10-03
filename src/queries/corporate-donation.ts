@@ -5,7 +5,7 @@ export const getCorporateDonations = async () => {
   const { data } = await baseFetch<ICorporateDonation[]>({
     url: '/corporate-donation',
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
   return data;
@@ -24,7 +24,7 @@ export const updateCorporateDonations = async (payload: ICorporateDonation) => {
   await baseFetch({
     url: `/corporate-donation`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
     method: 'PUT',
     data: payload,
@@ -35,7 +35,7 @@ export const deleteCorporateDonations = async (id: string | string[]) => {
   await baseFetch({
     url: `/corporate-donation`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
     method: 'DELETE',
     data: id,

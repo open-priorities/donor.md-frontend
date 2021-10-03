@@ -19,3 +19,7 @@ export interface IRecipient {
     whoAreYou: string;
   };
 }
+
+export interface IRecipientFrom extends IRecipient {
+  rule: boolean;
+}

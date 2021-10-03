@@ -1,4 +1,4 @@
-import { IRecipient } from '@core/recipient';
+import { IRecipient, IRecipientFrom } from '@core/recipient';
 import { emailField, requiredField } from '@Helpers/form-validate';
 import { Container } from '@Layouts/container';
 import { HeaderContentFooter } from '@Layouts/header-content-footer';
@@ -32,7 +32,7 @@ const DonorSearchPage = () => {
     reset,
     control,
     formState: { errors },
-  } = useForm<IRecipient>();
+  } = useForm<IRecipientFrom>();
 
   const ref = useRef<HTMLFormElement>(null);
 
@@ -203,15 +203,15 @@ const DonorSearchPage = () => {
           >
             <Input {...register('contactPerson.whoAreYou', requiredField)} />
           </FormItem>
-          <FormItem>
-            <Checkbox checked>
+          <FormItem required error={errors?.rule?.message}>
+            <Checkbox {...register('rule', requiredField)}>
               Согласен с&nbsp;
               <Link href='/user-agreement'>
                 <StyledLink underline bold>
                   правилами
                 </StyledLink>
               </Link>
-              {` `} пользования Web-сервиса и обработки персональных данных
+              &nbsp; пользования Web-сервиса и обработки персональных данных
             </Checkbox>
           </FormItem>
           <Button type='submit' variant='outline-danger' size='lg'>

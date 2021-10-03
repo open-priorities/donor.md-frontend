@@ -1,11 +1,11 @@
-import { IBecomeVolunteer } from '../core/interfaces/become-volunteer';
-import { baseFetch } from '../core/services/fetch';
+import { IBecomeVolunteer } from '@core/become-volunteer';
+import { baseFetch } from '@Services/fetch';
 
 export const getVolunteer = async () => {
   const { data } = await baseFetch<IBecomeVolunteer[]>({
     url: '/volunteer',
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
   return data;
@@ -23,7 +23,7 @@ export const updateVolunteer = async (payload: IBecomeVolunteer) => {
   await baseFetch({
     url: `/volunteer`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
     method: 'PUT',
     data: payload,
@@ -34,7 +34,7 @@ export const deleteVolunteer = async (id: string | string[]) => {
   await baseFetch({
     url: `/volunteer`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
     method: 'DELETE',
     data: id,

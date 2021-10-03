@@ -5,7 +5,7 @@ export const getSettings = async () => {
   const { data } = await baseFetch<ISettings | null>({
     url: `/settings`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
   return data;
@@ -16,7 +16,7 @@ export const updateSettings = async (payload: ISettings) => {
     method: 'put',
     url: `/settings`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
     data: payload,
   });
@@ -28,7 +28,7 @@ export const updatePassword = async (payload: IChangePassword) => {
     method: 'post',
     url: `/settings/`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
     data: payload,
   });

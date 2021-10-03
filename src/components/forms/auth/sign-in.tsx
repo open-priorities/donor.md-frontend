@@ -56,7 +56,7 @@ export const SignInForm = ({ onChangeState }: { onChangeState: onChangeState }) 
       <Title as='h2' margin='15px'>
         Авторизация
       </Title>
-      <FormItem columns={1} error={errors.email?.message}>
+      <FormItem columns={1} error={errors?.email?.message}>
         <Input
           placeholder='Введите email'
           {...register('email', {
@@ -68,7 +68,7 @@ export const SignInForm = ({ onChangeState }: { onChangeState: onChangeState }) 
           })}
         />
       </FormItem>
-      <FormItem columns={1} error={errors.password?.message}>
+      <FormItem columns={1} error={errors?.password?.message}>
         <Input
           placeholder='Введите пароль'
           type='password'

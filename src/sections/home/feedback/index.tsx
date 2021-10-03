@@ -1,4 +1,5 @@
 import { SocialMediaLinks } from '@Components/social-media-links';
+import { requiredField } from '@Helpers/form-validate';
 import { prepareError } from '@Helpers/prepare-error';
 import { createFeedback, IFeedback } from '@Queries/feedback';
 import { useTypedMutation } from '@Queries/utils';
@@ -17,7 +18,17 @@ import { Section } from '../utils';
 import { Grid, ImageWrapper, SectionParagraph, Social } from './styles';
 
 export const Feedback = () => {
-  const { handleSubmit, register, reset } = useForm();
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      contact: '',
+      message: '',
+    },
+  });
   const { mutate, isError, isLoading, isSuccess, error } = useTypedMutation(
     'feedback',
     (payload: IFeedback) => createFeedback(payload),
@@ -40,13 +51,17 @@ export const Feedback = () => {
             общего сотрудничества
           </SectionParagraph>
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <FormItem columns={1}>
+            <FormItem columns={1} required error={errors?.contact?.message}>
               <HalfWidth>
-                <Input {...register('contact')} scale='lg' placeholder='Ваш email или номер телефона' />
+                <Input
+                  {...register('contact', requiredField)}
+                  scale='lg'
+                  placeholder='Ваш email или номер телефона'
+                />
               </HalfWidth>
             </FormItem>
-            <FormItem columns={1}>
-              <TextArea {...register('message')} placeholder='Текст сообщения' rows={7} />
+            <FormItem columns={1} required error={errors?.message?.message}>
+              <TextArea {...register('message', requiredField)} placeholder='Текст сообщения' rows={7} />
             </FormItem>
             {isSuccess && (
               <Alert dismissible message='Спасибо, что написали нам. Ваш запрос на рассмотрении' />
@@ -58,7 +73,7 @@ export const Feedback = () => {
             </Button>
           </Form>
           <Social>
-            <Image src='/images/pages/home/we-are-in-social.png' width={364} height={33} layout='fixed' />
+            <Image src='/images/pages/home/we-are-in-social.svg' width={388} height={60} layout='fixed' />
             <SocialMediaLinks />
           </Social>
         </div>

@@ -48,7 +48,7 @@
 - [x] fix link on all lending pages
 - [x] mobile menu
 - [x] change links on footer
-- [ ] form checkbox validate message
+- [x] form checkbox validate message
 - [x] fix date format on monitoring block
 - [x] fix alert message on donor search page "Ваш запрос отправлен на рассмотрение"
 - [x] change titles on monitoring block «Критично», «Требуется», «Достаточно» 

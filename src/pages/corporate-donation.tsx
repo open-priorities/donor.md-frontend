@@ -32,6 +32,7 @@ const CorporateDonationPage = () => {
       telephoneNumber: '',
       cityPhoneNumber: '',
       amountWorkers: 10,
+      rule: true,
     },
   });
   const { mutate, isError, isSuccess, error } = useTypedMutation(
@@ -126,7 +127,7 @@ const CorporateDonationPage = () => {
               </Button>
             }
           >
-            <Checkbox checked>
+            <Checkbox {...register('rule', requiredField)}>
               Согласен с&npsp;
               <Link href='/user-agreement'>
                 <StyledLink underline>правилами</StyledLink>
