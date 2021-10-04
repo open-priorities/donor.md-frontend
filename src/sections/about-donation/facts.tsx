@@ -1,7 +1,6 @@
+import { Paragraph, Title } from '@UI/typography';
 import Image from 'next/image';
 import styled from 'styled-components';
-
-import { Paragraph, Title } from '../../components/UI/typography';
 
 const list = [
   {

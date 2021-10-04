@@ -1,8 +1,8 @@
-import { DashboardButtonsLinks } from '../../components/dashboard-buttons-links';
-import { DetailsForm } from '../../components/forms/dashboard/details';
-import { UserStoryForm } from '../../components/forms/dashboard/user-story';
-import { TitleWithArrow } from '../../components/UI/typography';
-import { DashboardGrid } from '../../core/layouts/dashboard-grid';
+import { DashboardButtonsLinks } from '@Components/dashboard-buttons-links';
+import { DetailsForm } from '@Components/forms/dashboard/details';
+import { UserStoryForm } from '@Components/forms/dashboard/user-story';
+import { DashboardGrid } from '@Layouts/dashboard-grid';
+import { TitleWithArrow } from '@UI/typography';
 
 const MyDetails = () => {
   return (

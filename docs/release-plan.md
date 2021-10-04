@@ -34,24 +34,25 @@
 - [x] Recovery after donation
 - [x] Plasma donors COVID19
 - [x] How to prepare for donation
-- [x] regulatory documents (99% заголовок)
+- [x] regulatory documents
 - [x] Minimum donor requirements
 
-# v1.4.11 `IN PROGRESS`
+# v1.4.12 `DONE`
 
 > Fix small bugs
 
 - [x] fix build
 - [x] fix UI bugs (padding/margin)
-- [ ] fix linter after build
-- [ ] fix link on all lending pages
-- [ ] mobile menu
-- [ ] change links on footer
-- [ ] form checkbox validate message
-- [ ] fix date format on monitoring block
-- [ ] fix alert message on donor search page "Ваш запрос отправлен на рассмотрение"
-- [ ] change titles on monitoring block «Критично», «Требуется», «Достаточно» 
-- [ ] main page feedback form add alert message «Спасибо, что написали нам. Ваш запрос на рассмотрении»
+- [x] fix linter after build
+- [x] fix regulatory documents
+- [x] fix link on all lending pages
+- [x] mobile menu
+- [x] change links on footer
+- [x] form checkbox validate message
+- [x] fix date format on monitoring block
+- [x] fix alert message on donor search page "Ваш запрос отправлен на рассмотрение"
+- [x] change titles on monitoring block «Критично», «Требуется», «Достаточно» 
+- [x] main page feedback form add alert message «Спасибо, что написали нам. Ваш запрос на рассмотрении»
 
 
 # v1.5.0_RC `TODO`

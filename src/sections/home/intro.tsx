@@ -1,9 +1,8 @@
+import { Button } from '@UI/button';
+import { Paragraph, Title } from '@UI/typography';
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-
-import { Button } from '../../components/UI/button';
-import { Paragraph, Title } from '../../components/UI/typography';
 
 export const Intro = () => (
   <Section id='intro'>
@@ -16,7 +15,7 @@ export const Intro = () => (
       </StyledTitle>
       <ColumnParagraph>Web-сервис для тех, кто сдает и ищет донорскую кровь в Приднестровье</ColumnParagraph>
       <ButtonGroup>
-        <Link href='/minimum-requirements-for-donor' passHref>
+        <Link href='/minimum-donor-requirements' passHref>
           <Button variant='outline-primary' size='lg'>
             Стать донором
           </Button>
@@ -32,8 +31,6 @@ export const Intro = () => (
 );
 
 const Section = styled.section`
-  padding-top: 45px;
-
   @media (min-width: 992px) {
     display: flex;
     flex-direction: row-reverse;
@@ -56,13 +53,12 @@ const StyledTitle = styled(Title)`
   line-height: 1;
 `;
 
-const RedText = styled.b`
+const RedText = styled.span`
+  font-weight: normal;
   color: ${({ theme }) => theme.colors.red};
 `;
 
-const Column = styled.div`
-  margin-top: 30px;
-`;
+const Column = styled.div``;
 
 const ColumnParagraph = styled(Paragraph)`
   padding: 15px 0;

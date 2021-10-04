@@ -1,23 +1,23 @@
+import { IUser } from '@core/user';
+import { prepareError } from '@Helpers/prepare-error';
+import { getOptions } from '@Queries/common';
+import { createUser } from '@Queries/user';
+import { useTypedMutation, useTypedQuery } from '@Queries/utils';
+import { userAtom } from '@Store/atoms/user-atom';
+import { Alert } from '@UI/alert';
+import { Checkbox } from '@UI/form/checkbox';
+import { FormItem } from '@UI/form/form-item';
+import { Input } from '@UI/form/input';
+import { Select } from '@UI/form/select';
+import { StyledLink } from '@UI/links';
+import { Loading } from '@UI/loading';
+import { Title } from '@UI/typography';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
-import { prepareError } from '../../../core/helpers/prepare-data';
-import { IUser } from '../../../core/interfaces/user';
-import { getOptions } from '../../../queries/common';
-import { createUser } from '../../../queries/user';
-import { useTypedMutation, useTypedQuery } from '../../../queries/utils';
-import { userAtom } from '../../../store/atoms/user-atom';
-import { Alert } from '../../UI/alert';
-import { Checkbox } from '../../UI/form/checkbox';
-import { FormItem } from '../../UI/form/form-item';
-import { Input } from '../../UI/form/input';
-import { Select } from '../../UI/form/select';
-import { StyledLink } from '../../UI/links';
-import { Loading } from '../../UI/loading';
-import { Title } from '../../UI/typography';
 import { onChangeState } from './types';
 import { ActionLayout } from './utils';
 
@@ -116,13 +116,13 @@ export const SignUpForm = ({ onChangeState }: Props) => {
           <Checkbox readOnly defaultChecked />
           <p>
             Я принимаю условия Пользовательского соглашения пользования Web-сервисом donor.md и даю своё
-            согласие{' '}
+            согласие&nbsp;
             <Link href='/'>
               <StyledLink color='textMuted' underline>
                 Donor.md
               </StyledLink>
-            </Link>{' '}
-            на обработку моей персональной информации на условиях, определенных{' '}
+            </Link>
+            &nbsp; на обработку моей персональной информации на условиях, определенных&nbsp;
             <Link href='/privacy-policy'>
               <StyledLink color='textMuted' underline>
                 Политикой конфиденциальности.

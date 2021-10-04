@@ -5,7 +5,7 @@ export const getPlanning = async () => {
   const { data } = await baseFetch<IPlanning[]>({
     url: `/donation/planing`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
 
@@ -17,7 +17,7 @@ export const createPlanning = async (payload: IPlanning) => {
     url: `/donation/planing`,
     method: 'POST',
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
     data: payload,
   });

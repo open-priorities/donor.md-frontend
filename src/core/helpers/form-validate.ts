@@ -1,4 +1,4 @@
-import { emailRegex } from '../constants/regex';
+import { emailRegex } from '@Constants/regex';
 
 export const requiredField = {
   required: {

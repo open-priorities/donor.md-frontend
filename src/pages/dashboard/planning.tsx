@@ -1,20 +1,19 @@
+import { DashboardButtonsLinks } from '@Components/dashboard-buttons-links';
+import { SocialMediaLinks } from '@Components/social-media-links';
+import { IPlanning } from '@core/planning';
+import { prepareError } from '@Helpers/prepare-error';
+import { DashboardGrid } from '@Layouts/dashboard-grid';
+import { getOptions } from '@Queries/common';
+import { createPlanning } from '@Queries/planning';
+import { useTypedMutation, useTypedQuery } from '@Queries/utils';
+import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { Form, FormItem } from '@UI/form/form-item';
+import { Input } from '@UI/form/input';
+import { Select } from '@UI/form/select';
+import { Paragraph, TitleWithArrow } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
 import styled from 'styled-components';
-
-import { DashboardButtonsLinks } from '../../components/dashboard-buttons-links';
-import { SocialMediaLinks } from '../../components/social-media-links';
-import { Alert } from '../../components/UI/alert';
-import { Button } from '../../components/UI/button';
-import { Form, FormItem } from '../../components/UI/form/form-item';
-import { Input } from '../../components/UI/form/input';
-import { Select } from '../../components/UI/form/select';
-import { Paragraph, TitleWithArrow } from '../../components/UI/typography';
-import { prepareError } from '../../core/helpers/prepare-data';
-import { IPlanning } from '../../core/interfaces/planning';
-import { DashboardGrid } from '../../core/layouts/dashboard-grid';
-import { getOptions } from '../../queries/common';
-import { createPlanning } from '../../queries/planning';
-import { useTypedMutation, useTypedQuery } from '../../queries/utils';
 
 const times = ['8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00'] as const;
 

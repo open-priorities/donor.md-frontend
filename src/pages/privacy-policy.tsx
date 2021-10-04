@@ -1,27 +1,9 @@
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { StyledLink } from '@UI/links';
+import { Paragraph, Title } from '@UI/typography';
 import Link from 'next/link';
 import styled from 'styled-components';
-
-import { StyledLink } from '../components/UI/links';
-import { Paragraph, Title } from '../components/UI/typography';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
-
-const List = styled.div`
-  ol {
-    list-style: none;
-    counter-reset: li;
-    padding-left: 0;
-  }
-  li:before {
-    font-weight: bold;
-    counter-increment: li;
-    content: counters(li, '.') '. ';
-  }
-`;
-
-const ListItem = styled.li`
-  margin-bottom: 15px;
-`;
 
 const PrivacyPolicy = () => {
   return (
@@ -74,8 +56,8 @@ const PrivacyPolicy = () => {
                   Информация о новой редакции Политики будет размещена в сети Интернет по адресу:
                   <Link href='/privacy-policy'>
                     <StyledLink>https://DONOR.MD/privacy-policy</StyledLink>
-                  </Link>{' '}
-                  не позднее чем за 10 дней до ее вступления в силу. В случае, если Вы не согласны с
+                  </Link>
+                  &nbsp; не позднее чем за 10 дней до ее вступления в силу. В случае, если Вы не согласны с
                   какими-либо изменениями Политики, Вы должны прекратить использование DONOR.MD с момента
                   вступления в силу новой редакции Политики. В случае если Вы продолжаете использовать
                   Web-сервис после вступления в силу новой редакции Политики, Вы тем самым выражаете свое
@@ -275,7 +257,7 @@ const PrivacyPolicy = () => {
                     <li>
                       В целях обеспечения возможности защиты прав и законных интересов DONOR.MD или третьих
                       лиц в случаях, когда Пользователь нарушает Пользовательское соглашение DONOR.MD,
-                      опубликованное в сети Интернет по адресу:{' '}
+                      опубликованное в сети Интернет по адресу:&nbsp;
                       <Link href='/terms-of-use'>
                         <StyledLink>https://DONOR.MD.org/pravila</StyledLink>
                       </Link>
@@ -423,3 +405,20 @@ export const getStaticProps = async () => {
     props: {},
   };
 };
+
+const List = styled.div`
+  ol {
+    list-style: none;
+    counter-reset: li;
+    padding-left: 0;
+  }
+  li:before {
+    font-weight: bold;
+    counter-increment: li;
+    content: counters(li, '.') '. ';
+  }
+`;
+
+const ListItem = styled.li`
+  margin-bottom: 15px;
+`;

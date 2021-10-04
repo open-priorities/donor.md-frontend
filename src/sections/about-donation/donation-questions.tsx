@@ -1,7 +1,6 @@
+import { Accordion } from '@UI/accordion';
+import { Title } from '@UI/typography';
 import styled from 'styled-components';
-
-import { Accordion } from '../../components/UI/accordion';
-import { Title } from '../../components/UI/typography';
 
 export const DonationQuestions = () => (
   <section>

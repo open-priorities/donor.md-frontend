@@ -20,7 +20,7 @@ export const getUser = async () => {
   const { data } = await baseFetch<IUser>({
     url: `/user`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
   return data;
@@ -54,7 +54,7 @@ export const updateUser = async (payload: IUser) => {
     method: 'PUT',
     data: payload,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
 

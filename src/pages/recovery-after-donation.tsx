@@ -1,7 +1,7 @@
-import { ListWithCheck } from '../components/UI/list-with-check';
-import { Paragraph, Title } from '../components/UI/typography';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { ListWithCheck } from '@UI/list-with-check';
+import { Paragraph, Title } from '@UI/typography';
 
 const list = [
   `Воздержаться от курения в течение часа после кроводачи.`,
@@ -48,8 +48,8 @@ const RecoveryAfterDonation = () => {
         <Paragraph>
           <Paragraph as='span' color='red' margin='0'>
             Результаты сообщаются только лично и конфиденциально.
-          </Paragraph>{' '}
-          В случае положительных результатов Вам дадут совет куда обратиться за медицинской помощью.
+          </Paragraph>
+          &nbsp; В случае положительных результатов Вам дадут совет куда обратиться за медицинской помощью.
         </Paragraph>
         <Title as='h4' margin='40px 0 0 0' bold>
           Как часто можно сдавать кровь?

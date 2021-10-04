@@ -1,17 +1,17 @@
+import { IQuestion, IQuestionList, IQuestionnaireStory } from '@core/question';
+import { prepareError } from '@Helpers/prepare-error';
+import { createQuestionnaireAction, getQuestionnaire } from '@Queries/questionnaire';
+import { useTypedMutation, useTypedQuery } from '@Queries/utils';
+import { Accordion } from '@UI/accordion';
+import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { Form } from '@UI/form/form-item';
+import { Loading } from '@UI/loading';
+import { Divider } from '@UI/other';
+import { Title } from '@UI/typography';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
-import { prepareError } from '../../../../core/helpers/prepare-data';
-import { IQuestion, IQuestionList, IQuestionnaireStory } from '../../../../core/interfaces/question';
-import { createQuestionnaireAction, getQuestionnaire } from '../../../../queries/questionnaire';
-import { useTypedMutation, useTypedQuery } from '../../../../queries/utils';
-import { Accordion } from '../../../UI/accordion';
-import { Alert } from '../../../UI/alert';
-import { Button } from '../../../UI/button';
-import { Form } from '../../../UI/form/form-item';
-import { Loading } from '../../../UI/loading';
-import { Divider } from '../../../UI/other';
-import { Title } from '../../../UI/typography';
 import { Question } from './question';
 
 const { Panel } = Accordion;

@@ -1,10 +1,4 @@
-export declare type MockType = Array<{
-  id: number | string;
-  href: string;
-  text: string;
-}>;
-
-export const column1: MockType = [
+export const column1 = [
   {
     id: 1,
     href: '/#about-donation',
@@ -27,10 +21,10 @@ export const column1: MockType = [
   },
 ];
 
-export const column2: MockType = [
+export const column2 = [
   {
     id: 1,
-    href: '/about',
+    href: '/about-service',
     text: 'О нас',
   },
   {
@@ -48,9 +42,14 @@ export const column2: MockType = [
     href: '/privacy-policy',
     text: 'Политика конфиденциальности',
   },
+  {
+    id: 5,
+    href: '/user-agreement',
+    text: 'Пользовательское соглашение',
+  },
 ];
 
-export const column3: MockType = [
+export const column3 = [
   {
     id: 1,
     href: '/corporate-donation',

@@ -1,12 +1,12 @@
 /* eslint no-console:0 */
-import { DonorStory } from '../components/donor-story';
-import { Pagination } from '../components/pagination';
-import { Loading } from '../components/UI/loading';
-import { Title } from '../components/UI/typography';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
-import { getStories } from '../queries/stories';
-import { useTypedQuery } from '../queries/utils';
+import { DonorStory } from '@Components/donor-story';
+import { Pagination } from '@Components/pagination';
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { getStories } from '@Queries/stories';
+import { useTypedQuery } from '@Queries/utils';
+import { Loading } from '@UI/loading';
+import { Title } from '@UI/typography';
 
 const DonorStoriesPage = () => {
   const { data, isLoading } = useTypedQuery('stories', getStories);

@@ -1,9 +1,8 @@
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { StyledLink } from '@UI/links';
+import { Paragraph, Title } from '@UI/typography';
 import Link from 'next/link';
-
-import { StyledLink } from '../components/UI/links';
-import { Paragraph, Title } from '../components/UI/typography';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
 
 const SupportProject = () => (
   <HeaderContentFooter background='/articles/images/pages/love-pic.png'>
@@ -23,7 +22,7 @@ const SupportProject = () => (
       </Paragraph>
       <Paragraph>
         Мы приглашаем Pro bono волонтеров и специалистов сделать вклад в развитие сервиса. Волонтерство ваших
-        сотрудников или услуги вашей компании могут {` `}
+        сотрудников или услуги вашей компании могут &nbsp;
         <Link href='/become-volunteer' passHref>
           <StyledLink color='black' underline bold>
             помочь усилить наши возможности.

@@ -1,7 +1,6 @@
+import { StyledLink } from '@UI/links';
+import { Title } from '@UI/typography';
 import styled from 'styled-components';
-
-import { StyledLink } from '../../../components/UI/links';
-import { Title } from '../../../components/UI/typography';
 
 export const SectionTitle = styled(Title)`
   @media (min-width: 768px) {
