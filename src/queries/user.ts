@@ -1,6 +1,6 @@
-import { IUser, IUserWithToken } from '../core/interfaces/user';
-import { baseFetch } from '../core/services/fetch';
-import { storage } from '../core/services/storage';
+import { IUser, IUserWithToken } from '@core/user';
+import { baseFetch } from '@Services/fetch';
+import { storage } from '@Services/storage';
 
 export type signInType = { email: string; password: string };
 

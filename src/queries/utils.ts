@@ -1,8 +1,7 @@
+import { ErrorResponse, ErrorResponseArray } from '@core/error';
 import { useMutation, useQuery, UseQueryOptions } from 'react-query';
 import { EnsuredQueryKey, MutationFunction, MutationKey, QueryKey } from 'react-query/types/core/types';
 import { UseMutationOptions } from 'react-query/types/react/types';
-
-import { ErrorResponse, ErrorResponseArray } from '../core/interfaces/error';
 
 // TYPES
 

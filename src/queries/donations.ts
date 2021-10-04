@@ -1,5 +1,5 @@
-import { IDonation, IDonationResponse } from '../core/interfaces/donation';
-import { baseFetch } from '../core/services/fetch';
+import { IDonation, IDonationResponse } from '@core/donation';
+import { baseFetch } from '@Services/fetch';
 
 export const getDonation = async () => {
   const { data } = await baseFetch<IDonationResponse[]>({
