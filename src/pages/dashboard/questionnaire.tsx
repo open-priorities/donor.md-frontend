@@ -1,7 +1,10 @@
 import { DashboardButtonsLinks } from '@Components/dashboard-buttons-links';
 import { QuestionForm } from '@Components/forms/dashboard/question/QuestionForm';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
+import { getUser } from '@Queries/user';
 import { Paragraph, TitleWithArrow } from '@UI/typography';
+import { QueryClient } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
 
 const MyQuestionnaire = () => {
   return (
@@ -27,7 +30,12 @@ const MyQuestionnaire = () => {
 export default MyQuestionnaire;
 
 export const getServerSideProps = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery('user', getUser);
   return {
-    props: {},
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
   };
 };

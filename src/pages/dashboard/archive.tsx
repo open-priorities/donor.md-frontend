@@ -4,11 +4,14 @@ import { formatDate } from '@Helpers/converters';
 import { prepareError } from '@Helpers/prepare-error';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
 import { getDonation } from '@Queries/donations';
+import { getUser } from '@Queries/user';
 import { useTypedQuery } from '@Queries/utils';
 import { Alert } from '@UI/alert';
 import { ColorsType } from '@UI/theme';
 import { Paragraph, TitleWithArrow } from '@UI/typography';
 import { Table as AntTable } from 'antd';
+import { QueryClient } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
 import styled, { css } from 'styled-components';
 
 type StatusType = 'success' | 'pending' | 'reject';
@@ -92,8 +95,13 @@ const DonationsArchive = () => {
 export default DonationsArchive;
 
 export const getServerSideProps = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery('user', getUser);
   return {
-    props: {},
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
   };
 };
 
