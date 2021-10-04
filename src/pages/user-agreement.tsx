@@ -1,8 +1,7 @@
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { Paragraph as PH, Title as TL } from '@UI/typography';
 import styled from 'styled-components';
-
-import { Paragraph as PH, Title as TL } from '../components/UI/typography';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
 
 const UserAgreement = () => {
   return (
@@ -319,10 +318,9 @@ const UserAgreement = () => {
                   сохранении соответствующего объекта в неизменном виде.
                 </li>
                 <li>
-                  {' '}
-                  Наши представители могут отслеживать и (или) записывать ваши сообщения и записи в личном
-                  кабинете, когда вы находитесь на Donor.md, и настоящим вы даете безотзывное согласие на
-                  такое отслеживание и запись.
+                  &nbsp; Наши представители могут отслеживать и (или) записывать ваши сообщения и записи в
+                  личном кабинете, когда вы находитесь на Donor.md, и настоящим вы даете безотзывное согласие
+                  на такое отслеживание и запись.
                 </li>
                 <li>
                   Если по Вашему мнению Пользовательский контент иных пользователей нарушает законодательство

@@ -1,20 +1,19 @@
+import { DashboardButtonsLinks } from '@Components/dashboard-buttons-links';
+import { SocialMediaLinks } from '@Components/social-media-links';
+import { IDonation } from '@core/donation';
+import { DashboardGrid } from '@Layouts/dashboard-grid';
+import { getOptions } from '@Queries/common';
+import { addDonation } from '@Queries/donations';
+import { getUser } from '@Queries/user';
+import { useTypedMutation, useTypedQuery } from '@Queries/utils';
+import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { Form, FormItem } from '@UI/form/form-item';
+import { Input } from '@UI/form/input';
+import { Select } from '@UI/form/select';
+import { TitleWithArrow } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
 import styled from 'styled-components';
-
-import { DashboardButtonsLinks } from '../../components/dashboard-buttons-links';
-import { SocialMediaLinks } from '../../components/social-media-links';
-import { Alert } from '../../components/UI/alert';
-import { Button } from '../../components/UI/button';
-import { Form, FormItem } from '../../components/UI/form/form-item';
-import { Input } from '../../components/UI/form/input';
-import { Select } from '../../components/UI/form/select';
-import { TitleWithArrow } from '../../components/UI/typography';
-import { IDonation } from '../../core/interfaces/donation';
-import { DashboardGrid } from '../../core/layouts/dashboard-grid';
-import { getOptions } from '../../queries/common';
-import { addDonation } from '../../queries/donations';
-import { getUser } from '../../queries/user';
-import { useTypedMutation, useTypedQuery } from '../../queries/utils';
 
 const Donations = () => {
   const { register, control, handleSubmit } = useForm({

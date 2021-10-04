@@ -1,17 +1,17 @@
+import { emailRegex } from '@Constants/regex';
+import { prepareError } from '@Helpers/prepare-error';
+import { signIn, signInType } from '@Queries/user';
+import { useTypedMutation } from '@Queries/utils';
+import { userAtom } from '@Store/atoms/user-atom';
+import { Alert } from '@UI/alert';
+import { FormItem } from '@UI/form/form-item';
+import { Input } from '@UI/form/input';
+import { Title } from '@UI/typography';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useResetRecoilState, useSetRecoilState } from 'recoil';
 
-import { emailRegex } from '../../../core/constants/regex';
-import { prepareError } from '../../../core/helpers/prepare-data';
-import { signIn, signInType } from '../../../queries/user';
-import { useTypedMutation } from '../../../queries/utils';
-import { userAtom } from '../../../store/atoms/user-atom';
-import { Alert } from '../../UI/alert';
-import { FormItem } from '../../UI/form/form-item';
-import { Input } from '../../UI/form/input';
-import { Title } from '../../UI/typography';
 import { onChangeState } from './types';
 import { ActionLayout, WrappedLink } from './utils';
 
@@ -56,7 +56,7 @@ export const SignInForm = ({ onChangeState }: { onChangeState: onChangeState }) 
       <Title as='h2' margin='15px'>
         Авторизация
       </Title>
-      <FormItem columns={1} error={errors.email?.message}>
+      <FormItem columns={1} error={errors?.email?.message}>
         <Input
           placeholder='Введите email'
           {...register('email', {
@@ -68,7 +68,7 @@ export const SignInForm = ({ onChangeState }: { onChangeState: onChangeState }) 
           })}
         />
       </FormItem>
-      <FormItem columns={1} error={errors.password?.message}>
+      <FormItem columns={1} error={errors?.password?.message}>
         <Input
           placeholder='Введите пароль'
           type='password'

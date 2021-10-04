@@ -1,16 +1,16 @@
+import { Button } from '@UI/button';
+import { Title } from '@UI/typography';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Button } from '../../../components/UI/button';
-import { Title } from '../../../components/UI/typography';
 import { Section } from '../utils';
 import { Article, ArticleGrid, ImageWrapper, SectionTitle, Underline } from './styles';
 
 export const CallToAction = () => (
   <Section id='call-to-action'>
     <SectionTitle as='h2' bold>
-      С нами уже{' '}
-      <Link href='/top-donors'>
+      С нами уже&nbsp;
+      <Link href='/top-donors' passHref>
         <Underline>105 доноров</Underline>
       </Link>
       <ImageWrapper>
@@ -19,7 +19,7 @@ export const CallToAction = () => (
     </SectionTitle>
     <ArticleGrid>
       <Article>
-        <Link href='/dashboard'>
+        <Link href='/dashboard' passHref>
           <Button variant='outline-primary' size='lg'>
             Кабинет донора
           </Button>
@@ -29,7 +29,7 @@ export const CallToAction = () => (
         </Title>
       </Article>
       <Article>
-        <Link href='/donor-search'>
+        <Link href='/donor-search' passHref>
           <Button variant='outline-primary' size='lg'>
             Нужна помощь
           </Button>

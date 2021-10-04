@@ -1,12 +1,11 @@
+import { getOptions } from '@Queries/common';
+import { useTypedQuery } from '@Queries/utils';
+import { activeIdAtom } from '@Store/atoms/active-id-atom';
+import { ButtonGroup } from '@UI/button-group';
+import { Title } from '@UI/typography';
 import { useCallback } from 'react';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-
-import { ButtonGroup } from '../../components/UI/button-group';
-import { Title } from '../../components/UI/typography';
-import { getOptions } from '../../queries/common';
-import { useTypedQuery } from '../../queries/utils';
-import { activeIdAtom } from '../../store/atoms/active-id-atom';
 
 export const StoriesHead = () => {
   const setActiveId = useSetRecoilState(activeIdAtom('top-donors'));

@@ -1,19 +1,18 @@
+import { IMonitoringResponse } from '@core/monitoring';
+import { prepareError } from '@Helpers/prepare-error';
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { getMonitoringData, updateMonitoringData } from '@Queries/monitoring';
+import { useTypedMutation, useTypedQuery } from '@Queries/utils';
+import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { FormItem } from '@UI/form/form-item';
+import { Input } from '@UI/form/input';
+import { Divider } from '@UI/other';
+import { Paragraph, Title } from '@UI/typography';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
-
-import { Alert } from '../components/UI/alert';
-import { Button } from '../components/UI/button';
-import { FormItem } from '../components/UI/form/form-item';
-import { Input } from '../components/UI/form/input';
-import { Divider } from '../components/UI/other';
-import { Paragraph, Title } from '../components/UI/typography';
-import { prepareError } from '../core/helpers/prepare-data';
-import { IMonitoringResponse } from '../core/interfaces/monitoring';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
-import { getMonitoringData, updateMonitoringData } from '../queries/monitoring';
-import { useTypedMutation, useTypedQuery } from '../queries/utils';
 
 const Monitoring = () => {
   const { register, handleSubmit, setValue } = useForm();

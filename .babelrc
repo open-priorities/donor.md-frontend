@@ -16,7 +16,7 @@
           "@Services": "/src/core/services",
           "@UI": "/src/components/UI",
           "@Components": "/src/components",
-          "@core": "/src/core/interfaces",
+          "@Core": "/src/core/interfaces",
           "@Pages": "/src/pages",
           "@Queries": "/src/queries",
           "@Sections": "/src/sections",

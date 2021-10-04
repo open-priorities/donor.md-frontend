@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 
 const links = [
   {
-    link: '/minimum-requirements-for-donor',
+    link: '/minimum-donor-requirements',
     text: 'Какие требования к донору?',
   },
   {
@@ -17,15 +17,15 @@ const links = [
     text: 'Как проходит донация?',
   },
   {
-    link: '/recovery-from-donation',
+    link: '/recovery-after-donation',
     text: 'Восстановление после донации',
   },
   {
-    link: '/who-needs-donated-blood',
+    link: '/who-needs-blood',
     text: 'Кому нужна донорская кровь?',
   },
   {
-    link: '/plasma-donors-COVID19',
+    link: '/plasma-donors',
     text: 'О донорстве плазмы Covid19',
   },
 ];

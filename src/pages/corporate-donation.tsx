@@ -1,21 +1,20 @@
+import { ICorporateDonation } from '@core/donation';
+import { emailField, requiredField } from '@Helpers/form-validate';
+import { prepareError } from '@Helpers/prepare-error';
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { createCorporateDonations } from '@Queries/corporate-donation';
+import { useTypedMutation } from '@Queries/utils';
+import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { Checkbox } from '@UI/form/checkbox';
+import { Form, FormItem } from '@UI/form/form-item';
+import { Input } from '@UI/form/input';
+import { StyledLink } from '@UI/links';
+import { Divider } from '@UI/other';
+import { Paragraph, Title } from '@UI/typography';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-
-import { Alert } from '../components/UI/alert';
-import { Button } from '../components/UI/button';
-import { Checkbox } from '../components/UI/form/checkbox';
-import { Form, FormItem } from '../components/UI/form/form-item';
-import { Input } from '../components/UI/form/input';
-import { StyledLink } from '../components/UI/links';
-import { Divider } from '../components/UI/other';
-import { Paragraph, Title } from '../components/UI/typography';
-import { emailField, requiredField } from '../core/helpers/form-validate';
-import { prepareError } from '../core/helpers/prepare-data';
-import { ICorporateDonation } from '../core/interfaces/donation';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
-import { createCorporateDonations } from '../queries/corporate-donation';
-import { useTypedMutation } from '../queries/utils';
 
 const CorporateDonationPage = () => {
   const {
@@ -33,6 +32,7 @@ const CorporateDonationPage = () => {
       telephoneNumber: '',
       cityPhoneNumber: '',
       amountWorkers: 10,
+      rule: true,
     },
   });
   const { mutate, isError, isSuccess, error } = useTypedMutation(
@@ -127,12 +127,12 @@ const CorporateDonationPage = () => {
               </Button>
             }
           >
-            <Checkbox checked>
-              Согласен с{' '}
+            <Checkbox {...register('rule', requiredField)}>
+              Согласен с&npsp;
               <Link href='/user-agreement'>
                 <StyledLink underline>правилами</StyledLink>
-              </Link>{' '}
-              обработки персональных данных
+              </Link>
+              &nbsp; обработки персональных данных
             </Checkbox>
           </FormItem>
         </Form>

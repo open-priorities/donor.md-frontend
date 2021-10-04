@@ -1,5 +1,6 @@
-import { getUserUrl } from '../constants/url';
-import { IUser } from '../interfaces/user';
+import { getUserUrl } from '@Constants/url';
+import { IUser } from '@core/user';
+
 import { baseFetch } from './fetch';
 
 export const serverSession = async (ctx: any) => {

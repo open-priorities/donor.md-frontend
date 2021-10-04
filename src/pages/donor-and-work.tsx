@@ -1,6 +1,6 @@
-import { Paragraph, Title } from '../components/UI/typography';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { Paragraph, Title } from '@UI/typography';
 
 const DonorAndWork = () => {
   return (

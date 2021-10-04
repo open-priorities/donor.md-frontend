@@ -1,7 +1,7 @@
+import { LeftMenu } from '@Components/left-menu';
 import { FC, memo } from 'react';
 import styled from 'styled-components';
 
-import { LeftMenu } from '../../components/left-menu';
 import RightMenu from '../../components/right-menu';
 // import { useAuth } from '../hooks/useAuth';
 

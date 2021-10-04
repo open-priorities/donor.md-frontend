@@ -1,5 +1,6 @@
-import { ArticleCardsPreview } from '../../../components/article-cards-preview';
-import { Title } from '../../../components/UI/typography';
+import { ArticleCardsPreview } from '@Components/article-cards-preview';
+import { Title } from '@UI/typography';
+
 import { Section } from '../utils';
 
 export const articles = [
@@ -7,7 +8,7 @@ export const articles = [
     image: '/images/pages/home/about-donations/donor-requirements.svg',
     title: 'Какие требования к донору?',
     paragraph: `Перед первой донацией Вам необходимо ознакомиться с перечнем противопоказаний`,
-    link: '/minimum-requirements-for-donor',
+    link: '/minimum-donor-requirements',
   },
   {
     image: '/images/pages/home/about-donations/preparation-donation.svg',

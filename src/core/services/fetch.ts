@@ -1,6 +1,6 @@
+import { backendUrl } from '@Constants/url';
 import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 
-import { backendUrl } from '../constants/url';
 import { storage } from './storage';
 
 const api = axios.create({
@@ -15,12 +15,12 @@ export const baseFetch = <T>({
   data = {},
   ...config
 }: AxiosRequestConfig): AxiosPromise<T> => {
-  if (headers?.authorization) {
+  if (headers?.authorization === 'token') {
     const token = storage.get<string>('token');
     if (token) {
       headers.authorization = `Bearer ${token}`;
     } else {
-      headers.authorization = undefined;
+      headers.authorization = '';
     }
   }
   return api({

@@ -1,24 +1,23 @@
+import { IUser } from '@core/user';
+import { getOptions } from '@Queries/common';
+import { updateUser } from '@Queries/user';
+import { useTypedMutation, useTypedQuery } from '@Queries/utils';
+import { userAtom } from '@Store/atoms/user-atom';
+import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { Checkbox } from '@UI/form/checkbox';
+import { Form, FormItem } from '@UI/form/form-item';
+import { Input } from '@UI/form/input';
+import { Select } from '@UI/form/select';
+import { Divider } from '@UI/other';
+import { Title } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
 import { useRecoilValue } from 'recoil';
-
-import { IUser } from '../../../core/interfaces/user';
-import { getOptions } from '../../../queries/common';
-import { updateUser } from '../../../queries/user';
-import { useTypedMutation, useTypedQuery } from '../../../queries/utils';
-import { userAtom } from '../../../store/atoms/user-atom';
-import { Alert } from '../../UI/alert';
-import { Button } from '../../UI/button';
-import { Checkbox } from '../../UI/form/checkbox';
-import { Form, FormItem } from '../../UI/form/form-item';
-import { Input } from '../../UI/form/input';
-import { Select } from '../../UI/form/select';
-import { Divider } from '../../UI/other';
-import { Title } from '../../UI/typography';
 
 export const DetailsForm = () => {
   const user = useRecoilValue(userAtom);
   const { register, control, handleSubmit, watch } = useForm({
-    defaultValues: { ...user, corporateDonations: !!user.corporateId },
+    defaultValues: { ...user, corporateDonations: !!user?.corporateId },
   });
   const { data: sex } = useTypedQuery('sex', () => getOptions('sex'));
   const { data: bloodGroups } = useTypedQuery('blood-groups', () => getOptions('blood-groups'));

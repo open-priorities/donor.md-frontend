@@ -5,7 +5,7 @@ export const getDonation = async () => {
   const { data } = await baseFetch<IDonationResponse[]>({
     url: `/donation`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
   });
   return data;
@@ -15,7 +15,7 @@ export const addDonation = async (payload: IDonation) => {
   const { data } = await baseFetch<IDonation>({
     url: `/donation`,
     headers: {
-      authorization: true,
+      authorization: 'token',
     },
     method: 'POST',
     data: payload,

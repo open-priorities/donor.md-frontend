@@ -1,6 +1,12 @@
 import 'antd/dist/antd.css';
 import 'normalize.css';
 
+import { PlanningButton } from '@Components/planning-button';
+import { ErrorBoundary } from '@Decorators/ErrorBoundary';
+import { DebugObserver } from '@Store/debugObserver';
+import { GlobalStyles } from '@Styles/globals';
+import { TypographyStyles } from '@Styles/typography';
+import { theme } from '@UI/theme';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
@@ -10,12 +16,6 @@ import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from 'styled-components';
 
 import configSEO from '../../next-seo.config';
-import { PlanningButton } from '../components/planning-button';
-import { theme } from '../components/UI/theme';
-import { ErrorBoundary } from '../core/decorators/ErrorBoundary';
-import { DebugObserver } from '../store/debugObserver';
-import { GlobalStyles } from '../styles/globals';
-import { TypographyStyles } from '../styles/typography';
 
 const queryClient = new QueryClient();
 

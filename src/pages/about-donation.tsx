@@ -1,13 +1,12 @@
+import { Container } from '@Layouts/container';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { DonationQuestions } from '@Sections/about-donation/donation-questions';
+import { Facts } from '@Sections/about-donation/facts';
+import { HowToPrepare } from '@Sections/about-donation/how-to-prepare';
+import { OpportunitiesDonors } from '@Sections/about-donation/opportunities-donors';
+import { StyledLink } from '@UI/links';
+import { Paragraph, Title } from '@UI/typography';
 import Link from 'next/link';
-
-import { StyledLink } from '../components/UI/links';
-import { Paragraph, Title } from '../components/UI/typography';
-import { Container } from '../core/layouts/container';
-import { HeaderContentFooter } from '../core/layouts/header-content-footer';
-import { DonationQuestions } from '../sections/about-donation/donation-questions';
-import { Facts } from '../sections/about-donation/facts';
-import { HowToPrepare } from '../sections/about-donation/how-to-prepare';
-import { OpportunitiesDonors } from '../sections/about-donation/opportunities-donors';
 
 const AboutDonationPage = () => {
   return (
@@ -35,7 +34,7 @@ const AboutDonationPage = () => {
           использования для оказания жизненно необходимой помощи.
         </Paragraph>
         <Paragraph>
-          По Закону{' '}
+          По Закону&nbsp;
           <Link href='/#'>
             <StyledLink underline>«О донорстве»</StyledLink>
           </Link>

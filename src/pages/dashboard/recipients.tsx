@@ -1,15 +1,14 @@
+import { RecipientCard } from '@Components/recipient-card';
+import { prepareError } from '@Helpers/prepare-error';
+import { DashboardGrid } from '@Layouts/dashboard-grid';
+import { getRecipients } from '@Queries/recipients';
+import { useTypedQuery } from '@Queries/utils';
+import { Alert } from '@UI/alert';
+import { Loading } from '@UI/loading';
+import { Paragraph, TitleWithArrow } from '@UI/typography';
 import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 import styled from 'styled-components';
-
-import { RecipientCard } from '../../components/recipient-card';
-import { Alert } from '../../components/UI/alert';
-import { Loading } from '../../components/UI/loading';
-import { Paragraph, TitleWithArrow } from '../../components/UI/typography';
-import { prepareError } from '../../core/helpers/prepare-data';
-import { DashboardGrid } from '../../core/layouts/dashboard-grid';
-import { getRecipients } from '../../queries/recipients';
-import { useTypedQuery } from '../../queries/utils';
 
 const Recipients = () => {
   const { data, isLoading, isError, error } = useTypedQuery('recipients', getRecipients);
