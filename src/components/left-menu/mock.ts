@@ -1,51 +1,45 @@
-export interface IMenuLinkProps {
-  key: number;
-  imageSrc: string;
-  href: string;
-  text: string;
-}
+import BonusIcon from '@Public/images/pages/dashboard/left-aside/bonuses.svg';
+import DetailsIcon from '@Public/images/pages/dashboard/left-aside/details.svg';
+import DonationsIcon from '@Public/images/pages/dashboard/left-aside/donations.svg';
+import LogoutIcon from '@Public/images/pages/dashboard/left-aside/logout.svg';
+import RecipientsIcon from '@Public/images/pages/dashboard/left-aside/recipients.svg';
+import ReviewsIcon from '@Public/images/pages/dashboard/left-aside/reviews.svg';
+import SettingsIcon from '@Public/images/pages/dashboard/left-aside/settings.svg';
 
-export const mock: IMenuLinkProps[] = [
+export const mock = [
   {
-    key: 0,
-    imageSrc: '../../images/pages/dashboard/left-aside/details.svg',
+    Icon: DetailsIcon,
     href: '/dashboard/details',
     text: 'Мои данные',
   },
   {
-    key: 1,
-    imageSrc: '../../images/pages/dashboard/left-aside/donations.svg',
+    Icon: DonationsIcon,
     href: '/dashboard/donations',
     text: 'Мои донации',
   },
   {
-    key: 2,
-    imageSrc: '../../images/pages/dashboard/left-aside/reviews.svg',
+    Icon: ReviewsIcon,
     href: '/dashboard/reviews',
     text: 'Мои отзывы',
   },
   {
-    key: 3,
-    imageSrc: '../../images/pages/dashboard/left-aside/settings.svg',
+    Icon: SettingsIcon,
     href: '/dashboard/settings',
     text: 'Настройки',
   },
   {
-    key: 4,
-    imageSrc: '../../images/pages/dashboard/left-aside/bonuses.svg',
+    Icon: BonusIcon,
     href: '/dashboard/bonuses',
     text: 'Бонусы',
   },
   {
-    key: 5,
-    imageSrc: '../../images/pages/dashboard/left-aside/recipients.svg',
+    Icon: RecipientsIcon,
     href: '/dashboard/recipients',
     text: 'Реципиенты',
   },
   {
-    key: 6,
-    imageSrc: '../../images/pages/dashboard/left-aside/logout.svg',
-    href: '/dashboard/logout',
+    Icon: LogoutIcon,
+    href: '#',
     text: 'Выход',
   },
 ];

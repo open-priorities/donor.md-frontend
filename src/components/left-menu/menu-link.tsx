@@ -1,27 +1,34 @@
 import { Tooltip } from 'antd';
-import Image from 'next/image';
 import Link from 'next/link';
+import { memo } from 'react';
 
-import { IMenuLinkProps } from './mock';
 import { IconWrapper, LinkButton, MenuItem, Paragraph } from './styles';
 
-type WithButton = {
-  handleClick?: () => void;
+type MenuLinkType = {
+  Icon: JSX.Element;
+  href: string;
+  text: string;
+  active?: boolean;
+  onClick?: () => void;
 };
 
-type MenuLinkType = IMenuLinkProps & { active: boolean } & WithButton;
+export const MenuLink = memo(({ active = false, Icon, href, text, onClick }: MenuLinkType) => {
+  const handleClick = () => {
+    onClick?.();
+  };
 
-export const MenuLink = ({ active, imageSrc, href, text }: MenuLinkType) => (
-  <Link href={href} passHref>
-    <Tooltip title={text} placement='left'>
-      <MenuItem>
-        <LinkButton size='lg' active={active} variant='outline-primary'>
-          <IconWrapper>
-            <Image src={imageSrc} width={30} height={30} />
-          </IconWrapper>
-          <Paragraph>{text}</Paragraph>
-        </LinkButton>
-      </MenuItem>
-    </Tooltip>
-  </Link>
-);
+  return (
+    <Link href={href} passHref>
+      <Tooltip title={text} placement='left'>
+        <MenuItem onClick={handleClick}>
+          <LinkButton size='lg' active={active} variant='outline-primary'>
+            <IconWrapper>
+              <Icon width={30} height={30} />
+            </IconWrapper>
+            <Paragraph>{text}</Paragraph>
+          </LinkButton>
+        </MenuItem>
+      </Tooltip>
+    </Link>
+  );
+});

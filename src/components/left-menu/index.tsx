@@ -1,33 +1,35 @@
+import { useLogOut } from '@Hooks/useLogOut';
 import { useRouter } from 'next/dist/client/router';
-import { memo } from 'react';
-import { useRecoilState } from 'recoil';
+import { memo, useEffect, useState } from 'react';
 
-import { leftMenuAtom } from '../../store/atoms/left-menu-atom';
 import { ResponsiveLogo } from '../logo';
 import { MenuLink } from './menu-link';
 import { mock } from './mock';
 import { Aside, AsideWrapper, Menu } from './styles';
 
 export const LeftMenu = memo(({ image }: { image?: string }) => {
-  const [activeId, setActiveId] = useRecoilState(leftMenuAtom);
+  const [activeHref, setActiveHref] = useState('');
   const { pathname } = useRouter();
+  const { destroy } = useLogOut();
 
-  // eslint-disable-next-line no-console
-  console.log(pathname);
+  const menuCount = mock.length;
 
-  // useEffect(() => {
-  //   const activeMenu = mock.filter((item) => item.href === pathname)[0];
-  //   activeMenu.key && setActiveId(activeMenu.key);
-  // }, [pathname, setActiveId]);
+  useEffect(() => {
+    const activeMenu = mock.filter((item) => item.href === pathname)[0];
+    setActiveHref(activeMenu.href);
+  }, [pathname, setActiveHref]);
+
+  const [logout] = [...mock].splice(-1);
 
   return (
     <Aside image={image}>
       <AsideWrapper>
         <ResponsiveLogo />
         <Menu>
-          {mock.map((item, i) => (
-            <MenuLink active={i === activeId} {...item} handleClick={() => setActiveId(i)} />
+          {mock.slice(1, menuCount - 1).map((item) => (
+            <MenuLink {...item} key={item.text} active={item.href === activeHref} />
           ))}
+          <MenuLink {...logout} onClick={destroy} />
         </Menu>
       </AsideWrapper>
     </Aside>
