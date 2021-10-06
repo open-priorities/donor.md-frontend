@@ -1,4 +1,5 @@
 import { LeftMenu } from '@Components/left-menu';
+import { useAuth } from '@Hooks/useAuth';
 import { useRequireAuth } from '@Hooks/useRequireAuth';
 import { HeaderContentFooter } from '@Layouts/header-content-footer';
 import { Loading } from '@UI/loading';
@@ -13,7 +14,8 @@ type DashboardGridType = {
 };
 
 export const DashboardGrid: FC<DashboardGridType> = memo(({ children, className, leftImage }) => {
-  const { isLoading } = useRequireAuth();
+  const { isLoading } = useAuth();
+  useRequireAuth();
 
   if (isLoading)
     return (
