@@ -1,11 +1,11 @@
 import { getMonitoringData } from '@Queries/monitoring';
 import { useTypedQuery } from '@Queries/utils';
 import { Loading } from '@UI/loading';
-import { Paragraph, Title } from '@UI/typography';
+import { Title } from '@UI/typography';
 
 import { Section } from '../utils';
 import { BloodItem } from './blood-item';
-import { BloodList } from './styles';
+import { BloodList, ParagraphJustify } from './styles';
 
 export const Monitoring = () => {
   const { data, isLoading } = useTypedQuery('monitoring', getMonitoringData);
@@ -24,7 +24,10 @@ export const Monitoring = () => {
               <BloodItem key={item.group} {...item} />
             ))}
           </BloodList>
-          <Paragraph align='right'>По состоянию на: {data.dateUpdate}</Paragraph>
+          <ParagraphJustify align='left' color='textMuted'>
+            <span>Данные представлены отделением переливания крови г. Тирасполь</span>
+            <span>По состоянию на: {data.dateUpdate}</span>
+          </ParagraphJustify>
         </>
       )}
     </Section>
