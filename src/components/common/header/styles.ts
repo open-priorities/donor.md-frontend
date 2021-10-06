@@ -1,5 +1,5 @@
 import { Container } from '@Layouts/container';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const HeaderWrapper = styled.header`
   position: fixed;
@@ -54,6 +54,7 @@ export const Dot = styled.div<DotProps>`
 export declare type MenuListProps = {
   displayM?: string;
 };
+
 export const MenuList = styled.ul<MenuListProps>`
   display: ${({ displayM }) => displayM || 'none'};
   flex-direction: column;
@@ -75,3 +76,19 @@ export const MenuItem = styled.li`
     margin: 0 15px 0 0;
   }
 `;
+
+export const LinkAsButton = styled.a(
+  ({ theme }) => css`
+    color: ${theme.colors.white};
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: ${theme.colors.red};
+    border: 1px solid ${theme.colors.red};
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: ${theme.colors.red};
+      background: ${theme.colors.white};
+    }
+  `,
+);
