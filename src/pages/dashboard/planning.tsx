@@ -5,6 +5,7 @@ import { prepareError } from '@Helpers/prepare-error';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
 import { getOptions } from '@Queries/common';
 import { createPlanning } from '@Queries/planning';
+import { getUser } from '@Queries/user';
 import { useTypedMutation, useTypedQuery } from '@Queries/utils';
 import { Alert } from '@UI/alert';
 import { Button } from '@UI/button';
@@ -13,6 +14,8 @@ import { Input } from '@UI/form/input';
 import { Select } from '@UI/form/select';
 import { Paragraph, TitleWithArrow } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
+import { QueryClient } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
 import styled from 'styled-components';
 
 const times = ['8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00'] as const;
@@ -94,8 +97,13 @@ const DonationsPlanning = () => {
 export default DonationsPlanning;
 
 export const getServerSideProps = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery('user', getUser);
   return {
-    props: {},
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
   };
 };
 

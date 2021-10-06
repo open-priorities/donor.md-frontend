@@ -1,7 +1,6 @@
+import { Button } from '@UI/button';
+import { StyledLink } from '@UI/links';
 import styled from 'styled-components';
-
-import { Button } from '../../UI/button';
-import { StyledLink } from '../../UI/links';
 
 type ActionLayoutType = {
   btnText: string;

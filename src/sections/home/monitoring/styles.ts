@@ -1,4 +1,4 @@
-import { Title } from '@UI/typography';
+import { Paragraph } from '@UI/typography';
 import NextImage from 'next/image';
 import styled from 'styled-components';
 
@@ -14,9 +14,12 @@ export const BloodList = styled.div`
     grid-template-columns: repeat(8, 1fr);
   }
 `;
-export const BloodTitle = styled(Title)`
-  margin: 0;
-`;
+
 export const Image = styled(NextImage)<{ layout: string }>`
   margin-top: -5px;
+`;
+
+export const ParagraphJustify = styled(Paragraph)`
+  display: flex;
+  justify-content: space-between;
 `;

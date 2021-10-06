@@ -1,7 +1,7 @@
 import { BloodGroup } from '@core/donation';
 import { Title } from '@UI/typography';
 
-import { BloodTitle, Image } from './styles';
+import { Image } from './styles';
 
 interface IRule {
   few: number;
@@ -71,9 +71,9 @@ interface IProps {
 export const BloodItem = ({ group, quantity }: IProps) => {
   return (
     <div>
-      <BloodTitle as='h6' align='center' bold>
+      <Title as='h6' align='center' margin='0' bold>
         {group}
-      </BloodTitle>
+      </Title>
       <Image src={quantityImage({ quantity, group })} width={25} height={25} layout='responsive' />
       <Title as='h6' align='center' bold>
         {quantityText({ quantity, group })}

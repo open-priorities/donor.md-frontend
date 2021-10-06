@@ -39,6 +39,8 @@
 
 # v1.4.12 `DONE`
 
+> deadline oct 7
+
 > Fix small bugs
 
 - [x] fix build
@@ -57,11 +59,13 @@
 
 # v1.5.0_RC `TODO`
 
+> deadline oct 12 - 14
+
 > Increasing functionality
 
-- [ ] authentication
-- [ ] block with stats
-- [ ] avatar
+- [x] authentication 
+- [ ] block with stats (20%)
+- [ ] avatar (10%)
 - [ ] [BE] email notification
 - [ ] [BE] avatar
 - [ ] [BE] missing endpoint `top-donors`
@@ -71,14 +75,21 @@
 
 # v1.5.4 `TODO`
 
+> deadline oct 15 - 17
+
 > Fix small bugs
 
+- [x] fix mismatch monitoring section "Данные представлены отделением переливания крови г. Тирасполь"
+- [x] [BE] fix incorrect date in monitoring 
+- [x] link on header
 - [ ] buttons hover state
 - [ ] inputs hover state
 - [ ] checkbox hover state
 - [ ] link (anchor link all cases)
 
 # v1.6.0 `TODO`
+
+> deadline oct 18 - 20
 
 > SEO
 
@@ -88,6 +99,8 @@
 
 # 2.0.0 `TODO`
 
+> deadline xxx xx - xx
+
 > Admin dashboard
 
 - [ ] something
@@ -95,3 +108,13 @@
 - [ ] something
 - [ ] something
 
+# 2.1.0 `TODO`
+
+> deadline xxx xx - xx
+
+> Internalization
+
+- [ ] something
+- [ ] something
+- [ ] something
+- [ ] something

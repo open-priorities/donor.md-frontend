@@ -1,4 +1,3 @@
-import { Button } from '@UI/button';
 import { StyledLink } from '@UI/links';
 import { Popover } from 'antd';
 import Link from 'next/link';
@@ -6,7 +5,16 @@ import { useState } from 'react';
 
 import { Logo } from '../../logo';
 import { PopoverStyle } from './popover.style';
-import { Burder, Dot, HeaderGrid, HeaderWrapper, MenuItem, MenuList, MenuListProps } from './styles';
+import {
+  Burder,
+  Dot,
+  HeaderGrid,
+  HeaderWrapper,
+  LinkAsButton,
+  MenuItem,
+  MenuList,
+  MenuListProps,
+} from './styles';
 
 export const Header = () => {
   const [hide, setToggleOpen] = useState<boolean>(false);
@@ -46,11 +54,9 @@ const Menu = (props: MenuListProps) => (
       </Link>
     </MenuItem>
     <MenuItem>
-      <Button variant='danger'>
-        <Link href='/dashboard'>
-          <span color='white'>Кабинет донора</span>
-        </Link>
-      </Button>
+      <Link href='/dashboard'>
+        <LinkAsButton color='white'>Кабинет донора</LinkAsButton>
+      </Link>
     </MenuItem>
   </MenuList>
 );

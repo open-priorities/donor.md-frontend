@@ -1,4 +1,4 @@
-import { baseFetch } from '../core/services/fetch';
+import { baseFetch } from '@Services/fetch';
 
 export interface IFeedback {
   contact: string;

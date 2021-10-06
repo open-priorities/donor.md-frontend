@@ -1,9 +1,12 @@
 import { LeftMenu } from '@Components/left-menu';
+import { useAuth } from '@Hooks/useAuth';
+import { useRequireAuth } from '@Hooks/useRequireAuth';
+import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { Loading } from '@UI/loading';
 import { FC, memo } from 'react';
 import styled from 'styled-components';
 
 import RightMenu from '../../components/right-menu';
-// import { useAuth } from '../hooks/useAuth';
 
 type DashboardGridType = {
   leftImage?: string;
@@ -11,7 +14,17 @@ type DashboardGridType = {
 };
 
 export const DashboardGrid: FC<DashboardGridType> = memo(({ children, className, leftImage }) => {
-  // useAuth();
+  const { isLoading } = useAuth();
+  useRequireAuth();
+
+  if (isLoading)
+    return (
+      <HeaderContentFooter>
+        <Wrapper>
+          <Loading />
+        </Wrapper>
+      </HeaderContentFooter>
+    );
   return (
     <Main>
       <LeftMenu image={leftImage} />
@@ -33,4 +46,8 @@ const Main = styled.main`
 const Container = styled.section`
   padding: 50px 30px;
   width: 100%;
+`;
+
+const Wrapper = styled.div`
+  padding: 200px 0;
 `;

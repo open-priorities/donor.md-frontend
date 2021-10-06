@@ -2,6 +2,7 @@ import { ChangePassword } from '@Components/forms/dashboard/settings/change-pass
 import { ISettings } from '@core/settings';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
 import { getSettings, updateSettings } from '@Queries/settings';
+import { getUser } from '@Queries/user';
 import { useTypedMutation, useTypedQuery } from '@Queries/utils';
 import { Alert } from '@UI/alert';
 import { Button } from '@UI/button';
@@ -73,6 +74,7 @@ export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery('settings', getSettings);
+  await queryClient.prefetchQuery('user', getUser);
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

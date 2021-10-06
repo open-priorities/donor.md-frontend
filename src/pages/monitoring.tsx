@@ -1,4 +1,5 @@
 import { IMonitoringResponse } from '@core/monitoring';
+import { formatDate } from '@Helpers/converters';
 import { prepareError } from '@Helpers/prepare-error';
 import { Container } from '@Layouts/container';
 import { HeaderContentFooter } from '@Layouts/header-content-footer';
@@ -22,6 +23,8 @@ const Monitoring = () => {
     'monitoring',
     (payload: IMonitoringResponse) => updateMonitoringData(payload),
   );
+
+  const currentDate = formatDate(new Date());
 
   useEffect(() => {
     monitoringData?.values?.forEach((item) => {
@@ -58,7 +61,7 @@ const Monitoring = () => {
             <Input {...register('fullname')} />
           </FormItem>
           <FormItem help='Дата указывается автоматически' label='Дата ввода информации' columns={2}>
-            <Input placeholder='Дата указывается автоматически' disabled />
+            <Input placeholder='Дата указывается автоматически' disabled value={currentDate} />
           </FormItem>
           <StyledDivider />
           <Paragraph align='left'>
@@ -66,7 +69,6 @@ const Monitoring = () => {
           </Paragraph>
           <TableForm>
             <Row>
-              <div>&nbsp;</div>
               <Title as='h5' bold align='center'>
                 O(I)
               </Title>
