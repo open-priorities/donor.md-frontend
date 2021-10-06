@@ -106,10 +106,20 @@ export const SignUpForm = ({ onChangeState }: Props) => {
         <Input placeholder='Укажите номер телефона' {...register('phoneMobile', validate)} />
       </FormItem>
       <FormItem error={errors.email?.message}>
-        <Input placeholder='Укажите email' type='email' {...register('email', validate)} />
+        <Input
+          placeholder='Укажите email'
+          type='email'
+          autoComplete='email'
+          {...register('email', validate)}
+        />
       </FormItem>
       <FormItem error={errors.password?.message}>
-        <Input type='password' placeholder='Укажите пароль' {...register('password', validate)} />
+        <Input
+          type='password'
+          autoComplete='new-password'
+          placeholder='Укажите пароль'
+          {...register('password', validate)}
+        />
       </FormItem>
       <FormItem>
         <FormItemCheckbox>

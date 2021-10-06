@@ -1,4 +1,4 @@
-import { emailRegex } from '@Constants/regex';
+import { emailField, requiredField } from '@Helpers/form-validate';
 import { prepareError } from '@Helpers/prepare-error';
 import { signIn, signInType } from '@Queries/user';
 import { useTypedMutation } from '@Queries/utils';
@@ -59,12 +59,10 @@ export const SignInForm = ({ onChangeState }: { onChangeState: onChangeState }) 
       <FormItem columns={1} error={errors?.email?.message}>
         <Input
           placeholder='Введите email'
+          autoComplete='username'
           {...register('email', {
-            required: 'Обязательное поле',
-            pattern: {
-              value: emailRegex,
-              message: 'Введите email',
-            },
+            ...requiredField,
+            ...emailField,
           })}
         />
       </FormItem>
@@ -72,8 +70,9 @@ export const SignInForm = ({ onChangeState }: { onChangeState: onChangeState }) 
         <Input
           placeholder='Введите пароль'
           type='password'
+          autoComplete='current-password'
           {...register('password', {
-            required: 'Обязательное поле',
+            ...requiredField,
             minLength: {
               value: 8,
               message: 'Пароль должен быть больше 8 символов',
