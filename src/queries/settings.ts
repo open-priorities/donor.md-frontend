@@ -1,5 +1,5 @@
-import { IChangePassword, ISettings } from '../core/interfaces/settings';
-import { baseFetch } from '../core/services/fetch';
+import { IChangePassword, ISettings } from '@core/settings';
+import { baseFetch } from '@Services/fetch';
 
 export const getSettings = async () => {
   const { data } = await baseFetch<ISettings | null>({

@@ -1,5 +1,5 @@
-import { IOptions } from '../core/interfaces/IIterableStruct';
-import { baseFetch } from '../core/services/fetch';
+import { IOptions } from '@core/IIterableStruct';
+import { baseFetch } from '@Services/fetch';
 
 const groupType = [
   'cities',

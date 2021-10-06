@@ -1,5 +1,5 @@
-import { IPlanning } from '../core/interfaces/planning';
-import { baseFetch } from '../core/services/fetch';
+import { IPlanning } from '@core/planning';
+import { baseFetch } from '@Services/fetch';
 
 export const getPlanning = async () => {
   const { data } = await baseFetch<IPlanning[]>({

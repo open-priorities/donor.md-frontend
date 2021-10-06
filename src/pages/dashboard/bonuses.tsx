@@ -1,6 +1,7 @@
 import { PartnerOfferCard } from '@Components/partner-offer-card';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
 import { getBonuses } from '@Queries/bonuses';
+import { getUser } from '@Queries/user';
 import { useTypedQuery } from '@Queries/utils';
 import { Loading } from '@UI/loading';
 import { Paragraph, TitleWithArrow } from '@UI/typography';
@@ -32,6 +33,7 @@ export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery('bonuses', getBonuses);
+  await queryClient.prefetchQuery('user', getUser);
 
   return {
     props: {

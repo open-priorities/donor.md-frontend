@@ -1,7 +1,10 @@
 import { ReviewForm } from '@Components/forms/dashboard/review';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
+import { getUser } from '@Queries/user';
 import { Divider } from '@UI/other';
 import { Paragraph, Title, TitleWithArrow } from '@UI/typography';
+import { QueryClient } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
 
 const ReviewsAdd = () => {
   return (
@@ -24,7 +27,12 @@ const ReviewsAdd = () => {
 export default ReviewsAdd;
 
 export const getServerSideProps = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery('user', getUser);
   return {
-    props: {},
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
   };
 };

@@ -1,6 +1,6 @@
-import { apiV1 } from '../core/constants/url';
-import { IQuestion, IQuestionnaireStory } from '../core/interfaces/question';
-import { baseFetch } from '../core/services/fetch';
+import { apiV1 } from '@Constants/url';
+import { IQuestion, IQuestionnaireStory } from '@core/question';
+import { baseFetch } from '@Services/fetch';
 
 export const getQuestionnaire = async () => {
   const { data } = await baseFetch<IQuestion[]>({ url: `${apiV1}/questionnaire` });

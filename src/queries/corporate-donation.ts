@@ -1,5 +1,5 @@
-import { ICorporateDonation } from '../core/interfaces/donation';
-import { baseFetch } from '../core/services/fetch';
+import { ICorporateDonation } from '@core/donation';
+import { baseFetch } from '@Services/fetch';
 
 export const getCorporateDonations = async () => {
   const { data } = await baseFetch<ICorporateDonation[]>({

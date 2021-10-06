@@ -1,10 +1,9 @@
+import { formatDate } from '@Helpers/converters';
+import { Button } from '@UI/button';
+import { Paragraph, Title } from '@UI/typography';
 import ImageNext from 'next/image';
 import { memo } from 'react';
 import styled from 'styled-components';
-
-import { formatDate } from '../core/helpers/converters';
-import { Button } from './UI/button';
-import { Paragraph, Title } from './UI/typography';
 
 type PartnerOfferCardType = {
   src: string;

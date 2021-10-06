@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import { onChangeState } from './types';
 import { ActionLayout } from './utils';
 
-declare type Props = { onChangeState: onChangeState };
+type Props = { onChangeState: onChangeState };
 
 export const RecoveryForm = ({ onChangeState }: Props) => {
   const { register, handleSubmit } = useForm({

@@ -13,6 +13,8 @@ import { Input } from '@UI/form/input';
 import { Select } from '@UI/form/select';
 import { TitleWithArrow } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
+import { QueryClient } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
 import styled from 'styled-components';
 
 const Donations = () => {
@@ -121,8 +123,13 @@ const Donations = () => {
 export default Donations;
 
 export const getServerSideProps = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery('user', getUser);
   return {
-    props: {},
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
   };
 };
 

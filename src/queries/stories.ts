@@ -1,5 +1,5 @@
-import { IDonorStory } from '../core/interfaces/story';
-import { baseFetch } from '../core/services/fetch';
+import { IDonorStory } from '@core/story';
+import { baseFetch } from '@Services/fetch';
 
 export const getStories = async () => {
   const { data } = await baseFetch<IDonorStory[]>({

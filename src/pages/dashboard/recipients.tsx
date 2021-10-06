@@ -2,6 +2,7 @@ import { RecipientCard } from '@Components/recipient-card';
 import { prepareError } from '@Helpers/prepare-error';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
 import { getRecipients } from '@Queries/recipients';
+import { getUser } from '@Queries/user';
 import { useTypedQuery } from '@Queries/utils';
 import { Alert } from '@UI/alert';
 import { Loading } from '@UI/loading';
@@ -36,6 +37,7 @@ export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery('recipients', getRecipients);
+  await queryClient.prefetchQuery('user', getUser);
 
   return {
     props: {
