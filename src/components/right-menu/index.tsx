@@ -1,58 +1,67 @@
-import Add from '../../../public/images/pages/dashboard/right-aside/add-donation.svg';
-import Question from '../../../public/images/pages/dashboard/right-aside/question.svg';
-import Schedule from '../../../public/images/pages/dashboard/right-aside/schedule-donation.svg';
-import Support from '../../../public/images/pages/dashboard/right-aside/support-project.svg';
-// import { DonorInfo } from '../donor-info';
-// import { Loading } from '../UI/loading';
-import { MenuLink, MenuLinkType } from './menu-link';
-import { Aside, AsideWrapper, Menu } from './styles';
-// import DonorProgress from '../donor-progress';
-// import DonorCard from '../donor-card';
+import Add from '@Public/images/pages/dashboard/right-aside/add-donation.svg';
+import Question from '@Public/images/pages/dashboard/right-aside/question.svg';
+import Schedule from '@Public/images/pages/dashboard/right-aside/schedule-donation.svg';
+import Support from '@Public/images/pages/dashboard/right-aside/support-project.svg';
+import styled, { css } from 'styled-components';
 
-const menu: MenuLinkType[] = [
+import { DonorCard } from '../donor-card';
+import { DonorInfo } from '../donor-info';
+import { DonorProgress } from '../donor-progress';
+import { MenuLink } from './menu-link';
+
+const mock = [
   {
-    key: 1,
-    Icon: Schedule,
+    icon: <Schedule />,
     href: '/dashboard/details',
-    text: 'Запланировать донацию',
+    text: 'Запланировать Донацию',
   },
   {
-    key: 2,
-    Icon: Add,
+    icon: <Add />,
     href: '/dashboard/donations',
-    text: 'Добавить донацию',
+    text: 'Добавить Донацию',
   },
   {
-    key: 3,
-    Icon: Question,
+    icon: <Question />,
     href: '/dashboard/reviews',
-    text: 'Ваш отзыв / вопрос',
+    text: 'Ваш отзыв / Вопрос',
   },
   {
-    key: 4,
-    Icon: Support,
+    icon: <Support />,
     href: '/support-project',
-    text: 'Поддержать проект',
+    text: 'Поддержать Проект',
   },
 ];
 
-const RightMenu = () => {
-  // const [name, lastname] = auth?.user?.fullname.split(' ');
-
+export const RightMenu = () => {
   return (
     <Aside>
-      <AsideWrapper>
-        {/* <DonorInfo name={name} lastname={lastname} honorary={auth.user.honorary} /> */}
-        {/* <DonorCard />
-      <DonorProgress /> */}
-        <Menu>
-          {menu.map((link) => (
-            <MenuLink {...link} />
-          ))}
-        </Menu>
-      </AsideWrapper>
+      <DonorInfo />
+      <DonorCard />
+      <DonorProgress />
+      <Menu>
+        {mock.map((link) => (
+          <MenuLink key={link.href} {...link} />
+        ))}
+      </Menu>
     </Aside>
   );
 };
 
-export default RightMenu;
+const Aside = styled.aside(
+  ({ theme }) => css`
+    display: none;
+    padding: 45px;
+    background: ${theme.colors.primary};
+    max-width: 460px;
+
+    @media (min-width: 992px) {
+      display: block;
+    }
+  `,
+);
+
+const Menu = styled.ul`
+  margin-top: 30px;
+  list-style-type: none;
+  padding: 0;
+`;

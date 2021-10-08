@@ -1,44 +1,44 @@
-import Image from 'next/image';
-import { memo } from 'react';
+import { userAtom } from '@Store/atoms/user-atom';
+import { Avatar } from '@UI/avatar';
+import { Paragraph, Title } from '@UI/typography';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
-import { Paragraph, Title } from './UI/typography';
+export const DonorInfo = () => {
+  const user = useRecoilValue(userAtom);
 
-type DonorInfoType = {
-  honorary: boolean;
-  name: string;
-  lastname: string;
-};
+  if (!user) return null;
 
-export const DonorInfo = memo(({ honorary, name, lastname }: DonorInfoType) => {
+  const [name, lastname] = user.fullname.split(' ');
+
   return (
     <Layer>
-      <ImageWrapper>
-        <Image src='/stub.svg' width={50} height={50} layout='responsive' />
-      </ImageWrapper>
-      <div>
-        <Title as='h4' bold>
+      <Avatar src={user.avatar} fullname={user.fullname} />
+      <UserText>
+        <Title as='h3' margin='0 0 0 0' bold>
           {name}
         </Title>
-        <Title as='h4' bold>
+        <Title as='h3' margin='0 0 0 0' bold>
           {lastname}
         </Title>
-        {honorary && <Paragraph>почетный донор</Paragraph>}
-      </div>
+        {user.honorary && (
+          <Paragraph size='1.375rem' margin='0 0 0 0'>
+            почетный донор
+          </Paragraph>
+        )}
+      </UserText>
     </Layer>
   );
-});
+};
 
 const Layer = styled.div`
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 50px;
 `;
 
-const ImageWrapper = styled.div`
-  margin-right: 15px;
-  width: 75px;
-  height: 75px;
-  border-radius: ${({ theme }) => theme.radius};
-  border: ${({ theme }) => `1px solid ${theme.colors.red}`};
-  overflow: hidden;
+const UserText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-left: 20px;
 `;

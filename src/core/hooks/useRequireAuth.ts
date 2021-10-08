@@ -1,3 +1,4 @@
+import { storage } from '@Services/storage';
 import { userAtom } from '@Store/atoms/user-atom';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect } from 'react';
@@ -8,7 +9,8 @@ export const useRequireAuth = (rejectUrl = '/auth') => {
   const user = useRecoilValue(userAtom);
 
   useEffect(() => {
-    if (!user) {
+    const isTokenExist = storage.get('token');
+    if (!user && !isTokenExist) {
       push(rejectUrl);
     }
   }, [push, rejectUrl, user]);

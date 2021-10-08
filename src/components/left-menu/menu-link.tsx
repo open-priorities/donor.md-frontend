@@ -5,14 +5,14 @@ import { memo } from 'react';
 import { IconWrapper, LinkButton, MenuItem, Paragraph } from './styles';
 
 type MenuLinkType = {
-  Icon: JSX.Element;
+  icon: JSX.Element;
   href: string;
   text: string;
   active?: boolean;
   onClick?: () => void;
 };
 
-export const MenuLink = memo(({ active = false, Icon, href, text, onClick }: MenuLinkType) => {
+export const MenuLink = memo(({ active = false, icon, href, text, onClick }: MenuLinkType) => {
   const handleClick = () => {
     onClick?.();
   };
@@ -22,9 +22,7 @@ export const MenuLink = memo(({ active = false, Icon, href, text, onClick }: Men
       <Tooltip title={text} placement='left'>
         <MenuItem onClick={handleClick}>
           <LinkButton size='lg' active={active} variant='outline-primary'>
-            <IconWrapper>
-              <Icon width={30} height={30} />
-            </IconWrapper>
+            <IconWrapper>{icon}</IconWrapper>
             <Paragraph>{text}</Paragraph>
           </LinkButton>
         </MenuItem>
