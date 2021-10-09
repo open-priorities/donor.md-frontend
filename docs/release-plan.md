@@ -67,7 +67,7 @@
 - [x] block with stats
 - [x] avatar
 
-# v1.5.9 `IN PROGRESS`
+# v1.5.10 `IN PROGRESS`
 
 > deadline oct 15 - 17
 
@@ -75,7 +75,10 @@
 
 - [x] fix mismatch monitoring section "Данные представлены отделением переливания крови г. Тирасполь"
 - [x] link on header
+- [ ] margin on Title in dashboard
+- [ ] fix mismatch design in dashboard
 - [ ] fix tag-links on details page
+- [ ] fix button links on page `/dashboard/donations` 
 - [ ] buttons hover state
 - [ ] inputs hover state
 - [ ] checkbox hover state
