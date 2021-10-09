@@ -57,31 +57,28 @@
 - [x] main page feedback form add alert message «Спасибо, что написали нам. Ваш запрос на рассмотрении»
 
 
-# v1.5.0_RC `TODO`
+# v1.5.0_RC `DONE`
 
 > deadline oct 12 - 14
 
 > Increasing functionality
 
 - [x] authentication 
-- [ ] block with stats (20%)
-- [ ] avatar (10%)
-- [ ] [BE] email notification
-- [ ] [BE] avatar
-- [ ] [BE] missing endpoint `top-donors`
-- [ ] [BE] missing endpoint `become-volunteer`
-- [ ] [BE] missing endpoint `donor-search` (work with avatar and formdata)
+- [x] block with stats
+- [x] avatar
 
-
-# v1.5.4 `TODO`
+# v1.5.10 `IN PROGRESS`
 
 > deadline oct 15 - 17
 
 > Fix small bugs
 
 - [x] fix mismatch monitoring section "Данные представлены отделением переливания крови г. Тирасполь"
-- [x] [BE] fix incorrect date in monitoring 
 - [x] link on header
+- [ ] margin on Title in dashboard
+- [ ] fix mismatch design in dashboard
+- [ ] fix tag-links on details page
+- [ ] fix button links on page `/dashboard/donations` 
 - [ ] buttons hover state
 - [ ] inputs hover state
 - [ ] checkbox hover state

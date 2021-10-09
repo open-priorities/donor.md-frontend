@@ -13,7 +13,7 @@ export interface IUser {
   dateBirth: string;
   creationDate: string;
   honorary: boolean;
-  avatar: string;
+  avatar: string | null;
 }
 
 export interface IUserWithToken extends IUser {

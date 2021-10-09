@@ -8,37 +8,37 @@ import SettingsIcon from '@Public/images/pages/dashboard/left-aside/settings.svg
 
 export const mock = [
   {
-    Icon: DetailsIcon,
+    icon: <DetailsIcon />,
     href: '/dashboard/details',
     text: 'Мои данные',
   },
   {
-    Icon: DonationsIcon,
+    icon: <DonationsIcon />,
     href: '/dashboard/donations',
     text: 'Мои донации',
   },
   {
-    Icon: ReviewsIcon,
+    icon: <ReviewsIcon />,
     href: '/dashboard/reviews',
     text: 'Мои отзывы',
   },
   {
-    Icon: SettingsIcon,
+    icon: <SettingsIcon />,
     href: '/dashboard/settings',
     text: 'Настройки',
   },
   {
-    Icon: BonusIcon,
+    icon: <BonusIcon />,
     href: '/dashboard/bonuses',
     text: 'Бонусы',
   },
   {
-    Icon: RecipientsIcon,
+    icon: <RecipientsIcon />,
     href: '/dashboard/recipients',
     text: 'Реципиенты',
   },
   {
-    Icon: LogoutIcon,
+    icon: <LogoutIcon />,
     href: '#',
     text: 'Выход',
   },
