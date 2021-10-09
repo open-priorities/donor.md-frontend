@@ -126,21 +126,13 @@ module.exports = {
     // PropTypes
     'react/prop-types': 'off',
     // A11y
-    'jsx-a11y/label-has-associated-control': 'off',
-    'jsx-a11y/label-has-for': [
+    'jsx-a11y/label-has-associated-control': [
       2,
       {
-        required: {
-          every: ['id'],
-        },
-      },
-    ],
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      {
-        components: ['Link'],
-        specialLink: ['to'],
-        aspects: ['invalidHref'],
+        labelComponents: ['CustomInputLabel'],
+        labelAttributes: ['label'],
+        controlComponents: ['CustomInput'],
+        depth: 3,
       },
     ],
     // For hooks

@@ -1,10 +1,9 @@
+import { Button } from '@UI/button';
 import styled from 'styled-components';
-
-import { Button } from '../UI/button';
 
 export const Aside = styled.aside<{ image?: string }>`
   display: none;
-  padding: 25px;
+  padding: 45px;
   background: white;
   border-right: 1px solid ${({ theme }) => theme.colors.redDiluted};
 
@@ -14,7 +13,7 @@ export const Aside = styled.aside<{ image?: string }>`
 
   @media (min-width: ${({ theme }) => theme.media.xl}) {
     padding: 25px 30px;
-    background-image: ${({ image }) => `url(${image})`};
+    background-image: ${({ image }) => image && `url(${image})`};
     background-size: 100% 24vw;
     background-repeat: no-repeat;
     background-position: left bottom;
@@ -22,7 +21,7 @@ export const Aside = styled.aside<{ image?: string }>`
 `;
 
 export const AsideWrapper = styled.div`
-  top: 25px;
+  top: 45px;
   position: sticky;
 `;
 

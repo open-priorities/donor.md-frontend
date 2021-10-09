@@ -1,12 +1,11 @@
 import { LeftMenu } from '@Components/left-menu';
+import { RightMenu } from '@Components/right-menu';
 import { useAuth } from '@Hooks/useAuth';
 import { useRequireAuth } from '@Hooks/useRequireAuth';
 import { HeaderContentFooter } from '@Layouts/header-content-footer';
 import { Loading } from '@UI/loading';
 import { FC, memo } from 'react';
 import styled from 'styled-components';
-
-import RightMenu from '../../components/right-menu';
 
 type DashboardGridType = {
   leftImage?: string;

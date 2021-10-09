@@ -1,7 +1,6 @@
+import { hexToRGB } from '@Helpers/converters';
 import { forwardRef, InputHTMLAttributes, useState } from 'react';
 import styled, { css } from 'styled-components';
-
-import { hexToRGB } from '../../../core/helpers/converters';
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
