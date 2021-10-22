@@ -1,18 +1,17 @@
 import { IReview } from '@core/review';
 import { getOptions } from '@Queries/common';
 import { createReview } from '@Queries/review';
+import { useTypedMutation, useTypedQuery } from '@Queries/utils';
 import { Alert } from '@UI/alert';
+import { Button } from '@UI/button';
+import { Divider } from '@UI/dilider';
+import { Form, FormItem } from '@UI/form/form-item';
+import { Select } from '@UI/form/select';
+import { TextArea } from '@UI/form/textarea';
+import { Slider } from '@UI/slider';
+import { Title } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
 import styled from 'styled-components';
-
-import { useTypedMutation, useTypedQuery } from '../../../queries/utils';
-import { Button } from '../../UI/button';
-import { Form, FormItem } from '../../UI/form/form-item';
-import { Select } from '../../UI/form/select';
-import { TextArea } from '../../UI/form/textarea';
-import { Divider } from '@UI/dilider';
-import { Slider } from '../../UI/slider';
-import { Title } from '../../UI/typography';
 
 const marks = {
   0: '0',

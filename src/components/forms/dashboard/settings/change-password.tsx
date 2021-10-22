@@ -4,9 +4,9 @@ import { updatePassword } from '@Queries/settings';
 import { useTypedMutation } from '@Queries/utils';
 import { Alert } from '@UI/alert';
 import { Button } from '@UI/button';
+import { Divider } from '@UI/dilider';
 import { Form, FormItem } from '@UI/form/form-item';
 import { Input } from '@UI/form/input';
-import { Divider } from '@UI/dilider';
 import { useForm } from 'react-hook-form';
 
 export const ChangePassword = () => {

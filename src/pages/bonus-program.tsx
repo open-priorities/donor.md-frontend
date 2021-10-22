@@ -2,9 +2,9 @@ import { ArticleCards } from '@Components/article-cards';
 import { Container } from '@Layouts/container';
 import { HeaderContentFooter } from '@Layouts/header-content-footer';
 import { Alert } from '@UI/alert';
+import { Divider } from '@UI/dilider';
 import { StyledLink } from '@UI/links';
 import { ListWithCheck } from '@UI/list-with-check';
-import { Divider } from '@UI/dilider';
 import { Paragraph, Title } from '@UI/typography';
 import Link from 'next/link';
 
