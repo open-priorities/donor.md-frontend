@@ -4,7 +4,7 @@ import { Alert } from '@UI/alert';
 import { Button } from '@UI/button';
 import { Form, FormItem } from '@UI/form/form-item';
 import { TextArea } from '@UI/form/textarea';
-import { Divider } from '@UI/other';
+import { Divider } from '@UI/dilider';
 import { Paragraph, Title } from '@UI/typography';
 import { useForm } from 'react-hook-form';
 

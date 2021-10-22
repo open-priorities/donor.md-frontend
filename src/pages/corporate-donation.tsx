@@ -11,7 +11,7 @@ import { Checkbox } from '@UI/form/checkbox';
 import { Form, FormItem } from '@UI/form/form-item';
 import { Input } from '@UI/form/input';
 import { StyledLink } from '@UI/links';
-import { Divider } from '@UI/other';
+import { Divider } from '@UI/dilider';
 import { Paragraph, Title } from '@UI/typography';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';

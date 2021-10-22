@@ -1,16 +1,16 @@
+import { IRecipient } from '@core/recipient';
+import { formatDate, yearOrYears } from '@Helpers/converters';
+import { getOptions } from '@Queries/common';
+import { useTypedQuery } from '@Queries/utils';
+import { Button } from '@UI/button';
+import { Loading } from '@UI/loading';
+import { Paragraph, Title } from '@UI/typography';
 import ImageNext from 'next/image';
 import { memo } from 'react';
 import styled from 'styled-components';
 
 import HeartIcon from '../../public/images/icons/heart+.svg';
-import { formatDate, yearOrYears } from '../core/helpers/converters';
-import { IRecipient } from '../core/interfaces/recipient';
-import { getOptions } from '../queries/common';
-import { useTypedQuery } from '../queries/utils';
 import { Rate } from './rate';
-import { Button } from './UI/button';
-import { Loading } from './UI/loading';
-import { Paragraph, Title } from './UI/typography';
 
 type RecipientCardType = Pick<IRecipient, 'recipient'>;
 

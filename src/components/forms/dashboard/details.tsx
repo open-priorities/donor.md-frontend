@@ -9,7 +9,7 @@ import { Checkbox } from '@UI/form/checkbox';
 import { Form, FormItem } from '@UI/form/form-item';
 import { Input } from '@UI/form/input';
 import { Select } from '@UI/form/select';
-import { Divider } from '@UI/other';
+import { Divider } from '@UI/dilider';
 import { Title } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
 import { useRecoilValue } from 'recoil';

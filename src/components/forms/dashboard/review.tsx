@@ -10,7 +10,7 @@ import { Button } from '../../UI/button';
 import { Form, FormItem } from '../../UI/form/form-item';
 import { Select } from '../../UI/form/select';
 import { TextArea } from '../../UI/form/textarea';
-import { Divider } from '../../UI/other';
+import { Divider } from '@UI/dilider';
 import { Slider } from '../../UI/slider';
 import { Title } from '../../UI/typography';
 

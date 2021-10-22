@@ -1,7 +1,7 @@
+import { IOptions } from '@core/IIterableStruct';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { IOptions } from '../../core/interfaces/IIterableStruct';
 import { Button } from './button';
 
 type ButtonGroupType = {

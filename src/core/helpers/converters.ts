@@ -2,7 +2,7 @@ export const bytesToMegabytes = (value: number, round = 2) => {
   return +(value / 1024 / 1024).toFixed(round);
 };
 
-export const formatDate = (date: Date) => `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+export const formatDate = (date: Date) => date.toLocaleDateString();
 
 export const yearOrYears = (age: number) => {
   if (age % 2 === 0 || age % 3 === 0 || age % 4 === 0) return 'года';

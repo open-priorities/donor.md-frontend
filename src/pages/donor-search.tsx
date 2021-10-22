@@ -13,7 +13,7 @@ import { Input } from '@UI/form/input';
 import { Select } from '@UI/form/select';
 import { TextArea } from '@UI/form/textarea';
 import { StyledLink } from '@UI/links';
-import { Divider } from '@UI/other';
+import { Divider } from '@UI/dilider';
 import { Paragraph, Title } from '@UI/typography';
 import Link from 'next/link';
 import { useRef } from 'react';

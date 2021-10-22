@@ -7,7 +7,7 @@ import { Alert } from '@UI/alert';
 import { Button } from '@UI/button';
 import { Form } from '@UI/form/form-item';
 import { Loading } from '@UI/loading';
-import { Divider } from '@UI/other';
+import { Divider } from '@UI/dilider';
 import { Title } from '@UI/typography';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';

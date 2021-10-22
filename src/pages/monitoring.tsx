@@ -9,7 +9,7 @@ import { Alert } from '@UI/alert';
 import { Button } from '@UI/button';
 import { FormItem } from '@UI/form/form-item';
 import { Input } from '@UI/form/input';
-import { Divider } from '@UI/other';
+import { Divider } from '@UI/dilider';
 import { Paragraph, Title } from '@UI/typography';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
