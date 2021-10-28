@@ -50,17 +50,17 @@ export const RecipientCard = memo(({ recipient }: RecipientCardType) => {
     <Card>
       <Image src='/images/avatars/women.png' width={100} height={100} layout='fixed' />
       <One>
-        <Title as='h3' margin='10px' bold>
+        <Title as='h3' margin='0 0 10px 0' bold>
           {fullname}
           &nbsp;
           <Paragraph as='span' color='textMuted'>
             {years} {yearOrYears(years)}
           </Paragraph>
         </Title>
-        <Title as='h4' margin='10px'>
+        <Title as='h4' margin='0 0 10px 0'>
           {userBlood}
         </Title>
-        <Title as='h4' margin='10px' color='black'>
+        <Title as='h4' margin='0 0 10px 0' color='black'>
           {disease}
         </Title>
       </One>

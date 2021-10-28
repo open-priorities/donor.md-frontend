@@ -15,14 +15,14 @@ export const DonorInfo = () => {
     <Layer>
       <Avatar src={user.avatar} fullname={user.fullname} />
       <UserText>
-        <Title as='h3' margin='0 0 0 0' bold>
+        <Title as='h3' margin='0' bold>
           {name}
         </Title>
-        <Title as='h3' margin='0 0 0 0' bold>
+        <Title as='h3' margin='0' bold>
           {lastname}
         </Title>
         {user.honorary && (
-          <Paragraph size='1.375rem' margin='0 0 0 0'>
+          <Paragraph size='1.375rem' margin='0'>
             почетный донор
           </Paragraph>
         )}

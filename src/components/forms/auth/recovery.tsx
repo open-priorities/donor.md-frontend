@@ -29,7 +29,7 @@ export const RecoveryForm = ({ onChangeState }: Props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Title as='h2' margin='15px'>
+      <Title as='h2' margin='0 0 15px 0'>
         Восстановление доступа
       </Title>
       <FormItem columns={1}>
