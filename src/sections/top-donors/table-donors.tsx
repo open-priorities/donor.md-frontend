@@ -1,7 +1,6 @@
 import { getTopDonors } from '@Queries/getTopDonors';
 import { useTypedQuery } from '@Queries/utils';
 import { activeIdAtom } from '@Store/atoms/active-id-atom';
-import { StyledLink } from '@UI/links';
 import { Title } from '@UI/typography';
 import { Table as AntTable } from 'antd';
 import { useRecoilValue } from 'recoil';
@@ -9,10 +8,14 @@ import styled, { css } from 'styled-components';
 
 const columns = [
   {
-    title: '',
-    dataIndex: 'key',
-    key: 'key',
-    render: (item: number) => <Count>{item}</Count>,
+    title: '№',
+    dataIndex: '_id',
+    key: '_id',
+    render: (_: any, __: any, index: number) => (
+      <CounterWrapper>
+        <Count>{index + 1}</Count>
+      </CounterWrapper>
+    ),
   },
   {
     title: 'Имя',
@@ -21,11 +24,11 @@ const columns = [
     render(item: string) {
       const [name, lastname] = item.split(' ');
       return (
-        <Link>
+        <Span>
           {name}
           <br />
           {lastname}
-        </Link>
+        </Span>
       );
     },
   },
@@ -59,7 +62,9 @@ const columns = [
 export const TableDonors = () => {
   const sexId = useRecoilValue(activeIdAtom('top-donors'));
 
-  const { data, isLoading } = useTypedQuery('stories', () => getTopDonors(sexId), {});
+  const { data, isLoading } = useTypedQuery(['user', 'stories'], () => getTopDonors(sexId), {
+    enabled: !!sexId,
+  });
 
   return <Table columns={columns} dataSource={data} loading={isLoading} pagination={false} />;
 };
@@ -98,14 +103,13 @@ const Table = styled(AntTable)(
     && .ant-table-tbody > tr.ant-table-row:hover > td {
       background: #fafafa8a;
     }
-
-    @media (min-width: 992px) {
-      & .ant-table {
-        overflow-x: hidden;
-      }
-    }
   `,
 );
+
+const CounterWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const Count = styled.div(
   ({ theme }) => css`
@@ -123,7 +127,7 @@ const Count = styled.div(
   `,
 );
 
-const Link = styled(StyledLink)`
+const Span = styled.span`
   color: black;
   text-decoration: underline;
 `;
