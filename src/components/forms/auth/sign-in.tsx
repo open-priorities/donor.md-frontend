@@ -53,7 +53,7 @@ export const SignInForm = ({ onChangeState }: { onChangeState: onChangeState }) 
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Title as='h2' margin='15px'>
+      <Title as='h2' margin='0 0 15px 0'>
         Авторизация
       </Title>
       <FormItem columns={1} error={errors?.email?.message}>

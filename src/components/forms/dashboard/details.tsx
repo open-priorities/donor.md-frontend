@@ -87,7 +87,7 @@ export const DetailsForm = () => {
         />
       </FormItem>
       <Divider />
-      <Title as='h4' margin='30px' bold>
+      <Title as='h4' margin='0 0 30px 0' bold>
         Корпоративное донорство
       </Title>
       <FormItem columns={2}>
@@ -114,7 +114,7 @@ export const DetailsForm = () => {
         />
       </FormItem>
       <Divider />
-      <Title as='h4' margin='30px' bold>
+      <Title as='h4' margin='0 0 30px 0' bold>
         Ваши контакты
       </Title>
       <FormItem columns={2} label='Ваш email-адрес' required>

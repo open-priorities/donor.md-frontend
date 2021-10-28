@@ -1,9 +1,11 @@
+import { useAuth } from '@Hooks/useAuth';
 import { useRequireAuth } from '@Hooks/useRequireAuth';
 import { HeaderContentFooter } from '@Layouts/header-content-footer';
 import { Loading } from '@UI/loading';
 import styled from 'styled-components';
 
 const Dashboard = () => {
+  useAuth();
   useRequireAuth();
 
   return (
