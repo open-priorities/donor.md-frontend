@@ -1,7 +1,6 @@
+import { Title } from '@UI/typography';
 import Image from 'next/image';
 import styled from 'styled-components';
-
-import { Title } from './UI/typography';
 
 type ArticleCardsType = {
   articles: {

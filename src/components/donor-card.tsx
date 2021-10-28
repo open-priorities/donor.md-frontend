@@ -1,4 +1,4 @@
-import { Title } from '@UI/typography';
+import { Paragraph, Title } from '@UI/typography';
 import styled, { css } from 'styled-components';
 
 export const DonorCard = () => {
@@ -11,7 +11,10 @@ export const DonorCard = () => {
           Мои Донации
         </Title>
         <Title as='h4' color='white' margin='0'>
-          <Bold>42</Bold> - реципиента получили помощь
+          <Paragraph margin='0' bold>
+            42
+          </Paragraph>{' '}
+          - реципиента получили помощь
         </Title>
       </Centered>
     </DonorCardWrapper>
@@ -50,8 +53,4 @@ const Centered = styled.div`
   display: flex;
   flex-direction: column;
   align-self: center;
-`;
-
-const Bold = styled.span`
-  font-weight: bold;
 `;

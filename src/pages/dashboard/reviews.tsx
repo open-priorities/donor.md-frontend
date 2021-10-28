@@ -1,7 +1,7 @@
 import { ReviewForm } from '@Components/forms/dashboard/review';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
 import { getUser } from '@Queries/user';
-import { Divider } from '@UI/other';
+import { Divider } from '@UI/dilider';
 import { Paragraph, Title, TitleWithArrow } from '@UI/typography';
 import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';

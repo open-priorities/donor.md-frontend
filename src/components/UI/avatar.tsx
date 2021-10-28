@@ -2,7 +2,7 @@ import { getFirstLetters } from '@Helpers/get-first-letters';
 import { updateAvatar } from '@Queries/avatar';
 import { useTypedMutation } from '@Queries/utils';
 import { Avatar as AntAvatar, Badge } from 'antd';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, memo } from 'react';
 import styled, { css } from 'styled-components';
 
 type AvatarType = {
@@ -12,7 +12,7 @@ type AvatarType = {
   count?: number;
 };
 
-export const Avatar = ({ fullname, src, size = 100, count = 0 }: AvatarType) => {
+export const Avatar = memo(({ fullname, src, size = 100, count = 0 }: AvatarType) => {
   const { mutate, data: url } = useTypedMutation('avatar', (payload: File) => updateAvatar(payload));
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +31,7 @@ export const Avatar = ({ fullname, src, size = 100, count = 0 }: AvatarType) => 
       <HideInput type='file' onChange={handleChange} />
     </label>
   );
-};
+});
 
 const AvatarWrapper = styled(AntAvatar)(
   ({ theme }) => css`

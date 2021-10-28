@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { ColorsType } from './theme';
 
@@ -9,16 +9,18 @@ export declare type LinkProps = {
   margin?: boolean | string;
 };
 
-export const StyledLink = styled.a<LinkProps>`
-  color: ${({ color, theme }) => (!color ? theme.colors.textDark : `${theme.colors[color] || color}`)};
+export const StyledLink = styled.a<LinkProps>(
+  ({ color, theme, margin, bold, underline }) => css`
+    color: ${!color ? theme.colors.textDark : `${theme.colors[color] || color}`};
 
-  margin-bottom: ${({ margin }) => (!margin ? 0 : `${margin || '0.5rem'}`)};
+    margin-bottom: ${!margin ? 0 : `${margin || '0.5rem'}`};
 
-  text-decoration: ${(props) => (props.underline ? 'underline' : '')};
-  font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
+    text-decoration: ${underline ? 'underline' : ''};
+    font-weight: ${bold ? 'bold' : 'normal'};
 
-  &:hover {
-    color: ${({ color, theme }) => (color && theme.colors[color] ? theme.colors[color] : 'black')};
-    text-decoration: ${({ underline }) => (underline ? 'underline' : '')};
-  }
-`;
+    &:hover {
+      color: ${color && theme.colors[color] ? theme.colors[color] : 'black'};
+      text-decoration: ${underline ? 'underline' : ''};
+    }
+  `,
+);

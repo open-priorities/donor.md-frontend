@@ -22,7 +22,7 @@ Web-сервис для тех, кто сдает и ищет донорскую
 ## Окружение и технологии
 
 Движок [Next.js](https://nextjs.org/)  
-State manager [Redux](https://redux.js.org/)  
+State manager [Recoil.js](https://recoiljs.org/)  
 Архитектурный стиль API [RESTful](https://habr.com/ru/post/483202/)
 
 ## Принципы верстки
