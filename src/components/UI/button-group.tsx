@@ -15,7 +15,8 @@ export const ButtonGroup = ({ buttons, onClick }: ButtonGroupType) => {
 
   useEffect(() => {
     setButtonId(_id);
-  }, [_id]);
+    onClick?.(_id);
+  }, [_id, onClick]);
 
   const handleClick = (id: string) => () => {
     setButtonId(id);
