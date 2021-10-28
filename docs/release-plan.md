@@ -67,7 +67,7 @@
 - [x] block with stats
 - [x] avatar
 
-# v1.5.10 `IN PROGRESS`
+# v1.5.12 `IN PROGRESS`
 
 > deadline oct 15 - 17
 
@@ -83,6 +83,8 @@
 - [ ] inputs hover state
 - [ ] checkbox hover state
 - [ ] link (anchor link all cases)
+- [ ] fix icons on right menu
+- [ ] fix icons on left menu
 
 # v1.6.0 `TODO`
 
