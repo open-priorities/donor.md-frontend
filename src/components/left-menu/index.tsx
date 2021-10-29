@@ -16,7 +16,7 @@ export const LeftMenu = memo(({ image }: { image?: string }) => {
 
   useEffect(() => {
     const activeMenu = mock.filter((item) => item.href === pathname)[0];
-    setActiveHref(activeMenu.href);
+    setActiveHref(activeMenu ? activeMenu.href : '/dashboard/donations');
   }, [pathname, setActiveHref]);
 
   const [logout] = [...mock].splice(-1);
@@ -26,7 +26,7 @@ export const LeftMenu = memo(({ image }: { image?: string }) => {
       <AsideWrapper>
         <ResponsiveLogo />
         <Menu>
-          {mock.slice(1, menuCount - 1).map((item) => (
+          {mock.slice(0, menuCount - 1).map((item) => (
             <MenuLink {...item} key={item.text} active={item.href === activeHref} />
           ))}
           <MenuLink {...logout} onClick={destroy} />
