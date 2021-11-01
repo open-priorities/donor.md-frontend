@@ -24,7 +24,6 @@ const BecomeVolunteerPage = () => {
     register,
     handleSubmit,
     control,
-    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -43,7 +42,6 @@ const BecomeVolunteerPage = () => {
 
   const onSubmit = (payload: IBecomeVolunteer) => {
     mutate(payload);
-    reset();
   };
 
   return (

@@ -20,7 +20,6 @@ const CorporateDonationPage = () => {
   const {
     handleSubmit,
     register,
-    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -41,7 +40,6 @@ const CorporateDonationPage = () => {
   );
   const onSubmit = (payload: ICorporateDonation) => {
     mutate(payload);
-    reset();
   };
   return (
     <HeaderContentFooter background='/images/pages/welcome.png'>

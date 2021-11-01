@@ -1,5 +1,5 @@
 import { getFirstLetters } from '@Helpers/get-first-letters';
-import { updateAvatar } from '@Queries/avatar';
+import { getAvatar, updateAvatar } from '@Queries/avatar';
 import { useTypedMutation } from '@Queries/utils';
 import { Avatar as AntAvatar, Badge } from 'antd';
 import { ChangeEvent, memo } from 'react';
@@ -13,17 +13,21 @@ type AvatarType = {
 };
 
 export const Avatar = memo(({ fullname, src, size = 100, count = 0 }: AvatarType) => {
-  const { mutate, data: url } = useTypedMutation('avatar', (payload: File) => updateAvatar(payload));
+  const { mutate: loadAvatar, data: avatarUrl } = useTypedMutation('avatar', getAvatar);
+  const { mutateAsync, data: url } = useTypedMutation('avatar', (payload: FormData) => updateAvatar(payload));
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    e.target.files && mutate(e.target.files[0]);
+    if (!e.target.files?.length) return;
+    const formData = new FormData();
+    formData.append('avatar', e.target.files[0]);
+    mutateAsync(formData).then(() => loadAvatar());
   };
 
   return (
     <label>
       <Badge count={count}>
         {src ? (
-          <AvatarWrapper size={size} src={url || src} />
+          <AvatarWrapper size={size} src={avatarUrl || url || src} />
         ) : (
           <AvatarWrapper size={size}>{getFirstLetters(fullname)}</AvatarWrapper>
         )}
