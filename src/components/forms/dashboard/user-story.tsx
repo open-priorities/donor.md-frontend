@@ -26,7 +26,7 @@ export const UserStoryForm = () => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Divider />
-      <Title as='h5' margin='15px'>
+      <Title as='h5' margin='0 0 15px 0'>
         Моя история
       </Title>
       <Paragraph color='textMuted' margin='0 0 15px 0'>

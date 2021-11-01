@@ -14,7 +14,7 @@ const AuthPage = () => {
     <Main>
       <Container>
         <Logo />
-        <StyledTitle className='h2' margin='15px' align='center'>
+        <StyledTitle className='h2' margin='0 0 15px 0' align='center'>
           Кабинет Донора
         </StyledTitle>
         <FormWrapper>

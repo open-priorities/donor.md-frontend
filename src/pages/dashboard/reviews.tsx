@@ -9,7 +9,7 @@ import { dehydrate } from 'react-query/hydration';
 const ReviewsAdd = () => {
   return (
     <DashboardGrid>
-      <TitleWithArrow margin='50px'>Добавить отзыв</TitleWithArrow>
+      <TitleWithArrow margin='0 0 50px 0'>Добавить отзыв</TitleWithArrow>
       <Paragraph>
         На этой странице вы можете оставить отзыв, написать вопрос и оценить качество работы службы
         переливания крови.

@@ -1,10 +1,27 @@
-import { useRequireAuth } from '@Hooks/useRequireAuth';
+import { useAuth } from '@Hooks/useAuth';
 import { HeaderContentFooter } from '@Layouts/header-content-footer';
+import { storage } from '@Services/storage';
+import { userAtom } from '@Store/atoms/user-atom';
 import { Loading } from '@UI/loading';
+import { useRouter } from 'next/dist/client/router';
+import { useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 const Dashboard = () => {
-  useRequireAuth();
+  useAuth();
+
+  const { push } = useRouter();
+  const user = useRecoilValue(userAtom);
+
+  useEffect(() => {
+    const isTokenExist = storage.get('token');
+    if (!user && !isTokenExist) {
+      push('/auth');
+    } else {
+      push('/dashboard/details');
+    }
+  }, [push, user]);
 
   return (
     <HeaderContentFooter>

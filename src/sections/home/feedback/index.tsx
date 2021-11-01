@@ -21,7 +21,6 @@ export const Feedback = () => {
   const {
     handleSubmit,
     register,
-    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -36,7 +35,6 @@ export const Feedback = () => {
 
   const onSubmit = (data: IFeedback) => {
     mutate(data);
-    reset();
   };
 
   return (

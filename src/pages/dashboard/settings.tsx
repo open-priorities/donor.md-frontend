@@ -36,7 +36,7 @@ const Settings = () => {
     <DashboardGrid>
       <TitleWithArrow>Настройка</TitleWithArrow>
       <Article>
-        <Title as='h5' margin='10px' bold>
+        <Title as='h5' margin='0 0 10px 0' bold>
           Настройка донорского кабинета
         </Title>
         <Paragraph>
@@ -49,7 +49,7 @@ const Settings = () => {
           <Checkbox {...register('notDonor')}>Я не могу быть донором</Checkbox>
           <Checkbox {...register('temporaryRestrictions')}>Временные ограничения на сдачу крови</Checkbox>
         </CheckboxGroup>
-        <Title as='h5' margin='10px' bold>
+        <Title as='h5' margin='0 0 10px 0' bold>
           Настройка уведомлений
         </Title>
         <CheckboxGroup>

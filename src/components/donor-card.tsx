@@ -11,7 +11,7 @@ export const DonorCard = () => {
           Мои Донации
         </Title>
         <Title as='h4' color='white' margin='0'>
-          <Paragraph margin='0' bold>
+          <Paragraph as='span' margin='0' color='white' bold>
             42
           </Paragraph>{' '}
           - реципиента получили помощь

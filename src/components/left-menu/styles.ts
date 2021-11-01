@@ -1,24 +1,26 @@
 import { Button } from '@UI/button';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Aside = styled.aside<{ image?: string }>`
-  display: none;
-  padding: 45px;
-  background: white;
-  border-right: 1px solid ${({ theme }) => theme.colors.redDiluted};
+export const Aside = styled.aside<{ image?: string }>(
+  ({ theme, image }) => css`
+    display: none;
+    padding: 45px;
+    background: white;
+    border-right: 1px solid ${theme.colors.redDiluted};
 
-  @media (min-width: 576px) {
-    display: block;
-  }
+    @media (min-width: ${theme.media.sm}) {
+      display: block;
+    }
 
-  @media (min-width: ${({ theme }) => theme.media.xl}) {
-    padding: 25px 30px;
-    background-image: ${({ image }) => image && `url(${image})`};
-    background-size: 100% 24vw;
-    background-repeat: no-repeat;
-    background-position: left bottom;
-  }
-`;
+    @media (min-width: ${theme.media.xl}) {
+      padding: 25px 30px;
+      background-image: ${image && `url(${image})`};
+      background-size: 100% 24vw;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+    }
+  `,
+);
 
 export const AsideWrapper = styled.div`
   top: 45px;
@@ -34,23 +36,26 @@ export const MenuItem = styled.li`
   padding: 10px 0;
 `;
 
-export const LinkButton = styled(Button)<{ active: boolean }>`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  color: ${({ theme }) => theme.colors.black};
-  border: 1px solid ${({ theme }) => theme.colors.white};
-  color: ${({ active }) => (active ? 'white' : 'black')};
-  & svg path {
-    fill: ${({ active }) => (active ? 'white' : 'black')};
-  }
-  background: ${({ theme, active }) => (active ? theme.colors.red : 'white')};
+export const LinkButton = styled(Button)<{ active: boolean }>(
+  ({ theme, active }) => css`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: ${active ? theme.colors.white : theme.colors.black};
 
-  &:hover svg path,
-  &:focus svg path {
-    fill: ${({ theme }) => theme.colors.danger};
-  }
-`;
+    border: 1px solid ${theme.colors.white};
+    background: ${active ? theme.colors.red : 'white'};
+
+    & svg path {
+      color: ${active ? theme.colors.white : theme.colors.black};
+    }
+
+    &:hover svg path,
+    &:focus svg path {
+      fill: ${theme.colors.danger};
+    }
+  `,
+);
 
 export const Paragraph = styled.p`
   display: none;

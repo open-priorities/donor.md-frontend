@@ -29,7 +29,6 @@ const DonorSearchPage = () => {
   const {
     register,
     handleSubmit,
-    reset,
     control,
     formState: { errors },
   } = useForm<IRecipientFrom>();
@@ -40,7 +39,6 @@ const DonorSearchPage = () => {
     if (!ref.current) return;
     const payload = new FormData(ref.current) as unknown as IRecipient;
     mutate(payload);
-    reset();
   };
 
   return (
