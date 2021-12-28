@@ -93,37 +93,6 @@ const buttonThemes = {
   },
 };
 
-export const StyledButton = styled.button<IButtonWrapperProps>`
-  cursor: pointer;
-  line-height: 1.5;
-  text-align: center;
-  vertical-align: middle;
-  color: ${({ variant }) => buttonThemes[variant].default.color};
-  background: ${({ variant }) => buttonThemes[variant].default.background};
-  border: 1px solid ${({ variant }) => buttonThemes[variant].default.borderColor};
-  padding: ${({ size, theme }) => theme.sizes.controls[size].padding};
-  font-size: ${({ size, theme }) => theme.sizes.controls[size].fontSize};
-  border-radius: ${({ size, theme }) => theme.sizes.controls[size].radius};
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-    box-shadow 0.15s ease-in-out;
-
-  &:hover {
-    ${({ variant }) => css`
-      color: ${buttonThemes[variant].hover.color};
-      background: ${buttonThemes[variant].hover.background};
-      border: 1px solid ${buttonThemes[variant].hover.borderColor};
-    `}
-  }
-
-  &:focus {
-    outline: 0;
-    color: ${({ variant }) => buttonThemes[variant].focus.color};
-    background: ${({ variant }) => buttonThemes[variant].focus.background};
-    border: 1px solid ${({ variant }) => buttonThemes[variant].focus.borderColor};
-    box-shadow: 0 0 10px 5px rgb(248 186 180 / 20%);
-  }
-`;
-
 export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
   (
     { children, className, disabled = false, variant = 'primary', size = 'md', type = 'button', ...rest },
@@ -143,4 +112,37 @@ export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
       </StyledButton>
     );
   },
+);
+
+export const StyledButton = styled.button<IButtonWrapperProps>(
+  ({ theme, variant, size }) => css`
+    cursor: pointer;
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: middle;
+    color: ${buttonThemes[variant].default.color};
+    background: ${buttonThemes[variant].default.background};
+    border: 1px solid ${buttonThemes[variant].default.borderColor};
+    padding: ${theme.sizes.controls[size].padding};
+    font-size: ${theme.sizes.controls[size].fontSize};
+    border-radius: ${theme.sizes.controls[size].radius};
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+      box-shadow 0.15s ease-in-out;
+
+    &:hover {
+      ${css`
+        color: ${buttonThemes[variant].hover.color};
+        background: ${buttonThemes[variant].hover.background};
+        border: 1px solid ${buttonThemes[variant].hover.borderColor};
+      `}
+    }
+
+    &:focus {
+      outline: 0;
+      color: ${buttonThemes[variant].focus.color};
+      background: ${buttonThemes[variant].focus.background};
+      border: 1px solid ${buttonThemes[variant].focus.borderColor};
+      box-shadow: 0 0 10px 5px rgb(248 186 180 / 20%);
+    }
+  `,
 );

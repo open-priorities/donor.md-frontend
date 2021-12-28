@@ -1,6 +1,6 @@
 import { IOptions } from '@core/IIterableStruct';
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Button } from './button';
 
@@ -40,41 +40,45 @@ export const ButtonGroup = ({ buttons, onClick }: ButtonGroupType) => {
   );
 };
 
-const StyledButton = styled(Button)<{ active: boolean }>`
-  width: 100%;
-  color: ${({ active }) => active && 'white'};
-  background: ${({ active, theme }) => active && theme.colors.danger};
+const StyledButton = styled(Button)<{ active: boolean }>(
+  ({ theme, active }) => css`
+    width: 100%;
+    color: ${active && theme.colors.white};
+    background: ${active && theme.colors.danger};
 
-  @media (min-width: ${({ theme }) => theme.media.sm}) {
-    &:first-child {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-right: 0;
+    @media (min-width: ${theme.media.sm}) {
+      &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: 0;
+      }
+
+      &:nth-of-type(2):not(:last-child) {
+        border-radius: 0;
+        border-right-width: 0;
+      }
+
+      &:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  `,
+);
+
+const ButtonGroupWrapper = styled.div(
+  ({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & ${StyledButton} {
+      margin-bottom: 15px;
     }
 
-    &:nth-of-type(2):not(:last-child) {
-      border-radius: 0;
-      border-right-width: 0;
+    @media (min-width: ${theme.media.sm}) {
+      flex-direction: row;
+      max-height: 62px;
     }
-
-    &:last-child {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-`;
-
-const ButtonGroupWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  & ${StyledButton} {
-    margin-bottom: 15px;
-  }
-
-  @media (min-width: 576px) {
-    flex-direction: row;
-    max-height: 62px;
-  }
-`;
+  `,
+);

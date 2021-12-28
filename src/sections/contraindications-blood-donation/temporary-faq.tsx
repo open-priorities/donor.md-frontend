@@ -254,8 +254,8 @@ const businessTrips = [
 
 export const TemporaryFaq = () => {
   const prepareList = (payload: typeof list) =>
-    payload.map(({ left, right }) => (
-      <SpaceBetweenItem>
+    payload.map(({ left, right }, index) => (
+      <SpaceBetweenItem key={index.toString()}>
         <Paragraph as='span' margin='0' align='left' dangerouslySetInnerHTML={{ __html: left }} />
         <Paragraph as='span' margin='0' align='right' dangerouslySetInnerHTML={{ __html: right }} />
       </SpaceBetweenItem>
