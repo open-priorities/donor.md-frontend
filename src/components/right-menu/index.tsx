@@ -4,7 +4,6 @@ import Schedule from '@Public/images/pages/dashboard/right-aside/schedule-donati
 import Support from '@Public/images/pages/dashboard/right-aside/support-project.svg';
 import styled, { css } from 'styled-components';
 
-import { DonorCard } from '../donor-card';
 import { DonorInfo } from '../donor-info';
 import { DonorProgress } from '../donor-progress';
 import { MenuLink } from './menu-link';
@@ -36,7 +35,6 @@ export const RightMenu = () => {
   return (
     <Aside>
       <DonorInfo />
-      <DonorCard />
       <DonorProgress />
       <Menu>
         {mock.map((link) => (

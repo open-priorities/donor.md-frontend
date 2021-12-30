@@ -11,4 +11,12 @@ export const topDonorsUrl = (sexId: string) => `/top-donors?sexId=${sexId}`;
 
 export const monitoringUrl = `/monitoring`;
 
-export const getUserUrl = `/user`;
+export const userUrl = `/user`;
+
+export const questionnaireUrl = `/questionnaire`;
+
+export const storyUrl = `/story`;
+
+export const userStoryUrl = `/story`;
+
+export const donorProgressUrl = `/donor-progress`;

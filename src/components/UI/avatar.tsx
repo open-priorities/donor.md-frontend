@@ -34,7 +34,7 @@ export const Avatar = memo(({ fullname, src, size = 100, count = 0 }: AvatarType
           <AvatarWrapper size={size}>{getFirstLetters(fullname)}</AvatarWrapper>
         )}
       </Badge>
-      <HideInput type='file' onChange={handleChange} />
+      <HideInput type='file' accept='image/*' onChange={handleChange} />
     </label>
   );
 });

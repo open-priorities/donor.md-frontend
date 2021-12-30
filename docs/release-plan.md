@@ -75,6 +75,9 @@
 
 - [x] fix mismatch monitoring section "Данные представлены отделением переливания крови г. Тирасполь"
 - [x] link on header
+- [x] fix avatar but
+- [x] router bug
+- [ ] datepicker component
 - [ ] margin on Title in dashboard
 - [ ] fix mismatch design in dashboard
 - [ ] fix tag-links on details page
