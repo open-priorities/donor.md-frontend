@@ -15,7 +15,18 @@ export const LeftMenu = memo(({ image }: { image?: string }) => {
   const menuCount = mock.length;
 
   useEffect(() => {
-    const activeMenu = mock.filter((item) => item.href === pathname)[0];
+    const activeMenu = mock.filter((item) => {
+      const key = pathname.split('/')[2];
+
+      if (key === 'questionnaire') {
+        return mock[0];
+      }
+
+      if (item.href === pathname) {
+        return item;
+      }
+      return false;
+    })[0];
     setActiveHref(activeMenu ? activeMenu.href : '/dashboard/donations');
   }, [pathname, setActiveHref]);
 

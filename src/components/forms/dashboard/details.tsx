@@ -16,8 +16,13 @@ import { useRecoilValue } from 'recoil';
 
 export const DetailsForm = () => {
   const user = useRecoilValue(userAtom);
+
   const { register, control, handleSubmit, watch } = useForm({
-    defaultValues: { ...user, corporateDonations: !!user?.corporateId },
+    defaultValues: {
+      ...user,
+      corporateDonations: !!user?.corporateId,
+      dateBirth: user?.dateBirth ? new Date(user.dateBirth).toISOString().split('T')[0] : user?.dateBirth,
+    },
   });
   const { data: sex } = useTypedQuery('sex', () => getOptions('sex'));
   const { data: bloodGroups } = useTypedQuery('blood-groups', () => getOptions('blood-groups'));
@@ -31,7 +36,7 @@ export const DetailsForm = () => {
     mutate(data);
   };
 
-  if (!sex || !bloodGroups || !cities || !organizations) return null;
+  if (!sex || !bloodGroups || !cities || !organizations || !user) return null;
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -39,7 +44,7 @@ export const DetailsForm = () => {
         <Input {...register('fullname')} />
       </FormItem>
       <FormItem columns={2} label='Дата рождения' required>
-        <Input {...register('dateBirth')} />
+        <Input type='date' {...register('dateBirth')} />
       </FormItem>
       <FormItem columns={2} label='Группа крови' required>
         <Controller
