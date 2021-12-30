@@ -1,4 +1,5 @@
 import { IUser } from '@core/user';
+import { emailField, requiredField } from '@Helpers/form-validate';
 import { getOptions } from '@Queries/common';
 import { updateUser } from '@Queries/user';
 import { useTypedMutation, useTypedQuery } from '@Queries/utils';
@@ -17,7 +18,13 @@ import { useRecoilValue } from 'recoil';
 export const DetailsForm = () => {
   const user = useRecoilValue(userAtom);
 
-  const { register, control, handleSubmit, watch } = useForm({
+  const {
+    register,
+    control,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       ...user,
       corporateDonations: !!user?.corporateId,
@@ -40,16 +47,17 @@ export const DetailsForm = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <FormItem columns={2} label='ФИО' required>
-        <Input {...register('fullname')} />
+      <FormItem columns={2} label='ФИО' error={errors?.fullname?.message} required>
+        <Input {...register('fullname', requiredField)} />
       </FormItem>
-      <FormItem columns={2} label='Дата рождения' required>
-        <Input type='date' {...register('dateBirth')} />
+      <FormItem columns={2} label='Дата рождения' error={errors?.dateBirth?.message} required>
+        <Input type='date' {...register('dateBirth', requiredField)} />
       </FormItem>
-      <FormItem columns={2} label='Группа крови' required>
+      <FormItem columns={2} label='Группа крови' error={errors?.bloodGroupId?.message} required>
         <Controller
           name='bloodGroupId'
           control={control}
+          rules={requiredField}
           render={() => (
             <Select size='large' placeholder='Ваша группа крови'>
               {bloodGroups.map(({ _id, text }) => (
@@ -61,10 +69,11 @@ export const DetailsForm = () => {
           )}
         />
       </FormItem>
-      <FormItem columns={2} label='Пол' required>
+      <FormItem columns={2} label='Пол' error={errors?.sexId?.message} required>
         <Controller
           name='sexId'
           control={control}
+          rules={requiredField}
           render={({ field }) => (
             <Select {...field} size='large' placeholder='Город проживания'>
               {sex.map(({ _id, text }) => (
@@ -76,10 +85,11 @@ export const DetailsForm = () => {
           )}
         />
       </FormItem>
-      <FormItem columns={2} label='Город проживания' required>
+      <FormItem columns={2} label='Город проживания' error={errors?.cityId?.message} required>
         <Controller
           name='cityId'
           control={control}
+          rules={requiredField}
           render={({ field }) => (
             <Select {...field} size='large' placeholder='Город проживания'>
               {cities.map(({ _id, text }) => (
@@ -122,14 +132,14 @@ export const DetailsForm = () => {
       <Title as='h4' margin='0 0 30px 0' bold>
         Ваши контакты
       </Title>
-      <FormItem columns={2} label='Ваш email-адрес' required>
-        <Input {...register('email')} />
+      <FormItem columns={2} label='Ваш email-адрес' error={errors?.email?.message} required>
+        <Input {...register('email', { ...requiredField, ...emailField })} />
       </FormItem>
-      <FormItem columns={2} label='Номер мобильного телефона' required>
-        <Input {...register('phoneMobile')} />
+      <FormItem columns={2} label='Номер мобильного телефона' error={errors?.phoneMobile?.message} required>
+        <Input {...register('phoneMobile', requiredField)} />
       </FormItem>
-      <FormItem columns={2} label='Номер домашнего телефона' required>
-        <Input {...register('phone')} />
+      <FormItem columns={2} label='Номер домашнего телефона' error={errors?.phone?.message} required>
+        <Input {...register('phone', requiredField)} />
       </FormItem>
       <Button type='submit' variant='outline-danger' size='lg'>
         Обновить информацию

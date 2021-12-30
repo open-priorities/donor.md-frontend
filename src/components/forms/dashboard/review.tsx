@@ -1,4 +1,5 @@
 import { IReview } from '@core/review';
+import { requiredField } from '@Helpers/form-validate';
 import { getOptions } from '@Queries/common';
 import { createReview } from '@Queries/review';
 import { useTypedMutation, useTypedQuery } from '@Queries/utils';
@@ -25,7 +26,20 @@ const marks = {
 const formatter = (value?: number) => value && `${((5 / 100) * value).toFixed(1)}`;
 
 export const ReviewForm = () => {
-  const { control, handleSubmit, register } = useForm();
+  const {
+    control,
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      bloodCenterId: '',
+      staffAttitude: 100,
+      comfortableDonation: 100,
+      waitingTime: 100,
+      message: '',
+    },
+  });
 
   const { data: bloodCenter, isLoading: bloodCenterLoading } = useTypedQuery('blood-center', () =>
     getOptions('blood-center'),
@@ -50,10 +64,11 @@ export const ReviewForm = () => {
 
   return (
     <FormWrapper onSubmit={handleSubmit(onSubmit)}>
-      <FormItem label='Выбрать Центр крови' columns={2}>
+      <FormItem label='Выбрать Центр крови' columns={2} error={errors?.bloodCenterId?.message} required>
         <Controller
           name='bloodCenterId'
           control={control}
+          rules={requiredField}
           render={({ field }) => (
             <Select {...field} size='large' placeholder='Выбор центра' loading={bloodCenterLoading}>
               {bloodCenter?.map((item) => (
@@ -65,29 +80,46 @@ export const ReviewForm = () => {
           )}
         />
       </FormItem>
-      <FormItem label='Отношение персонала' marginBottom='10px' columns={2}>
+      <FormItem
+        label='Отношение персонала'
+        marginBottom='10px'
+        columns={2}
+        error={errors?.staffAttitude?.message}
+        required
+      >
         <Controller
-          defaultValue={100}
           name='staffAttitude'
           control={control}
+          rules={requiredField}
           render={(props) => (
             <Slider {...props} marks={marks} step={10} defaultValue={100} tipFormatter={formatter} />
           )}
         />
       </FormItem>
-      <FormItem label='Комфортность при донации' marginBottom='10px' columns={2}>
+      <FormItem
+        label='Комфортность при донации'
+        marginBottom='10px'
+        columns={2}
+        error={errors?.comfortableDonation?.message}
+        required
+      >
         <Controller
-          defaultValue={100}
           name='comfortableDonation'
           control={control}
+          rules={requiredField}
           render={(props) => (
             <Slider {...props} marks={marks} step={10} defaultValue={100} tipFormatter={formatter} />
           )}
         />
       </FormItem>
-      <FormItem label='Время ожидания услуги' marginBottom='10px' columns={2}>
+      <FormItem
+        label='Время ожидания услуги'
+        marginBottom='10px'
+        columns={2}
+        error={errors?.waitingTime?.message}
+        required
+      >
         <Controller
-          defaultValue={100}
           name='waitingTime'
           control={control}
           render={(props) => (
@@ -100,11 +132,11 @@ export const ReviewForm = () => {
           Форма обратной связи
         </Title>
       </Divider>
-      <FormItem columns={1}>
+      <FormItem columns={1} error={errors?.message?.message} required>
         <TextArea
           placeholder='Нам очень важно знать мнение каждого донора'
           rows={7}
-          {...register('message', { required: true })}
+          {...register('message', requiredField)}
         />
       </FormItem>
       <Button variant='outline-danger' size='lg' type='submit'>

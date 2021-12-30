@@ -1,6 +1,7 @@
 import { DashboardButtonsLinks } from '@Components/dashboard-buttons-links';
 import { SocialMediaLinks } from '@Components/social-media-links';
 import { IDonation } from '@core/donation';
+import { requiredField } from '@Helpers/form-validate';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
 import { getOptions } from '@Queries/common';
 import { addDonation } from '@Queries/donations';
@@ -18,16 +19,22 @@ import { dehydrate } from 'react-query/hydration';
 import styled from 'styled-components';
 
 const Donations = () => {
-  const { register, control, handleSubmit } = useForm({
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       referenceNumber: null,
       donationNumber: '',
-      date: '',
+      date: new Date().toISOString().split('T')[0],
       transfusionCenterId: '',
       recipientId: '',
       referenceImg: '',
     },
   });
+
   const { data: bloodCenter } = useTypedQuery('blood-center', () => getOptions('blood-center'));
   const { data: transfusionCenter } = useTypedQuery('transfusion-center', () =>
     getOptions('transfusion-center'),
@@ -50,19 +57,20 @@ const Donations = () => {
       <TitleWithArrow>Мои донации</TitleWithArrow>
       <DashboardButtonsLinks />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormItem columns={2} label='Номер справки' required>
-          <Input {...register('referenceNumber')} />
+        <FormItem columns={2} label='Номер справки' error={errors?.referenceNumber?.message} required>
+          <Input {...register('referenceNumber', requiredField)} />
         </FormItem>
-        <FormItem columns={2} label='Номер донации' required>
-          <Input {...register('donationNumber')} />
+        <FormItem columns={2} label='Номер донации' error={errors?.donationNumber?.message} required>
+          <Input {...register('donationNumber', requiredField)} />
         </FormItem>
-        <FormItem columns={2} label='Дата кровосдачи' required>
-          <Input type='date' {...register('date')} />
+        <FormItem columns={2} label='Дата кровосдачи' error={errors?.date?.message} required>
+          <Input type='date' {...register('date', requiredField)} />
         </FormItem>
-        <FormItem columns={2} label='Место сдачи' required>
+        <FormItem columns={2} label='Место сдачи' error={errors?.transfusionCenterId?.message} required>
           <Controller
             name='transfusionCenterId'
             control={control}
+            rules={requiredField}
             render={({ field }) => (
               <Select {...field} size='large' placeholder='Выберите место сдачи'>
                 {transfusionCenter?.map(({ _id, text }) => (
@@ -74,7 +82,7 @@ const Donations = () => {
             )}
           />
         </FormItem>
-        <FormItem columns={2} label='Ваш реципиент' help='Поле не обязательное' required>
+        <FormItem columns={2} label='Ваш реципиент' help='Поле не обязательное'>
           <Controller
             name='recipientId'
             control={control}
@@ -99,7 +107,7 @@ const Donations = () => {
           `}
           required
         >
-          <Input type='file' {...register('referenceImg')} />
+          <Input type='file' accept='image/*' {...register('referenceImg', requiredField)} />
         </FormItem>
         <ButtonsRow>
           <Button type='submit' variant='outline-danger' size='lg'>

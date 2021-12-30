@@ -67,7 +67,7 @@
 - [x] block with stats
 - [x] avatar
 
-# v1.5.12 `IN PROGRESS`
+# v1.5.16 `IN PROGRESS`
 
 > deadline oct 15 - 17
 
@@ -77,17 +77,19 @@
 - [x] link on header
 - [x] fix avatar but
 - [x] router bug
-- [ ] datepicker component
-- [ ] margin on Title in dashboard
-- [ ] fix mismatch design in dashboard
-- [ ] fix tag-links on details page
-- [ ] fix button links on page `/dashboard/donations` 
+- [x] datepicker component
+- [x] form validation
+- [x] fix bug highlight on left menu in dashboard page
+- [x] margin on Title in dashboard
+- [x] fix mismatch design in dashboard
+- [x] fix tag-links on details page
+- [x] fix button links on page `/dashboard/donations` 
+- [x] fix icons on left menu
 - [ ] buttons hover state
 - [ ] inputs hover state
 - [ ] checkbox hover state
 - [ ] link (anchor link all cases)
 - [ ] fix icons on right menu
-- [ ] fix icons on left menu
 
 # v1.6.0 `TODO`
 
