@@ -12,21 +12,20 @@ import { Select } from '@UI/form/select';
 import { StyledLink } from '@UI/links';
 import { Loading } from '@UI/loading';
 import { Title } from '@UI/typography';
+import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
-import { onChangeState } from './types';
 import { ActionLayout } from './utils';
-
-declare type Props = { onChangeState: onChangeState };
 
 const validate = { required: 'Обязательное поле' };
 
-export const SignUpForm = ({ onChangeState }: Props) => {
+export const SignUpForm = () => {
   const [user, setUser] = useRecoilState(userAtom);
+  const { push } = useRouter();
 
   const {
     register,
@@ -151,11 +150,7 @@ export const SignUpForm = ({ onChangeState }: Props) => {
         </FormItemCheckbox>
       </FormItem>
       <div>
-        <ActionLayout
-          btnText='Зарегистрироваться'
-          linkText='Войти'
-          linkOnClick={() => onChangeState('signIn')}
-        />
+        <ActionLayout btnText='Зарегистрироваться' linkText='Войти' linkOnClick={() => push('auth')} />
       </div>
       {isError && <Alert dismissible>{prepareError(error)}</Alert>}
       {isSuccess && <Alert dismissible>Вы успешно зарегистрировались</Alert>}

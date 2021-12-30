@@ -4,24 +4,26 @@ import { SignUpForm } from '@Components/forms/auth/sign-up';
 import { Logo } from '@Components/logo';
 import { Container } from '@Layouts/container';
 import { TitleWithArrow } from '@UI/typography';
-import { useState } from 'react';
+import { useRouter } from 'next/dist/client/router';
 import styled from 'styled-components';
 
 const AuthPage = () => {
-  const [state, setState] = useState<string>('signIn');
+  const { query } = useRouter();
 
   return (
     <Main>
       <Container>
         <Logo />
-        <StyledTitle className='h2' margin='0 0 15px 0' align='center'>
-          Кабинет Донора
-        </StyledTitle>
-        <FormWrapper>
-          {state === 'signIn' && <SignInForm onChangeState={setState} />}
-          {state === 'signUp' && <SignUpForm onChangeState={setState} />}
-          {state === 'recovery' && <RecoveryForm onChangeState={setState} />}
-        </FormWrapper>
+        <Content>
+          <TitleWithArrow className='h2' margin='0 0 35px 0' align='center'>
+            Кабинет Донора
+          </TitleWithArrow>
+          <FormWrapper>
+            {!('state' in query) && <SignInForm />}
+            {query?.state === 'signUp' && <SignUpForm />}
+            {query?.state === 'recovery' && <RecoveryForm />}
+          </FormWrapper>
+        </Content>
       </Container>
     </Main>
   );
@@ -58,6 +60,4 @@ const FormWrapper = styled.div`
   }
 `;
 
-const StyledTitle = styled(TitleWithArrow)`
-  padding-top: 20px;
-`;
+const Content = styled.div``;

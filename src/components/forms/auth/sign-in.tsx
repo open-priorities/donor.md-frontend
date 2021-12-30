@@ -12,10 +12,9 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useResetRecoilState, useSetRecoilState } from 'recoil';
 
-import { onChangeState } from './types';
 import { ActionLayout, WrappedLink } from './utils';
 
-export const SignInForm = ({ onChangeState }: { onChangeState: onChangeState }) => {
+export const SignInForm = () => {
   const setUser = useSetRecoilState(userAtom);
   const resetUser = useResetRecoilState(userAtom);
   const {
@@ -81,8 +80,8 @@ export const SignInForm = ({ onChangeState }: { onChangeState: onChangeState }) 
         />
       </FormItem>
       <div>
-        <ActionLayout btnText='Войти' linkText='Регистрация' linkOnClick={() => onChangeState('signUp')} />
-        <WrappedLink onClick={() => onChangeState('recovery')} color='red' underline>
+        <ActionLayout btnText='Войти' linkText='Регистрация' linkOnClick={() => push('/auth?state=signUp')} />
+        <WrappedLink onClick={() => push('/auth?state=recovery')} color='red' underline>
           Забыли пароль?
         </WrappedLink>
       </div>

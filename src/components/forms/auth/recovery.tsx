@@ -5,14 +5,13 @@ import { Alert } from '@UI/alert';
 import { FormItem } from '@UI/form/form-item';
 import { Input } from '@UI/form/input';
 import { Title } from '@UI/typography';
+import { useRouter } from 'next/dist/client/router';
 import { useForm } from 'react-hook-form';
 
-import { onChangeState } from './types';
 import { ActionLayout } from './utils';
 
-type Props = { onChangeState: onChangeState };
-
-export const RecoveryForm = ({ onChangeState }: Props) => {
+export const RecoveryForm = () => {
+  const { push } = useRouter();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       email: '',
@@ -36,7 +35,7 @@ export const RecoveryForm = ({ onChangeState }: Props) => {
         <Input placeholder='Введите email' {...register('email')} />
       </FormItem>
       <div>
-        <ActionLayout btnText='Восстановить' linkText='Войти' linkOnClick={() => onChangeState('signIn')} />
+        <ActionLayout btnText='Восстановить' linkText='Войти' linkOnClick={() => push('/auth')} />
       </div>
       {isSuccess && <Alert dismissible>Запрос успешно обработан</Alert>}
       {isError && <Alert dismissible>{prepareError(error)}</Alert>}
