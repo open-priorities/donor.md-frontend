@@ -1,5 +1,5 @@
 import { SocialMediaLinks } from '@Components/social-media-links';
-import { requiredField } from '@Helpers/form-validate';
+import { emailField, requiredField } from '@Helpers/form-validate';
 import { prepareError } from '@Helpers/prepare-error';
 import { createFeedback, IFeedback } from '@Queries/feedback';
 import { useTypedMutation } from '@Queries/utils';
@@ -52,7 +52,7 @@ export const Feedback = () => {
             <FormItem columns={1} required error={errors?.contact?.message}>
               <HalfWidth>
                 <Input
-                  {...register('contact', requiredField)}
+                  {...register('contact', { ...requiredField, ...emailField })}
                   scale='lg'
                   placeholder='Ваш email или номер телефона'
                 />
@@ -61,14 +61,12 @@ export const Feedback = () => {
             <FormItem columns={1} required error={errors?.message?.message}>
               <TextArea {...register('message', requiredField)} placeholder='Текст сообщения' rows={7} />
             </FormItem>
-            {isSuccess && (
-              <Alert dismissible message='Спасибо, что написали нам. Ваш запрос на рассмотрении' />
-            )}
-            {isError && <Alert dismissible message={prepareError(error)} />}
-            {isLoading && <Loading />}
             <Button type='submit' variant='outline-danger' size='lg'>
               Отправить
             </Button>
+            {isSuccess && <Alert dismissible>Спасибо, что написали нам. Ваш запрос на рассмотрении</Alert>}
+            {isError && <Alert dismissible message={prepareError(error)} />}
+            {isLoading && <Loading />}
           </Form>
           <Social>
             <Image src='/images/pages/home/we-are-in-social.svg' width={388} height={60} layout='fixed' />

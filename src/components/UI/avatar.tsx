@@ -1,8 +1,10 @@
 import { getFirstLetters } from '@Helpers/get-first-letters';
-import { getAvatar, updateAvatar } from '@Queries/avatar';
+import { updateAvatar } from '@Queries/avatar';
 import { useTypedMutation } from '@Queries/utils';
+import { avatarSelector } from '@Store/atoms/user-atom';
 import { Avatar as AntAvatar, Badge } from 'antd';
 import { ChangeEvent, memo } from 'react';
+import { useSetRecoilState } from 'recoil';
 import styled, { css } from 'styled-components';
 
 type AvatarType = {
@@ -13,21 +15,21 @@ type AvatarType = {
 };
 
 export const Avatar = memo(({ fullname, src, size = 100, count = 0 }: AvatarType) => {
-  const { mutate: loadAvatar, data: avatarUrl } = useTypedMutation('avatar', getAvatar);
-  const { mutateAsync, data: url } = useTypedMutation('avatar', (payload: FormData) => updateAvatar(payload));
+  const setAvatar = useSetRecoilState(avatarSelector);
+  const { mutateAsync } = useTypedMutation('avatar', (payload: FormData) => updateAvatar(payload));
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.length) return;
     const formData = new FormData();
     formData.append('avatar', e.target.files[0]);
-    mutateAsync(formData).then(() => loadAvatar());
+    mutateAsync(formData).then((avatar) => setAvatar(avatar));
   };
 
   return (
     <label>
       <Badge count={count}>
         {src ? (
-          <AvatarWrapper size={size} src={avatarUrl || url || src} />
+          <AvatarWrapper size={size} src={src} />
         ) : (
           <AvatarWrapper size={size}>{getFirstLetters(fullname)}</AvatarWrapper>
         )}
