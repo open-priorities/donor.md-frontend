@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Title } from '../typography';
 
@@ -10,7 +10,6 @@ interface IProps {
   columnsSm: number;
   help: string;
   label: string | ReactNode;
-  marginBottom: string;
   required: boolean;
   error: string;
 }
@@ -22,11 +21,10 @@ export const FormItem: FC<Partial<IProps>> = ({
   columns = 1,
   columnsSm = 1,
   required,
-  marginBottom,
   error,
 }) => {
   return (
-    <FormItemWrapper marginBottom={marginBottom}>
+    <FormItemWrapper>
       <Wrapper columns={columns} columnsSm={columnsSm}>
         <Column>
           {label && (
@@ -43,41 +41,52 @@ export const FormItem: FC<Partial<IProps>> = ({
   );
 };
 
-const FormItemWrapper = styled.div<{ marginBottom?: string }>`
-  padding-bottom: ${({ marginBottom }) => marginBottom || '10px'};
-`;
+const FormItemWrapper = styled.div<{ marginBottom?: string }>(
+  () => css`
+    padding-bottom: 10px;
+  `,
+);
 
-const Wrapper = styled.div<{ columns: number; columnsSm: number }>`
-  display: grid;
-  grid-template-columns: ${({ columnsSm }) => `repeat(${columnsSm}, 1fr)`};
-  @media (min-width: ${({ theme }) => theme.media.lg}) {
-    grid-template-columns: ${({ columns }) => `repeat(${columns}, 1fr)`};
-  }
-`;
+const Wrapper = styled.div<{ columns: number; columnsSm: number }>(
+  ({ columns, columnsSm }) => css`
+    display: grid;
+    grid-template-columns: ${`repeat(${columnsSm}, 1fr)`};
+
+    @media (min-width: ${({ theme }) => theme.media.lg}) {
+      grid-template-columns: ${`repeat(${columns}, 50%)`};
+    }
+  `,
+);
 
 const Column = styled.div``;
 
-const Error = styled.div`
-  height: 14px;
-  margin: 8px 0;
-  font-size: 0.8125em;
-  color: ${({ theme }) => theme.colors.danger};
-`;
+const Error = styled.div(
+  ({ theme }) => css`
+    height: 14px;
+    margin: 8px 0;
+    font-size: 0.8125em;
+    color: ${theme.colors.danger};
+  `,
+);
 
-const Label = styled(Title)<{ required?: boolean }>`
-  margin: 5px 0 15px 5px;
-  &::after {
-    display: ${({ required }) => (required ? 'inline-block' : 'none')};
-    margin-left: 4px;
-    color: ${({ theme }) => theme.colors.redDiluted};
+const Label = styled(Title)<{ required?: boolean }>(
+  ({ required, theme }) => css`
+    margin: 5px 0 15px 5px;
+    &::after {
+      display: ${required ? 'inline-block' : 'none'};
+      margin-left: 4px;
+      color: ${theme.colors.redDiluted};
+      font-size: 0.875em;
+      line-height: 1;
+      content: '*';
+      top: -7px;
+    }
+  `,
+);
+
+const Help = styled.span(
+  ({ theme }) => css`
     font-size: 0.875em;
-    line-height: 1;
-    content: '*';
-    top: -7px;
-  }
-`;
-
-const Help = styled.span`
-  font-size: 0.875em;
-  color: ${({ theme }) => theme.colors.textMuted};
-`;
+    color: ${theme.colors.textMuted};
+  `,
+);
