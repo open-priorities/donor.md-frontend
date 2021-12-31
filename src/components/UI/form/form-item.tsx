@@ -9,6 +9,7 @@ interface IProps {
   columns: number;
   columnsSm: number;
   help: string;
+  margin: string;
   label: string | ReactNode;
   required: boolean;
   error: string;
@@ -21,10 +22,11 @@ export const FormItem: FC<Partial<IProps>> = ({
   columns = 1,
   columnsSm = 1,
   required,
+  margin = '0 0 10px 0',
   error,
 }) => {
   return (
-    <FormItemWrapper>
+    <FormItemWrapper margin={margin}>
       <Wrapper columns={columns} columnsSm={columnsSm}>
         <Column>
           {label && (
@@ -41,19 +43,19 @@ export const FormItem: FC<Partial<IProps>> = ({
   );
 };
 
-const FormItemWrapper = styled.div<{ marginBottom?: string }>(
-  () => css`
-    padding-bottom: 10px;
+const FormItemWrapper = styled.div<{ margin?: string }>(
+  ({ margin }) => css`
+    margin: ${margin};
   `,
 );
 
 const Wrapper = styled.div<{ columns: number; columnsSm: number }>(
-  ({ columns, columnsSm }) => css`
+  ({ columns, columnsSm, theme }) => css`
     display: grid;
     grid-template-columns: ${`repeat(${columnsSm}, 1fr)`};
 
-    @media (min-width: ${({ theme }) => theme.media.lg}) {
-      grid-template-columns: ${`repeat(${columns}, 50%)`};
+    @media (min-width: ${theme.media.lg}) {
+      grid-template-columns: ${`repeat(${columns},${columns === 1 ? '1fr' : '50%'})`};
     }
   `,
 );
@@ -72,6 +74,7 @@ const Error = styled.div(
 const Label = styled(Title)<{ required?: boolean }>(
   ({ required, theme }) => css`
     margin: 5px 0 15px 5px;
+
     &::after {
       display: ${required ? 'inline-block' : 'none'};
       margin-left: 4px;

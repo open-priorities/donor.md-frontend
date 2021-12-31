@@ -17,7 +17,7 @@ export interface IDonation {
   date: Date;
   transfusionCenterId: string;
   recipientId: string | null;
-  referenceImg: string;
+  image: FileList;
 }
 
 export interface IDonationResponse extends IDonation {

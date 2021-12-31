@@ -80,13 +80,7 @@ export const ReviewForm = () => {
           )}
         />
       </FormItem>
-      <FormItem
-        label='Отношение персонала'
-        marginBottom='10px'
-        columns={2}
-        error={errors?.staffAttitude?.message}
-        required
-      >
+      <FormItem label='Отношение персонала' columns={2} error={errors?.staffAttitude?.message} required>
         <Controller
           name='staffAttitude'
           control={control}
@@ -98,7 +92,6 @@ export const ReviewForm = () => {
       </FormItem>
       <FormItem
         label='Комфортность при донации'
-        marginBottom='10px'
         columns={2}
         error={errors?.comfortableDonation?.message}
         required
@@ -112,13 +105,7 @@ export const ReviewForm = () => {
           )}
         />
       </FormItem>
-      <FormItem
-        label='Время ожидания услуги'
-        marginBottom='10px'
-        columns={2}
-        error={errors?.waitingTime?.message}
-        required
-      >
+      <FormItem label='Время ожидания услуги' columns={2} error={errors?.waitingTime?.message} required>
         <Controller
           name='waitingTime'
           control={control}

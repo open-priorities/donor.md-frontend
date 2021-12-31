@@ -1,11 +1,11 @@
 import { DashboardButtonsLinks } from '@Components/dashboard-buttons-links';
 import { SocialMediaLinks } from '@Components/social-media-links';
 import { IPlanning } from '@core/planning';
+import { requiredField } from '@Helpers/form-validate';
 import { prepareError } from '@Helpers/prepare-error';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
 import { getOptions } from '@Queries/common';
 import { createPlanning } from '@Queries/planning';
-import { getUser } from '@Queries/user';
 import { useTypedMutation, useTypedQuery } from '@Queries/utils';
 import { Alert } from '@UI/alert';
 import { Button } from '@UI/button';
@@ -14,17 +14,20 @@ import { Input } from '@UI/form/input';
 import { Select } from '@UI/form/select';
 import { Paragraph, TitleWithArrow } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
-import { QueryClient } from 'react-query';
-import { dehydrate } from 'react-query/hydration';
 import styled from 'styled-components';
 
 const times = ['8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00'] as const;
 
 const DonationsPlanning = () => {
-  const { handleSubmit, register, control } = useForm({
+  const {
+    handleSubmit,
+    register,
+    control,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       transfusionCenterId: '',
-      date: new Date().toISOString(),
+      date: new Date().toISOString().split('T')[0],
       time: '8:00',
     },
   });
@@ -35,19 +38,18 @@ const DonationsPlanning = () => {
     createPlanning(data),
   );
 
-  const onSubmit = (data: IPlanning) => {
-    mutate(data);
-  };
+  const onSubmit = (data: IPlanning) => mutate(data);
 
   return (
     <DashboardGrid>
       <TitleWithArrow>Мои донации</TitleWithArrow>
       <DashboardButtonsLinks />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormItem columns={2} label='Место сдачи'>
+        <FormItem columns={2} label='Место сдачи' required error={errors?.transfusionCenterId?.message}>
           <Controller
             name='transfusionCenterId'
             control={control}
+            rules={requiredField}
             render={({ field }) => (
               <Select {...field} size='large' placeholder='Выберите место сдачи'>
                 {transfusionCenter?.map((item) => (
@@ -59,13 +61,14 @@ const DonationsPlanning = () => {
             )}
           />
         </FormItem>
-        <FormItem columns={2} label='Дата кровосдачи'>
-          <Input {...register('date')} type='date' />
+        <FormItem columns={2} label='Дата кровосдачи' required error={errors?.date?.message}>
+          <Input {...register('date', requiredField)} type='date' />
         </FormItem>
-        <FormItem columns={2} label='Время кровосдачи'>
+        <FormItem columns={2} label='Время кровосдачи' required error={errors?.time?.message}>
           <Controller
             name='time'
             control={control}
+            rules={requiredField}
             render={({ field }) => (
               <Select {...field} size='large'>
                 {times.map((time) => (
@@ -97,13 +100,8 @@ const DonationsPlanning = () => {
 export default DonationsPlanning;
 
 export const getServerSideProps = async () => {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery('user', getUser);
   return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
+    props: {},
   };
 };
 

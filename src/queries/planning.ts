@@ -1,9 +1,10 @@
+import { planingUrl } from '@Constants/url';
 import { IPlanning } from '@core/planning';
 import { baseFetch } from '@Services/fetch';
 
 export const getPlanning = async () => {
   const { data } = await baseFetch<IPlanning[]>({
-    url: `/donation/planing`,
+    url: planingUrl,
     headers: {
       authorization: 'token',
     },
@@ -14,7 +15,7 @@ export const getPlanning = async () => {
 
 export const createPlanning = async (payload: IPlanning) => {
   await baseFetch({
-    url: `/donation/planing`,
+    url: planingUrl,
     method: 'POST',
     headers: {
       authorization: 'token',

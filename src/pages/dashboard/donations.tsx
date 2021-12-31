@@ -5,7 +5,6 @@ import { requiredField } from '@Helpers/form-validate';
 import { DashboardGrid } from '@Layouts/dashboard-grid';
 import { getOptions } from '@Queries/common';
 import { addDonation } from '@Queries/donations';
-import { getUser } from '@Queries/user';
 import { useTypedMutation, useTypedQuery } from '@Queries/utils';
 import { Alert } from '@UI/alert';
 import { Button } from '@UI/button';
@@ -15,8 +14,6 @@ import { Input } from '@UI/form/input';
 import { Select } from '@UI/form/select';
 import { TitleWithArrow } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
-import { QueryClient } from 'react-query';
-import { dehydrate } from 'react-query/hydration';
 import styled from 'styled-components';
 
 const Donations = () => {
@@ -32,7 +29,7 @@ const Donations = () => {
       date: new Date().toISOString().split('T')[0],
       transfusionCenterId: '',
       recipientId: '',
-      referenceImg: '',
+      image: null,
     },
   });
 
@@ -40,17 +37,20 @@ const Donations = () => {
   const { data: transfusionCenter } = useTypedQuery('transfusion-center', () =>
     getOptions('transfusion-center'),
   );
-  const { data: user } = useTypedQuery('user', getUser);
-  const { mutate, isSuccess, isError } = useTypedMutation('donations', (data: IDonation) =>
-    addDonation(data),
-  );
+  const { mutate, isSuccess, isError } = useTypedMutation('donations', (data: FormData) => addDonation(data));
 
   const onSubmit = (data: IDonation) => {
-    user?.id &&
-      mutate({
-        ...data,
-        userId: user.id,
-      });
+    const formData = new FormData();
+
+    Object.entries(data).forEach(([key, value]) => {
+      if (key === 'image') {
+        formData.append('image', data.image[0]);
+      } else {
+        formData.append(key, value);
+      }
+    });
+
+    mutate(formData);
   };
 
   return (
@@ -105,10 +105,10 @@ const Donations = () => {
           Принимаются только фотографии официальных справок установленного образца. 
           После проверки вашей донации, она появится в вашем кабинете.
           `}
-          error={errors?.referenceImg?.message}
+          error={errors?.image?.message}
           required
         >
-          <FileInput accept='image/*' {...register('referenceImg', requiredField)} />
+          <FileInput accept='image/*' {...register('image', requiredField)} />
         </FormItem>
         <ButtonsRow>
           <Button type='submit' variant='outline-danger' size='lg'>
@@ -132,13 +132,8 @@ const Donations = () => {
 export default Donations;
 
 export const getServerSideProps = async () => {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery('user', getUser);
   return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
+    props: {},
   };
 };
 
