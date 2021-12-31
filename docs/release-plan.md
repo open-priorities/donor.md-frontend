@@ -67,7 +67,7 @@
 - [x] block with stats
 - [x] avatar
 
-# v1.5.16 `IN PROGRESS`
+# v1.5.14 `DONE`
 
 > deadline oct 15 - 17
 
@@ -85,11 +85,9 @@
 - [x] fix tag-links on details page
 - [x] fix button links on page `/dashboard/donations` 
 - [x] fix icons on left menu
-- [ ] buttons hover state
-- [ ] inputs hover state
-- [ ] checkbox hover state
-- [ ] link (anchor link all cases)
-- [ ] fix icons on right menu
+- [x] fix overflow bug in select
+- [x] separate file input
+
 
 # v1.6.0 `TODO`
 
@@ -99,6 +97,11 @@
 
 - [ ] sitemap 
 - [ ] seo (title desc images for social networks)
+- [ ] buttons hover state
+- [ ] inputs hover state
+- [ ] checkbox hover state
+- [ ] link (anchor link all cases)
+- [ ] fix icons on right menu
 
 
 # 2.0.0 `TODO`
