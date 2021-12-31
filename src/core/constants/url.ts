@@ -20,3 +20,5 @@ export const storyUrl = `/story`;
 export const userStoryUrl = `/story/user`;
 
 export const donorProgressUrl = `/donor-progress`;
+
+export const donationUrl = `/donation`;

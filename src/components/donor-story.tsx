@@ -1,19 +1,27 @@
-import Image from 'next/image';
+import { IDonorStory } from '@core/story';
+// import Image from 'next/image';
 import { memo } from 'react';
 import styled from 'styled-components';
 
-import { IDonorStory } from '../core/interfaces/story';
-
-export const DonorStory = memo(({ src, fullname, count, story, ...rest }: IDonorStory) => (
-  <Wrapper {...rest}>
-    <Image src={src} width={70} height={70} layout='fixed' />
-    <StoryHead>
-      <StoryHeadTitle>{fullname}</StoryHeadTitle>
-      <StoryHeadCount>Количество донаций {count}</StoryHeadCount>
-    </StoryHead>
-    <StoryBody>{story}</StoryBody>
-  </Wrapper>
-));
+// TODO fix image
+export const DonorStory = memo(
+  ({
+    // src,
+    fullname,
+    count,
+    story,
+    ...rest
+  }: IDonorStory) => (
+    <Wrapper {...rest}>
+      {/* <Image src={src} width={70} height={70} layout='fixed' /> */}
+      <StoryHead>
+        <StoryHeadTitle>{fullname}</StoryHeadTitle>
+        <StoryHeadCount>Количество донаций {count}</StoryHeadCount>
+      </StoryHead>
+      <StoryBody>{story}</StoryBody>
+    </Wrapper>
+  ),
+);
 
 const Wrapper = styled.article`
   display: grid;

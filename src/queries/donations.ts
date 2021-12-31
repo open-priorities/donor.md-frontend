@@ -1,9 +1,10 @@
+import { donationUrl } from '@Constants/url';
 import { IDonation, IDonationResponse } from '@core/donation';
 import { baseFetch } from '@Services/fetch';
 
 export const getDonation = async () => {
   const { data } = await baseFetch<IDonationResponse[]>({
-    url: `/donation`,
+    url: donationUrl,
     headers: {
       authorization: 'token',
     },
@@ -13,7 +14,7 @@ export const getDonation = async () => {
 
 export const addDonation = async (payload: IDonation) => {
   const { data } = await baseFetch<IDonation>({
-    url: `/donation`,
+    url: donationUrl,
     headers: {
       authorization: 'token',
     },

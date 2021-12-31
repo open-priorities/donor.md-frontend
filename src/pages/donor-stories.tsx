@@ -18,7 +18,7 @@ const DonorStoriesPage = () => {
         </Title>
         {isLoading && <Loading />}
         {data?.map((props) => (
-          <DonorStory {...props} />
+          <DonorStory key={props.fullname} {...props} />
         ))}
       </Container>
       <Pagination onChange={(page: number) => console.log(page)} />

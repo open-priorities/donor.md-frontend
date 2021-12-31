@@ -9,6 +9,7 @@ import { getUser } from '@Queries/user';
 import { useTypedMutation, useTypedQuery } from '@Queries/utils';
 import { Alert } from '@UI/alert';
 import { Button } from '@UI/button';
+import { FileInput } from '@UI/form/file-input';
 import { Form, FormItem } from '@UI/form/form-item';
 import { Input } from '@UI/form/input';
 import { Select } from '@UI/form/select';
@@ -58,10 +59,10 @@ const Donations = () => {
       <DashboardButtonsLinks />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormItem columns={2} label='Номер справки' error={errors?.referenceNumber?.message} required>
-          <Input {...register('referenceNumber', requiredField)} />
+          <Input type='number' {...register('referenceNumber', requiredField)} />
         </FormItem>
         <FormItem columns={2} label='Номер донации' error={errors?.donationNumber?.message} required>
-          <Input {...register('donationNumber', requiredField)} />
+          <Input type='number' {...register('donationNumber', requiredField)} />
         </FormItem>
         <FormItem columns={2} label='Дата кровосдачи' error={errors?.date?.message} required>
           <Input type='date' {...register('date', requiredField)} />
@@ -101,13 +102,13 @@ const Donations = () => {
           columns={2}
           label='Загрузить справку'
           help={`
-          JPG , PNG объем до 10 Мб.
           Принимаются только фотографии официальных справок установленного образца. 
           После проверки вашей донации, она появится в вашем кабинете.
           `}
+          error={errors?.referenceImg?.message}
           required
         >
-          <Input type='file' accept='image/*' {...register('referenceImg', requiredField)} />
+          <FileInput accept='image/*' {...register('referenceImg', requiredField)} />
         </FormItem>
         <ButtonsRow>
           <Button type='submit' variant='outline-danger' size='lg'>

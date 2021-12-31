@@ -13,3 +13,10 @@ export const emailField = {
     message: 'Введите email',
   },
 };
+
+export const numberField = {
+  pattern: {
+    value: emailRegex,
+    message: 'Введите email',
+  },
+};
