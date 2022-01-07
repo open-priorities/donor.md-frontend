@@ -91,9 +91,7 @@
 
 # v1.6.0 `TODO`
 
-> deadline oct 18 - 20
-
-> SEO
+> SEO and fix
 
 - [ ] sitemap 
 - [ ] seo (title desc images for social networks)
@@ -102,6 +100,9 @@
 - [ ] checkbox hover state
 - [ ] link (anchor link all cases)
 - [ ] fix icons on right menu
+- [ ] fix Alert component
+- [ ] fix display error list 
+- [ ] add hide alert after 5 seconds
 
 
 # 2.0.0 `TODO`
