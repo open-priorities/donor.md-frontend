@@ -16,7 +16,7 @@ import { Question } from './question';
 
 const { Panel } = Accordion;
 
-export const QuestionForm = () => {
+export function QuestionForm() {
   const { data, isLoading } = useTypedQuery('question', getQuestionnaire);
   const { error, mutate, isError, isSuccess } = useTypedMutation('question', (payload: IQuestionnaireStory) =>
     createQuestionnaireAction(payload),
@@ -28,7 +28,7 @@ export const QuestionForm = () => {
     console.log('onChangeHandle', rest);
   };
 
-  const onSubmit = (data: IQuestionnaireStory) => {
+  const onSubmit = (data: any) => {
     mutate(data);
   };
 
@@ -52,15 +52,17 @@ export const QuestionForm = () => {
       </Button>
     </FormWrapper>
   );
-};
+}
 
-const PanelHeader = ({ title }: { title: string }) => (
-  <DividerWrapper>
-    <Title as='h4' bold>
-      {title}
-    </Title>
-  </DividerWrapper>
-);
+function PanelHeader({ title }: { title: string }) {
+  return (
+    <DividerWrapper>
+      <Title as='h4' bold>
+        {title}
+      </Title>
+    </DividerWrapper>
+  );
+}
 
 const FormWrapper = styled(Form)`
   margin-top: 25px;

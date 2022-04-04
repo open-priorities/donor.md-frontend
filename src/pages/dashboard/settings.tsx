@@ -15,7 +15,7 @@ import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 import styled from 'styled-components';
 
-const Settings = () => {
+function Settings() {
   const { handleSubmit, setValue, register } = useForm();
   const { mutate, isSuccess, isError } = useTypedMutation('settings', (data: ISettings) =>
     updateSettings(data),
@@ -28,7 +28,7 @@ const Settings = () => {
     recoveryData.forEach(([key, val]) => setValue(key, val));
   }, [data, setValue]);
 
-  const onSubmitSettings = (data: ISettings) => {
+  const onSubmitSettings = (data: any) => {
     mutate(data);
   };
 
@@ -66,7 +66,7 @@ const Settings = () => {
       <ChangePassword />
     </DashboardGrid>
   );
-};
+}
 
 export default Settings;
 

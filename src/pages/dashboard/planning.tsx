@@ -18,7 +18,7 @@ import styled from 'styled-components';
 
 const times = ['8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00'] as const;
 
-const DonationsPlanning = () => {
+function DonationsPlanning() {
   const {
     handleSubmit,
     register,
@@ -38,7 +38,7 @@ const DonationsPlanning = () => {
     createPlanning(data),
   );
 
-  const onSubmit = (data: IPlanning) => mutate(data);
+  const onSubmit = (data: any) => mutate(data);
 
   return (
     <DashboardGrid>
@@ -95,7 +95,7 @@ const DonationsPlanning = () => {
       </Form>
     </DashboardGrid>
   );
-};
+}
 
 export default DonationsPlanning;
 

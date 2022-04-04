@@ -1,4 +1,3 @@
-import { IUser } from '@core/user';
 import { emailField, requiredField } from '@Helpers/form-validate';
 import { getOptions } from '@Queries/common';
 import { updateUser } from '@Queries/user';
@@ -15,7 +14,7 @@ import { Title } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
 import { useRecoilValue } from 'recoil';
 
-export const DetailsForm = () => {
+export function DetailsForm() {
   const user = useRecoilValue(userAtom);
 
   const {
@@ -39,7 +38,7 @@ export const DetailsForm = () => {
 
   const isCorporateDonation = watch('corporateDonations');
 
-  const onSubmit = (data: IUser) => {
+  const onSubmit = (data: any) => {
     mutate(data);
   };
 
@@ -148,4 +147,4 @@ export const DetailsForm = () => {
       {isError && <Alert dismissible>Что-то пошло не так</Alert>}
     </Form>
   );
-};
+}

@@ -188,5 +188,6 @@ module.exports = {
     // disable FC
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/no-danger': 'off',
+    'react/function-component-definition': 'off',
   },
 };

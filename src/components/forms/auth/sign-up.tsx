@@ -23,7 +23,7 @@ import { ActionLayout } from './utils';
 
 const validate = { required: 'Обязательное поле' };
 
-export const SignUpForm = () => {
+export function SignUpForm() {
   const [user, setUser] = useRecoilState(userAtom);
   const { push } = useRouter();
 
@@ -53,7 +53,7 @@ export const SignUpForm = () => {
     setUser(userData);
   }, [setUser, userData]);
 
-  const onSubmit = (payload: IUser) => {
+  const onSubmit = (payload: any) => {
     mutate(payload);
   };
 
@@ -156,7 +156,7 @@ export const SignUpForm = () => {
       {isSuccess && <Alert dismissible>Вы успешно зарегистрировались</Alert>}
     </form>
   );
-};
+}
 
 const FormItemCheckbox = styled.div`
   color: ${({ theme }) => theme.colors.textMuted}

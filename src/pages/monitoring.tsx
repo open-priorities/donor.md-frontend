@@ -15,7 +15,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
-const Monitoring = () => {
+function Monitoring() {
   const { register, handleSubmit, setValue } = useForm();
 
   const { data: monitoringData } = useTypedQuery('monitoring', getMonitoringData);
@@ -32,7 +32,7 @@ const Monitoring = () => {
     });
   }, [monitoringData, setValue]);
 
-  const onSubmit = (formData: IMonitoringResponse['values'] & { fullname: string }) => {
+  const onSubmit = (formData: any) => {
     if (!monitoringData) return;
 
     const prepareData = {
@@ -110,7 +110,7 @@ const Monitoring = () => {
       </Container>
     </HeaderContentFooter>
   );
-};
+}
 
 export default Monitoring;
 

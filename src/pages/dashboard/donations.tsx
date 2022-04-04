@@ -16,7 +16,7 @@ import { TitleWithArrow } from '@UI/typography';
 import { Controller, useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
-const Donations = () => {
+function Donations() {
   const {
     register,
     control,
@@ -39,10 +39,10 @@ const Donations = () => {
   );
   const { mutate, isSuccess, isError } = useTypedMutation('donations', (data: FormData) => addDonation(data));
 
-  const onSubmit = (data: IDonation) => {
+  const onSubmit = (data: any) => {
     const formData = new FormData();
 
-    Object.entries(data).forEach(([key, value]) => {
+    Object.entries(data as unknown as IDonation).forEach(([key, value]) => {
       if (key === 'image') {
         formData.append('image', data.image[0]);
       } else {
@@ -126,7 +126,7 @@ const Donations = () => {
       {isError && <Alert dismissible>Что-то пошло не так</Alert>}
     </DashboardGrid>
   );
-};
+}
 
 export default Donations;
 
